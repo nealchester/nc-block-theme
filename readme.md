@@ -39,7 +39,7 @@ Here are a few:
   * Disable Emoji support 
 
 
-## Folder structure
+## Folders
 
 * **`acf-json`** - stores custom fields data (don't delete)
 * **`blocks`** - stores all custom Gutenberg blocks and supported assets
@@ -51,8 +51,7 @@ Here are a few:
 * **`parts`** - stores all reusable template parts
 * **`templates`** - stores templates
 
-### Main directory files
-The following explains the purpose of the files in the main directory of the theme:
+## Files
 
 * **`functions.php`** - list and includes all functions housed in the `functions` folder 
 * **`screenshot.png`** - an image to represent the installed theme
