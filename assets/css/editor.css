@@ -1,0 +1,113 @@
+/* Set editor font size and font and the main global variables */
+
+body {
+    font-size: var(--txt-base);
+    line-height:1.5;
+    font-family: var(--sans);
+}
+
+p, h1, h2, h3, h4, h5, h6, ol, ul {
+    margin-bottom: 1rem;
+    margin-top:0;
+}
+
+h1 { font-size: var(--txt-xxlarge);}
+h2 { font-size: var(--txt-xlarge); }
+h3 { font-size: var(--txt-large);  }
+h4 { font-size: var(--txt-medium); }
+h5 { font-size: var(--txt-base);   }
+h6 { font-size: var(--txt-small);  }
+
+p, li, dd {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-wrap: balance;
+}
+
+.ncontain {
+    max-width: var(--width-max);
+    margin-inline: auto;
+    width: var(--width-limit);
+}
+
+img.alignleft,
+img.alignright  {
+    max-width: calc(50% - var(--gap));
+}
+
+img.alignleft {
+    float: left;
+    margin-right: var(--gap);
+    margin-bottom: var(--gap);
+}
+
+img.alignright {
+    float: right;
+    margin-left: var(--gap);
+    margin-bottom:var(--gap);
+}
+
+@media(max-width:640px){
+    img.alignleft,
+    img.alignright {
+        max-width: 100%;
+        margin-left:auto;
+        margin-right:auto;
+        float:none;
+    }
+}
+
+#tinymce {
+    font-size:14px;
+}
+
+.editor-post-title {
+    font-size:var(--txt-medium);
+    font-family: var(--sans);
+    font-weight: bold;
+    text-align: center;
+    padding-inline: var(--gap);
+}
+
+.editor-styles-wrapper a {
+    /* Disable anchors on the editor */
+    pointer-events: none;
+    cursor: default;
+}
+
+/* For NC Spacer Block */
+
+.editor-styles-wrapper .ncspacer {
+    opacity: 0;
+}
+
+.editor-styles-wrapper .wp-block-acf-nc-spacer.is-selected .ncspacer,
+.editor-styles-wrapper .ncspacer:hover {
+    background-color: currentColor;
+    opacity: 0.1;
+}
+
+
+/* Blocks Default No Content Selected */
+
+.editor-styles-wrapper .nocontent {
+    padding: 3rem 1.5rem; 
+    background: #f2f2f2;
+}
+
+.editor-styles-wrapper .nocontent p {
+    margin-inline: auto; 
+    text-align: center; 
+    max-width: 450px; 
+}
+
+.wp-element-button[role=textbox] { 
+    min-width: 120px !important;
+}

@@ -1,0 +1,398 @@
+/*
+
+Need to create a custom blocks for:
+- Big Search Drop down
+- Custom Mobile Menu
+- Social Sharing
+- Parts / Banner
+- Author social media links
+- Archive page number and total number of pages
+- Related Content (it's been commented out for now)
+
+*/
+
+/* Mpanel Button Icon */
+
+.mpanel_button {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+  cursor: pointer;
+}
+
+/* Search trigger */
+
+#header .ncsearchtrigger {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  top: 0;
+  align-items: center;
+  padding: 0 1em;
+}
+
+#header .ncsearchtrigger_icon { height: auto; width: 1.3em; }
+
+/* Mobile Panel */
+
+.mpanel {
+  width: 85%;
+  padding: 1.5em 0;
+  background: #fff;
+  z-index: 1000;
+  height: 100%;
+  bottom: 0;
+  overflow-y: auto;
+  color: #000;
+  font-size: 1em;
+  position: absolute;
+  transform: translateX(-100%);
+  top: 0;
+  max-width: 350px;
+  min-width: 200px;
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  box-shadow: 0 0 0 #000;
+}
+
+
+.mpanel .nclogo {
+  --logo-text-size: 1.3em;
+  --logo-text-transform: uppercase;
+  --logo-text-weight: bold;
+  --logo-text-color: inherit;
+  /*--logo-img-width: 250px;*/
+  --logo-padding: 1.5em 0;
+  --logo-margin: 0 auto;
+  text-align:center
+}
+
+.mpanel .widget {
+  margin: 1.5em;
+}
+
+.mpanel > .ncsearchform {
+  margin: 0 1.5em 1.5em
+}
+
+.mpanel .navmenu {
+  --menu-bg-color: none;
+  --menu-item-height: auto;
+  --menu-align-items: center;
+  --menu-box-shadow: none;
+  --item-height: auto;
+  --item-align-items: center;
+  --item-bg-color: #fff;
+  --item-bg-color-hover: #fff;
+  --item-bg-color-current: #fff;
+  --item-text-color: #000;
+  --item-text-color-hover: #000;
+  --item-text-color-current: #000;
+  --item-margin-left: 0;
+  --item-padding: 1em var(--gap);
+  --item-border-right: none;
+  --item-border-bottom: solid 1px #ccc;
+  --indicator-color: inherit;
+  --transition: 0.5s;
+  --drop-width: 250px;
+  --drop-radius: 0;
+  --drop-div-color: solid 1px #ccc;
+  --drop-item-bg-color: #f4f4f4;
+  --drop-item-text-color: #000;
+  --drop-item-padding: 1em 2em;
+  --drop-item-bg-color-hover: #eee;
+  --drop-item-text-color-hover: #000;
+  --drop-shadow: none;
+}
+
+.mpanel a {
+  color: inherit;
+  font-weight: bold;
+}
+
+.mpanel_close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity:0.3;
+  transition:0.3s
+}
+
+.mpanel_close svg {
+  display: block;
+  width: 1.5em;
+  height: auto;
+}
+
+.mpanel_close g {
+  fill: currentColor;
+}
+
+.mpanel_close:hover {
+  opacity:1;
+}
+
+.mpanel_underlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #000;
+  opacity: 0;
+  width:100%;
+  height:100%;
+  visibility: hidden;
+  transition:0.5s;
+}
+
+/* When the label is clicked, it reveals the mobile panel */
+
+  .mpanel_input:checked + .mpanel {
+      transform: translateX(-1px);
+      box-shadow: 5px 0 1em rgba(0, 0, 0, 0.3);
+      visibility: visible;
+  }
+
+  .mpanel_input:checked + .mpanel + .mpanel_underlay {
+      opacity: 0.5;
+      visibility: visible;
+  }
+
+
+/* Banner Image */
+
+.banner {
+ position: relative; 
+ background: #000;
+ --banner-opacity: 0.6;
+}
+
+.banner_content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  min-height: 350px;
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner_content > :last-child {
+  margin-bottom: 0;
+}
+
+.banner_image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute;
+  z-index:1;
+  left:0; right:0; top:0; bottom:0;
+  opacity: var(--banner-opacity);
+
+  /* Animated Fade In*/
+  animation: BannerImagefadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes BannerImagefadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: var(--banner-opacity);}
+}
+
+
+
+
+/* Audio / Video Player */
+
+.mejs-container {
+  max-width: 100% !important;
+}
+
+.ncontent_main > .mejs-container,
+.wp-video {
+  max-width: var(--width-standard) !important;
+  width: var(--width-limit) !important;
+  margin-bottom: var(--gap);
+}
+
+/* Link colors */
+
+.ncontent_main :is(p, li) a:not([class]) {
+  text-decoration: underline solid 0.08em currentColor;
+  text-underline-offset: 0.12em;
+  font-weight: 500;
+  position: relative;
+  top: 0px;
+
+  &:active {
+      top: 2px;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.ncontent_main > :is(p, ul li) a {
+  color: var(--link-color);
+}
+
+/* Link and Button Indicator for new window */
+.ncontent_main :is(p, li) a[target="_blank"]:after,
+.wp-block-button__link[target="_blank"]:after {
+  content: '\00A0\ea7e'; /* non breaking space and upward right arrow */
+  font-family: 'ncicons';
+  font-size: 1.5ex;
+}
+
+
+/* Misc Needed to pass test */
+
+.sticky,
+.gallery-caption,
+.bypostauthor{
+  cursor:inherit;
+}
+
+.featuredimage {
+  margin-bottom:var(--gap);
+
+  img {
+    width:100%;
+  }
+
+  .wp-caption-text {
+    font-size: var(--txt-small)
+  }
+}
+
+/* Card Listing */
+
+.lcard {
+--card-radius: var(--radius);
+--card-padding: 1em;
+--card-bcolor: #aaa;
+--card-bgcolor: #fff;
+--card-txtcolor: #000;
+--card-direction: column;
+--card-img-ratio: 16/9;
+--card-img-width: 100%;
+--card-transition: 0.4s;
+
+--card-bgcolor-hover: var(--card-bgcolor);
+--card-txtcolor-hover: var(--card-txtcolor);
+--card-bcolor-hover: #000;
+}
+
+.lcard { 
+  display:flex;
+  flex-direction: var(--card-direction);
+  position:relative;
+  border:solid 1px var(--card-bcolor);
+  border-radius: var(--card-radius);
+  background-color: var(--card-bgcolor);
+  color: var(--card-txtcolor);
+  transition: var(--card-transition);
+  transition-property: background-color, color;
+  overflow:hidden;
+}
+
+.lcard_link {
+  position:absolute;
+  inset:0;
+  display:block;
+}
+
+.lcard_imgcon {
+  aspect-ratio: var(--card-img-ratio);
+  max-width: var(--card-img-width);
+  min-width: var(--card-img-width);
+  width: 100%;
+  overflow: hidden;
+  position:relative;
+}
+
+.lcard_img {
+  position:absolute;
+  object-fit:cover;
+  inset:0;
+  width: 100%;
+  height: 100%;
+  display:block;
+  transform:scale(1);
+  transition:var(--card-transition);
+}
+
+.lcard_text {
+  display:flex;
+  gap: 0.5rem;
+  flex-grow:1;
+  flex-direction:column;
+  padding: var(--card-padding);
+  min-width: 0; /* This is needed if you use truncated content within a flexbox */
+}
+
+/* Meta Styles */
+
+.lcard_title { 
+  font-weight:bold; 
+  line-height: normal;
+}
+
+.lcard_meta { 
+  opacity: 0.7; 
+}
+
+.lcard_meta, 
+.lcard_desc {
+  font-size: var(--txt-small);
+}
+
+.lcard_readmore { 
+  text-decoration: underline;
+}
+
+.lcard:hover {
+  background-color: var(--card-bgcolor-hover);
+  color: var(--card-txtcolor-hover);
+  border-color: var(--card-bcolor-hover);
+
+    .lcard_img {
+      transform:scale(1.1);
+    }
+
+}
+
+.lcard:has( :is(.lcard_link:active, .lcard_link:focus) ) {
+  border-color: var(--card-bcolor-hover);
+  box-shadow: var(--shadows)
+}
+
+.lcard:has( :is(.lcard_link:active, .lcard_link:focus) ) {
+  .lcard_img {
+    transform:scale(1.1);
+  }
+}
+
+
+@media(max-width:768px){
+  .lcard {
+  --card-direction: column;
+  --card-img-ratio: 16/9;
+  --card-img-width: 100%;
+  }
+}
+
+.lcard_box-left .lcard {
+--card-direction: row;
+--card-img-ratio: 16/9;
+--card-img-width: 30%;
+}

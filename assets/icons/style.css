@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'ncicons';
+  src:
+    url('fonts/ncicons.ttf?2qrz6k') format('truetype'),
+    url('fonts/ncicons.woff?2qrz6k') format('woff'),
+    url('fonts/ncicons.svg?2qrz6k#ncicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.ncicon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ncicons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nc-rss:before {
+  content: "\ea9b";
+}
+.nc-phone:before {
+  content: "\e942";
+}
+.nc-star-full:before {
+  content: "\e9d9";
+}
+.nc-heart:before {
+  content: "\e9da";
+}
+.nc-bookmark:before {
+  content: "\e9d2";
+}
+.nc-mobile:before {
+  content: "\e958";
+}
+.nc-location:before {
+  content: "\e947";
+}
+.nc-envelope:before {
+  content: "\e906";
+}
+.nc-user:before {
+  content: "\e908";
+}
+.nc-date:before {
+  content: "\e94e";
+}
+.nc-link:before {
+  content: "\e9cb";
+}
+.nc-dots:before {
+  content: "\e909";
+}
+.nc-menu:before {
+  content: "\e907";
+}
+.nc-close:before {
+  content: "\e903";
+}
+.nc-play-circle:before {
+  content: "\e90a";
+}
+.nc-search:before {
+  content: "\e90c";
+}
+.nc-download:before {
+  content: "\e708";
+}
+.nc-comment:before {
+  content: "\e90b";
+}
+.nc-checkmark:before {
+  content: "\e900";
+}
+.nc-arrow-back:before {
+  content: "\e901";
+}
+.nc-arrow-forward:before {
+  content: "\e902";
+}
+.nc-arrow2-right:before {
+  content: "\e905";
+}
+.nc-new-tab:before {
+  content: "\ea7e";
+}
+.nc-checkbox-checked:before {
+  content: "\ea52";
+}
+.nc-checkbox-unchecked:before {
+  content: "\ea53";
+}
+.nc-radio-checked:before {
+  content: "\ea55";
+}
+.nc-radio-unchecked:before {
+  content: "\ea56";
+}
+.nc-facebook:before {
+  content: "\ea90";
+}
+.nc-twitter:before {
+  content: "\ea96";
+}
+.nc-instagram:before {
+  content: "\ea92";
+}
+.nc-linkedin:before {
+  content: "\eaca";
+}
+.nc-pinterest:before {
+  content: "\e90d";
+}
+.nc-tiktok:before {
+  content: "\e904";
+}
+.nc-reddit:before {
+  content: "\eac6";
+}
+.nc-youtube:before {
+  content: "\ea9d";
+}
+.nc-get-pocket:before {
+  content: "\e90e";
+}
+.nc-quotes:before {
+  content: "\e90f";
+}
+.nc-cart:before {
+  content: "\e924";
+}
+.nc-secured-lock:before {
+  content: "\e925";
+}

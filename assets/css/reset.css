@@ -1,0 +1,460 @@
+/*
+This is the very first loaded CSS file. The root reset / normalized CSS.
+*/
+
+/* --------- Reset and Normalize --------- */
+
+html {
+    background-color: #fff;
+    hanging-punctuation: first last;
+}
+
+:has(:target), 
+ html {
+   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :has(:target), 
+     html {
+        scroll-behavior: auto
+    }
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+html, body, div, figure, form, canvas, summary, button, form {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper,
+.wp-site-blocks {
+    position: relative;
+}
+
+article, aside, details, figcaption, figure, footer, header, nav, main {
+    display: block;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+address {
+    font-style: normal;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+sub, sup {
+    font-size: 0.5em;
+    line-height: 0;
+}
+
+sub {
+    vertical-align: baseline;
+}
+
+abbr[title], dfn[title] {
+    cursor: help;
+}
+
+mark {
+    background-color: #ff9;
+}
+
+ins {
+    text-decoration: none;
+    border-bottom: dashed 1px;
+}
+
+del, strike {
+    text-decoration: line-through;
+}
+
+
+/* Typography */
+
+p, li, dd {
+    text-wrap: pretty;
+}
+
+p, table, ol, ul, pre code, blockquote, pre, dl, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        border: var(--border) !important;
+        padding: 0.6em !important;
+    }
+    
+    th {
+        text-align: left;
+        font-weight: bold;
+        vertical-align: top;
+    }
+}
+
+/* Abbreviation */
+abbr {
+    --bgcolor: #000;
+    --textcolor: #fff;
+    --width: 150px;
+    --trans: 0.3s;
+    position:relative;
+    font-family: var(--sans, sans-serif);
+    display:inline-block;
+    cursor: help;
+    text-decoration: underline dashed 1px;
+  }
+  
+    
+  abbr:before {
+    --width: 150px;
+    border-radius:5px;
+    content: attr(title);
+    position:absolute;
+    width: var(--width);
+    font-size: min(12px, 0.7em);
+    line-height:1.5;
+    text-align:center;
+    background: var(--bgcolor);
+    padding: 1em 0.5em;
+    color:var(--textcolor);
+    left:50%;
+    margin-left: calc(var(--width) / 2 * -1);
+    display:block;
+    bottom:calc(100% + 5px);
+    box-sizing: border-box;
+  }
+  
+  abbr:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--bgcolor, #000);
+    position:absolute;
+    bottom: calc(100% + -4.5px);
+    left:50%;
+    margin-left: -10px;
+  }
+  
+  abbr:before,
+  abbr:after {
+    opacity:0;
+    visibility:hidden;
+    transition: var(--trans);
+    transform: translate(0, -10px);
+  }
+  
+  abbr:hover:before, 
+  abbr:hover:after {
+    opacity:1;
+    visibility:visible;
+    transform: translate(0, 0);
+  }
+
+h1, h2, h3, h4, h5, h6, p, li, a, div, details, summary, dl {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: normal;
+    text-wrap: balance;
+}
+
+h1 { font-size: var(--txt-xxlarge);}
+h2 { font-size: var(--txt-xlarge); }
+h3 { font-size: var(--txt-large);  }
+h4 { font-size: var(--txt-medium); }
+h5 { font-size: var(--txt-base);   }
+h6 { font-size: var(--txt-small);  }
+
+hr {
+    border: none;
+    border-top: solid 3px;
+    clear: both;
+    display: block;
+    width: 100%;
+    height: 0;
+}
+
+/* ------- */
+
+s::before,
+s::after {
+    clip-path:inset(100%);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow:hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+s::before {
+    content:" [start of stricken text] ";
+}
+
+s::after {
+    content:" [end of stricken text] ";
+}
+
+q:before {
+    content: '\201c';
+}
+
+q:after {
+    content: '\201d';
+}
+
+ul, ol {
+    padding-left: 1.75em;
+}
+
+main li:not([class]) {
+    margin-bottom: 0.5em;
+}
+
+main li ul, main li ol {
+    margin-top: 0.5em;
+    margin-bottom: 0
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 1.5em;
+}
+
+/* Form Elements */
+
+form {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+button {
+    position: relative;
+}
+
+input[disabled] {
+    cursor: default;
+    opacity: 0.5;
+}
+
+input[type="image"] {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+input[type="search"] {
+    appearance: none;
+}
+
+input[type="file"] {
+    appearance: none;
+    margin: 0 0 0.5em 0;
+}
+
+select {
+    appearance: none;
+    background-image: url('../img/icon-select.svg');
+    background-size: 0.8em;
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    padding-right: 2em !important;
+    line-height: var(--input-height) !important;
+    cursor: pointer;
+}
+
+select:focus {
+    background-image: url('../img/icon-select-open.svg');
+}
+
+input:not(.btn):not([type="submit"]):not([type="search"]), 
+select, 
+textarea {
+    max-width: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    transition: 0.3s;
+    min-height: var(--input-height);
+    padding: var(--field-padding);
+    border-radius: var(--field-radius);
+    background-color: var(--field-bgcolor);
+    border: var(--field-border);
+}
+
+input:not(.btn):not([type="submit"]):not([type="search"]):focus, 
+select:focus, 
+textarea:focus {
+    box-shadow:var(--field-shadow-focus);
+    background-color: var(--field-bgcolor-focus);
+    border: var(--field-border-focus);
+}
+
+input[type="file"], input[type="submit"] {
+    white-space: pre-wrap;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: none;
+}
+
+progress, input[type="range"] {
+    width: 100%;
+}
+
+@supports (--moz-appearance: none) {
+    input[type="number"] {
+        width: 100%;
+    }
+}
+
+textarea {
+    resize: both !important;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+}
+
+fieldset {
+    border: var(--border);
+    padding: 0.75em;
+}
+
+fieldset legend {
+    font-weight: bold;
+}
+
+/* Placeholder default style */
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: var(--placeholder-color, inherit);
+    font-style: var(--placeholder-font-style, normal);
+    opacity: var(--placeholder-opacity, 0.5);
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: var(--placeholder-color, inherit);
+    font-style: var(--placeholder-font-style, normal);
+    opacity: var(--placeholder-opacity, 0.5);
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: var(--placeholder-color, inherit);
+    font-style: var(--placeholder-font-style, normal);
+    opacity: var(--placeholder-opacity, 0.5);
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: var(--placeholder-color, inherit);
+    font-style: var(--placeholder-font-style, normal);
+    opacity: var(--placeholder-opacity, 0.5);
+}
+
+/* Selection */
+
+::selection {
+    background-color: var(--selection-bgcolor, #222);
+    color: var(--selection-textcolor, #fff);
+}
+
+::-moz-selection {
+    background-color: var(--selection-bgcolor, #222);
+    color: var(--selection-textcolor, #fff);
+}
+
+
+
+/* Custom Radio and Checkbox input fields */
+
+body.formstyles {  
+
+    .gform_wrapper .gform_body .gform_fields .gfield .gchoice {
+        position: relative;
+    }
+
+    input[type="radio"], 
+    input[type="checkbox"] {
+        position: absolute;
+        clip: rect(0,0,0,0);
+    }
+
+    input[type="radio"] + label, 
+    input[type="checkbox"] + label {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        font-weight: inherit !important;
+    }
+
+    input[type="radio"] + label:before, 
+    input[type="checkbox"] + label:before {
+        position:relative;
+        margin-right: 0.5rem;
+        left: 0;
+        font-size: 1.5ex;
+        line-height: normal;
+        font-family: 'ncicons';
+    }
+
+    input[type="checkbox"] + label:before { content: '\ea53'; }
+
+    input[type="checkbox"]:checked + label:before { content: '\ea52'; }
+
+    input[type="radio"] + label:before { content: '\ea56'; }
+
+    input[type="radio"]:checked + label:before { content:'\ea55'; }
+
+}
+  
+  /* For Gravity Forms */
+  
+  .gform_wrapper .gfield_checkbox li label, 
+  .gform_wrapper .gfield_radio li label {
+    max-width: 100%
+  }
+  
+  body .gform_wrapper span.gform_description {
+    width: 100%;
+  }  

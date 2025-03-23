@@ -1,0 +1,105 @@
+/* Accordion 
+
+<div class="nccordion_box">
+  <div class="ncontain">
+    <div class="nccordion_before">...</div>
+
+    <div class="nccordion">
+
+      <details>
+        <summary class="nccordion_header">Header</summary>
+        <div class="nccordion_content">
+          <p>Some Text...</p>
+        </div>
+      </details>
+
+      <details>
+        <summary class="nccordion_header">Header</summary>
+        <div class="nccordion_content">
+        <p>Some Text...</p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="nccordion_before">...</div>
+  </div>
+</div>
+
+*/
+
+.nccordion_box {
+  --box-bg-color:none;
+  --box-text-color:inherit;
+  --box-padding: 3em 0;
+
+  background-color:var(--box-bg-color);
+  color:var(--box-text-color);
+  padding:var(--box-padding);
+}
+
+
+.nccordion {
+  --acc-border-color: #aaa;
+  --acc-bg-color: #fff;
+  --acc-border-radius: 0px;
+  --acc-text-color: currentColor;
+}
+
+.nccordion_details {
+  border: solid 1px var(--acc-border-color, #aaa);
+  background-color: var(--acc-bg-color, #fff);
+  border-radius: var(--acc-border-radius, 0px);
+  color: var(--acc-text-color, currentColor);
+  overflow:hidden;
+}
+
+.nccordion_details:not(:last-child) {
+  margin-bottom: calc( var(--gap) / 2);
+}
+
+.nccordion_header {
+  cursor:pointer;
+  padding: 0.75em 2.3em 0.75em 1em;
+  margin-bottom:0;
+  position:relative;
+  display: flex;
+  align-items:flex-start;
+  font-weight:bold;
+  line-height: normal;
+}
+
+.nccordion_header::-webkit-details-marker {
+  display:none;
+}
+
+.nccordion_header:before {
+  content: '\e903';
+  font-family: 'ncicons';
+  transform: rotate(45deg);
+  transition:0.1s;
+  line-height: normal;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size:0.6em;
+  aspect-ratio:1;
+  width:30px;
+  border-radius:100%;
+  background: var(--acc-icon-bg-color, transparent);
+}
+
+.nccordion_details[open] .nccordion_header:before {
+  transform: rotate(0deg);
+}
+
+.nccordion_content {
+  padding: 0 1.5rem var(--gap);
+  background-color: var(--acc-bg-color, #fff);
+}
+
+.nccordion_content :last-child {
+  margin-bottom: 0;
+}

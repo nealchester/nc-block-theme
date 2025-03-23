@@ -1,0 +1,253 @@
+{
+    "key": "group_632c97a41e7d7",
+    "title": "Block: NC Canvas",
+    "fields": [
+        {
+            "key": "field_67a88d469ec1b",
+            "label": "Column Block Control",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_67a89169f2b39",
+            "label": "Column Spacing",
+            "name": "column_gap",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "min": "",
+            "max": 9,
+            "allow_in_bindings": 1,
+            "placeholder": 3,
+            "step": "0.5",
+            "prepend": "",
+            "append": "rem"
+        },
+        {
+            "key": "field_67a899699afae",
+            "label": "Row Spacing",
+            "name": "row_gap",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "1.5",
+            "min": "",
+            "max": 9,
+            "allow_in_bindings": 1,
+            "placeholder": "1.5",
+            "step": "0.5",
+            "prepend": "",
+            "append": "rem"
+        },
+        {
+            "key": "field_632c97a43bc0d",
+            "label": "Add Column Dividers",
+            "name": "column_borders",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_632cdf4b60214",
+            "label": "Column Divider Color",
+            "name": "column_border_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632c97a43bc0d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "currentColor",
+            "enable_opacity": 1,
+            "return_format": "string",
+            "allow_in_bindings": 1
+        },
+        {
+            "key": "field_67aaec8f9279d",
+            "label": "Break Point",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_632c97a451e28",
+            "label": "Break Point",
+            "name": "breakpoint",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Clear this field if you will write your on responsive code or you have enabled WP's native break point (\"Stack on mobile\") feature.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_632c97a44e10c",
+            "label": "Scroll at Break Point",
+            "name": "breakpoint_scroll",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "If you enable this, your columns will scroll at the above break point. <b>Note:<\/b> It's important to add some spacing to the bottom of at least one column and remove any spacing you may have added to the bottom of this block. This is only if you enable this feature.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
+        {
+            "key": "field_632ce6cf753a3",
+            "label": "Minimum Column Width",
+            "name": "min_col_width",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "This keeps the columns at a specific width when you chose select \"Scroll at Break Point.\"",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_632c97a44e10c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 250,
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": 250,
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_632c97a4595a7",
+            "label": "box and css",
+            "name": "extras",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_67ad4b9f88c22",
+                "group_67ad4b91436c6"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nc-canvas"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1740910780
+}

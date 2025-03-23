@@ -1,0 +1,219 @@
+{
+    "key": "group_5ca3950a4d1f9",
+    "title": "Block: NC Divider",
+    "fields": [
+        {
+            "key": "field_5ca3950a52fd3",
+            "label": "Options",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f2d922d470c1",
+            "label": "Divider Style",
+            "name": "divider_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "tilt": "tilt",
+                "sand hill": "sand hill",
+                "curve": "curve",
+                "curve invert": "curve invert",
+                "curve asem": "curve asem",
+                "curve asem invert": "curve asem invert",
+                "triangle": "triangle",
+                "triangle invert": "triangle invert",
+                "custom": "custom"
+            },
+            "default_value": "tilt",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ca3950a5301a",
+            "label": "SVG code",
+            "name": "custom_svg",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "<b>Note: <\/b>SVG images are best used for scaling and color change with CSS. Paste the entire SVG code above. This block settings can be used style the graphic's color, position and orientation, but correct display isn't guaranteed. You may have to alter your code to make the graphic display correctly. <em>Best results are found with a united shape.<\/em>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f2d922d470c1",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": "",
+            "placeholder": "<svg>...<\/svg>",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ca3950a5315c",
+            "label": "Position",
+            "name": "position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ncdivider-overlaynone": "Overlay none",
+                "ncdivider-overlaypreceding": "Overlay preceding section",
+                "ncdivider-overlaysucceeding": "Overlay succeeding section"
+            },
+            "default_value": "ncdivider-overlaynone",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ca395b76045c",
+            "label": "Rotate",
+            "name": "rotate",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ncdivider-topleft": "Top left",
+                "ncdivider-topright": "Top right",
+                "ncdivider-bottomleft": "Bottom left",
+                "ncdivider-bottomright": "Bottom right"
+            },
+            "default_value": "ncdivider-topleft",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ca3950a5313c",
+            "label": "Divider Color",
+            "name": "divider_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ccc",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_5ca396076045d",
+            "label": "Background Color",
+            "name": "bgcolor",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_67aa9fe7b55d7",
+            "label": "extras",
+            "name": "extras",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_67ad4b91436c6"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nc-divider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "field",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1739864835
+}

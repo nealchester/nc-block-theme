@@ -1,0 +1,160 @@
+/* Fonts and Typography */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/Inter-roman.otf') format('opentype');
+  font-weight: 100 900;
+  /* https://rsms.me/inter/ */
+}
+
+/*---------------------------------------------------------*/
+
+body {
+  color:#000;
+}
+
+body, input, select, textarea, button {
+  font-family: var(--sans);
+  font-size: var(--txt-base);
+  line-height: 1.5;
+  font-weight: 350;
+}
+
+b,strong {
+  font-weight: 600;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+  font-weight: bold; 
+}
+
+:is(p, ul, ol, details, dl) + :is(h2, h3, h4, h5, h6) {
+  margin-top: 2rem;
+}
+
+/* Drop Caps */
+
+.has-drop-cap:not(:focus):first-letter,
+.nctext-dropcap .nctext_paragraphs > p:first-of-type::first-letter {
+  --cap-size: 5.4em;
+  --cap-color: currentColor;
+  --cap-font: inherit;
+  --cap-weight: 500;
+  --cap-lines: 3;
+}
+
+/* this class is used for native WP blocks */
+.has-drop-cap:not(:focus):first-letter,
+/* this class is used for Text Columns block */
+.nctext-dropcap .nctext_paragraphs > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--cap-font);
+  font-size: var(--cap-size);
+  font-weight: var(--cap-weight);
+  line-height: .68;
+  margin: .05em .1em 0 0;
+  text-transform: uppercase;
+  color: var(--cap-color);
+  initial-letter: var(--cap-lines);
+  margin-inline-end: 0.2em;
+}
+
+
+ /* Social Icons and Contact */
+ 
+ .ncsocial,
+ .sharelinks,
+ .socialbuttons {
+  --icon-size: 1rem;
+  --icon-gap: 0.5rem;
+  --icon-radius: 50%;
+  --icon-scale:scale(1);
+  --icon-color: #fff;
+  --icon-color-hover: #fff;
+  --icon-bg-color: #000;
+  --icon-bg-color-hover: #000;
+  --icon-border:solid 0.08em transparent;
+  --icon-border-hover:solid 0.08em transparent;
+}
+
+.ncsocial,
+.sharelinks,
+.socialbuttons { 
+  display:flex;
+  flex-wrap:wrap;
+  column-gap: var(--icon-gap);
+  row-gap: 0.3em;
+}
+
+.ncsocial_link,
+.sharelinks_anchor,
+.socialbuttons_link {
+  display:flex;
+  width: calc( var(--icon-size) * 2.3 );
+  aspect-ratio:1 / 1;
+  border-radius:var(--icon-radius);
+  justify-content:center;
+  align-items:center;
+  transition: .3s;
+  background-color: var(--icon-bg-color);
+  border: var(--icon-border);
+  position:relative;
+}
+
+.ncsocial_link .ncicon,
+.sharelinks_anchor .ncicon,
+.socialbuttons_link .ncicon {
+  font-size: var(--icon-size);
+  color: var(--icon-color); 
+}
+
+.ncsocial_link:hover,
+.sharelinks_anchor:hover,
+.socialbuttons_link:hover { 
+  transform:var(--icon-scale); 
+  background-color:var(--icon-bg-color-hover);
+  border:var(--icon-border-hover);
+}
+
+.ncsocial_link:hover .ncicon,
+.sharelinks_anchor:hover .ncicon,
+.socialbuttons_link:hover .ncicon {
+  color: var(--icon-color-hover);
+}
+
+/* Brand Colors (support for the following styles) */
+
+.brand-facebook { background-color: var(--facebook); }
+.brand-linkedin { background-color: var(--linkedin); }
+.brand-twitter { background-color: var(--twitter); }
+.brand-reddit { background-color: var(--reddit); }
+.brand-pocket { background-color: var(--pocket); }
+.brand-youtube { background-color: var(--youtube); }
+.brand-rss { background-color: var(--rss); }
+.brand-pinterest { background-color: var(--pinterest); }
+.brand-instagram { background-color: var(--instagram); }
+.brand-tiktok { background-color: var(--tiktok); }
+
+.brand-email,
+.brand-link { background-color: #aaa; }
+
+
+.entry-content.wp-block-post-content {
+
+  & > * {
+  width: var(--width-limit);
+  max-width:var(--width-standard);
+  margin-inline:auto;
+  }
+
+  & > .alignwide {
+    max-width:var(--width-wide);
+  }
+
+  & > .alignfull {
+    max-width:100%;
+    width:100%;
+  }
+}
