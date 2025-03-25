@@ -723,6 +723,7 @@ cite:before { content:'\2014'; padding-right:0.3em }
 
 /* Comments */
 
+
 .logged-in-as a {
     text-decoration: underline;
     color: var(--link-color, blue);
@@ -768,7 +769,7 @@ cite:before { content:'\2014'; padding-right:0.3em }
 
 
 .wp-block-comment-template ol {
-    padding-left: 55px;
+    padding-left: 55px; /* Same as width of column block for avatar */
 
     @media(max-width:781px){
         & {

@@ -6,6 +6,10 @@ get_template_part('blocks/block-setup');
 // Plugins (Folder)
 get_template_part('plugins/list');
 
+// Customizer addons (Folder) + Add Customizer Link Back
+get_template_part('customizer/_controls');
+add_action( 'customize_register', '__return_true' );
+
 
 // ------------------------------------------------ //
 

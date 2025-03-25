@@ -30,13 +30,13 @@ Here are a few:
 ## Customizer Options
 
   * Preload up to 3 images on the home page
-  * Set a default/fallback image for thumbnails and banner headers
   * Set a color for the chrome/address bar on mobile devices
   * Use enhanced and style-able radio and check inputs
-  * Disable default full-screen editor on start
-  * Disable image generation and scaling
+  * Disable default full-screen block editor on start
+  * Disable image scaling
+  * Disable image generation (only medium and large sizes)
   * Disable image compression
-  * Disable Emoji support 
+  * Disable Emoji support
 
 
 ## Folders
