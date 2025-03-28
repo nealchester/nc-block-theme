@@ -5,15 +5,6 @@ function nc_add_excerpts_to_pages() {
 add_post_type_support( 'page', 'excerpt' );}
 
 
-// Add descriptions to nav menu items
-function nc_nav_description($item_output, $item, $depth, $args)
-{
-    if (strlen($item->description) > 2) {
-        $item_output = str_replace($args->link_after . '</a>', '<span class="menu-item-description">' . $item->description . '</span>' . $args->link_after . '</a>', $item_output);
-    }
-    return $item_output;
-}
-add_filter('walker_nav_menu_start_el', 'nc_nav_description', 10, 4);
 
 // Add span class around taxonomony count numbers
 add_filter('wp_list_categories', 'nc_span_cat_count');

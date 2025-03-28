@@ -11,12 +11,12 @@ function nc_register_assets(){
 
   /* CSS */
 
+  wp_register_style('nc-icons', get_theme_file_uri('/assets/icons/style.css'));
+  wp_enqueue_style('nc-icons');
+
   wp_register_style('nc-vars', get_theme_file_uri('/assets/css/variables.css'));
   wp_enqueue_style('nc-vars');
 
-  wp_register_style('nc-icons', get_theme_file_uri('/assets/icons/style.css'));
-  wp_enqueue_style('nc-icons');
-  
   wp_register_style('nc-uclasses', get_theme_file_uri('/assets/css/uclasses.css'), array('nc-vars'));
   wp_enqueue_style('nc-uclasses');
 
@@ -32,18 +32,6 @@ function nc_register_assets(){
   wp_register_style('nc-theme', get_theme_file_uri('/assets/css/theme.css'), array('nc-content'));
   wp_enqueue_style('nc-theme');
 
-  /* 
-  Theme template styles 
-  These will only load when the actual template is displayed 
-  */
-
-  wp_register_style('nc-editor', get_theme_file_uri('/assets/css/editor.css'), array('nc-vars'));
-
-  wp_register_style('nc-author', get_theme_file_uri('/assets/css/t-author.css'), array('nc-content'));
-
-  wp_register_style('nc-image', get_theme_file_uri('/assets/css/t-image.css'), array('nc-content'));
-  
-  wp_register_style('nc-comments', get_theme_file_uri('/assets/css/t-comments.css'), array('nc-reset'));
 }
 
 add_action('wp_enqueue_scripts', 'nc_register_assets');

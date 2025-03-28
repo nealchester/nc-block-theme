@@ -6,7 +6,7 @@ get_template_part('blocks/block-setup');
 // Plugins (Folder)
 get_template_part('plugins/list');
 
-// Customizer addons (Folder) + Add Customizer Link Back
+// Customizer addons (Folder) + Add Customizer Link Back   
 get_template_part('customizer/_controls');
 add_action( 'customize_register', '__return_true' );
 
@@ -24,10 +24,6 @@ get_template_part('functions/add-theme-support');
 
 // Image Focus Function
 get_template_part('functions/image-focus');
-
-
-// Check if site has an favicon uploaded
-get_template_part('functions/favicon-check');
 
 
 // Load External Fonts
@@ -59,7 +55,7 @@ get_template_part('functions/body-classes');
 
 
 // Modify author archive post number to all
-get_template_part('functions/author-article-amount');
+// get_template_part('functions/author-article-amount');
 
 
 

@@ -140,8 +140,9 @@ h1,h2,h3,h4,h5,h6 {
 .brand-email,
 .brand-link { background-color: #aaa; }
 
+/* Content block spacing */
 
-.entry-content.wp-block-post-content {
+.wp-block-post-content {
 
   & > * {
   width: var(--width-limit);
@@ -157,4 +158,42 @@ h1,h2,h3,h4,h5,h6 {
     max-width:100%;
     width:100%;
   }
+}
+
+
+/* Links in Content */
+
+.wp-block-post-content,
+.wp-block-comment-content {
+
+  :is(p, li) a:not([class]) {
+    text-decoration: underline solid 0.08em currentColor;
+    text-underline-offset: 0.12em;
+    font-weight: 500;
+    position: relative;
+    top: 0px;
+  }
+
+  :is(p, li) a:not([class]):active,
+  :is(p, li) a:not([class]):focus {
+    top: 2px;
+  }
+
+  :is(p, li) a:not([class]):hover {
+    text-decoration: none;
+  }
+  
+  /* Link and Button Indicator for new window */
+  :is(p, li) a[target="_blank"]:after,
+  .wp-block-button__link[target="_blank"]:after {
+    content: '\00A0\ea7e'; /* non breaking space and upward right arrow */
+    font-family: 'ncicons';
+    font-size: 1.5ex;
+  }
+
+}
+
+.wp-block-button:focus-within {
+  outline: solid 2px currentColor;
+  outline-offset: 3px;
 }

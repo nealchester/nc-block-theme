@@ -11,18 +11,6 @@ Need to create a custom blocks for:
 
 */
 
-/* Mpanel Button Icon */
-
-.mpanel_button {
-  height: 100%;
-  position: absolute;
-  left: 0;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1em;
-  cursor: pointer;
-}
-
 /* Search trigger */
 
 #header .ncsearchtrigger {
@@ -58,83 +46,6 @@ Need to create a custom blocks for:
   box-shadow: 0 0 0 #000;
 }
 
-
-.mpanel .nclogo {
-  --logo-text-size: 1.3em;
-  --logo-text-transform: uppercase;
-  --logo-text-weight: bold;
-  --logo-text-color: inherit;
-  /*--logo-img-width: 250px;*/
-  --logo-padding: 1.5em 0;
-  --logo-margin: 0 auto;
-  text-align:center
-}
-
-.mpanel .widget {
-  margin: 1.5em;
-}
-
-.mpanel > .ncsearchform {
-  margin: 0 1.5em 1.5em
-}
-
-.mpanel .navmenu {
-  --menu-bg-color: none;
-  --menu-item-height: auto;
-  --menu-align-items: center;
-  --menu-box-shadow: none;
-  --item-height: auto;
-  --item-align-items: center;
-  --item-bg-color: #fff;
-  --item-bg-color-hover: #fff;
-  --item-bg-color-current: #fff;
-  --item-text-color: #000;
-  --item-text-color-hover: #000;
-  --item-text-color-current: #000;
-  --item-margin-left: 0;
-  --item-padding: 1em var(--gap);
-  --item-border-right: none;
-  --item-border-bottom: solid 1px #ccc;
-  --indicator-color: inherit;
-  --transition: 0.5s;
-  --drop-width: 250px;
-  --drop-radius: 0;
-  --drop-div-color: solid 1px #ccc;
-  --drop-item-bg-color: #f4f4f4;
-  --drop-item-text-color: #000;
-  --drop-item-padding: 1em 2em;
-  --drop-item-bg-color-hover: #eee;
-  --drop-item-text-color-hover: #000;
-  --drop-shadow: none;
-}
-
-.mpanel a {
-  color: inherit;
-  font-weight: bold;
-}
-
-.mpanel_close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity:0.3;
-  transition:0.3s
-}
-
-.mpanel_close svg {
-  display: block;
-  width: 1.5em;
-  height: auto;
-}
-
-.mpanel_close g {
-  fill: currentColor;
-}
-
-.mpanel_close:hover {
-  opacity:1;
-}
 
 .mpanel_underlay {
   position: fixed;
@@ -209,69 +120,12 @@ Need to create a custom blocks for:
 }
 
 
-
-
-/* Audio / Video Player */
-
-.mejs-container {
-  max-width: 100% !important;
-}
-
-.ncontent_main > .mejs-container,
-.wp-video {
-  max-width: var(--width-standard) !important;
-  width: var(--width-limit) !important;
-  margin-bottom: var(--gap);
-}
-
-/* Link colors */
-
-.ncontent_main :is(p, li) a:not([class]) {
-  text-decoration: underline solid 0.08em currentColor;
-  text-underline-offset: 0.12em;
-  font-weight: 500;
-  position: relative;
-  top: 0px;
-
-  &:active {
-      top: 2px;
-  }
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.ncontent_main > :is(p, ul li) a {
-  color: var(--link-color);
-}
-
-/* Link and Button Indicator for new window */
-.ncontent_main :is(p, li) a[target="_blank"]:after,
-.wp-block-button__link[target="_blank"]:after {
-  content: '\00A0\ea7e'; /* non breaking space and upward right arrow */
-  font-family: 'ncicons';
-  font-size: 1.5ex;
-}
-
-
 /* Misc Needed to pass test */
 
 .sticky,
 .gallery-caption,
 .bypostauthor{
   cursor:inherit;
-}
-
-.featuredimage {
-  margin-bottom:var(--gap);
-
-  img {
-    width:100%;
-  }
-
-  .wp-caption-text {
-    font-size: var(--txt-small)
-  }
 }
 
 /* Card Listing */
