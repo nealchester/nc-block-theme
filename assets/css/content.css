@@ -192,8 +192,3 @@ h1,h2,h3,h4,h5,h6 {
   }
 
 }
-
-.wp-block-button:focus-within {
-  outline: solid 2px currentColor;
-  outline-offset: 3px;
-}
