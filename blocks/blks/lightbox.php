@@ -95,7 +95,9 @@ function nc_lightbox_block_markup( $block, $content = '', $is_preview = false ) 
     @media(min-width:1024px){
         .stop-scrolling { 
             overflow:hidden; 
-            padding-right: 17px; 
+        }
+        html body.stop-scrolling {
+            scrollbar-gutter: stable;
         }
     }
 
