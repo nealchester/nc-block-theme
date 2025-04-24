@@ -79,7 +79,7 @@
     animation-fill-mode: backwards;
   }
   
-  .nchero .ncontain { 
+  .nchero > .ncontain { 
     display: flex;
     flex-direction: column;
     min-height:var(--box-min-height);
