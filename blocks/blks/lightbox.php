@@ -92,43 +92,8 @@ function nc_lightbox_block_markup( $block, $content = '', $is_preview = false ) 
     --mwidth: <?php echo $mwidth; ?>;
     }
 
-    @media(min-width:1024px){
-        .stop-scrolling { 
-            overflow:hidden; 
-        }
-        html body.stop-scrolling {
-            scrollbar-gutter: stable;
-        }
-    }
-
 <?php nc_block_custom_css(); ?>
 
 </style>
-
-<script>
-    jQuery(document).ready(function() {
-        // Select the input element.  Replace '#myCheckbox' with the actual ID or selector
-        // of your checkbox input.
-        const $checkbox = jQuery('<?php echo '#'.$lb_id;?>'); 
-        const bodyClass = 'stop-scrolling'; // The class you want to add/remove
-
-        // Function to update the body class based on checkbox state
-        function updateBodyClass() {
-            if ($checkbox.is(':checked')) {
-                jQuery('body').addClass(bodyClass);
-            } else {
-                jQuery('body').removeClass(bodyClass);
-            }
-        }
-
-        // Initial check when the page loads
-        updateBodyClass();
-
-        // Check whenever the checkbox is changed (clicked)
-        $checkbox.change(updateBodyClass); 
-    });
-</script>
-
-
 
 <?php } ?>

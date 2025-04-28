@@ -1,3 +1,17 @@
+/* Stop scrolling when the lightbox is enabled */
+
+body:has(.lbox_check:checked) { 
+  overflow:hidden; 
+}
+
+@media(min-width:1024px){
+  html:has(.lbox_check:checked) { 
+    scrollbar-gutter: stable;
+  }
+}
+
+/* --------------------- */
+
 .lbox {
   position: relative;
 }
