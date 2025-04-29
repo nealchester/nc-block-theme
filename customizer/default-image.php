@@ -8,7 +8,7 @@ function nc_customizer_default_image($wp_customize){
 
  // Archive Listings
  $wp_customize->add_setting('fallback_image', array(
-    'default' => get_theme_file_uri('/img/default-image.png'),
+    'default' => get_theme_file_uri('/assets/img/default-image.png'),
     'sanitize_callback' => 'nc_sanitize_text'
  ));
 
@@ -24,7 +24,7 @@ function nc_customizer_default_image($wp_customize){
 
  // Banner Heading
  $wp_customize->add_setting('default_banner_image', array(
-    'default' => get_theme_file_uri('/img/default-banner.jpg'),
+    'default' => get_theme_file_uri('/assets/img/default-banner.jpg'),
     'sanitize_callback' => 'nc_sanitize_text'
  ));
 
@@ -47,7 +47,7 @@ function nc_fallbackimage() {
     if( get_theme_mod('fallback_image')) {
         return get_theme_mod('fallback_image');
     } else {
-        return get_theme_file_uri('/img/default-image.png');
+        return get_theme_file_uri('/assets/img/default-image.png');
     }
 }
 
@@ -55,7 +55,7 @@ function nc_fallback_banner_image() {
     if( get_theme_mod('default_banner_image')) {
         return get_theme_mod('default_banner_image');
     } else {
-        return get_theme_file_uri('/img/default-banner.jpg');
+        return get_theme_file_uri('/assets/img/default-banner.jpg');
     }
 }
 

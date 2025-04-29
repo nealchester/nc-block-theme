@@ -152,7 +152,7 @@ text-align:right;
 /* NC Rule Heading */
 
 .ncrule { 
-  --rule-height: 0.08em;
+  --rule-height: 1px;
   --rule-color: #ddd;
   --rule-spacing: 0.5em;
   display:flex;

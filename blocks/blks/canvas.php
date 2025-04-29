@@ -86,7 +86,7 @@ function nc_canvas_block_markup( $block, $content = '', $is_preview = false ) {
 	<?php echo '#'.$id; ?> .wp-block-column:not(:last-child):after {
 		display:block;
 		content:'';
-		width: 0.008em;
+		width: 1px;
 		height:100%;
 		background:var(--column-border-color, currentColor);
 		position:absolute;

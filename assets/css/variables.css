@@ -1,5 +1,9 @@
 /*Universal custom properties (variables) */
 
+body {
+  font-size: 16px;
+}
+
 :root {
 
 /* Spacing */
@@ -10,7 +14,7 @@
 /* Block content widths */
 
 --width-standard:650px;
---width-wide:1024px;
+--width-wide:1100px;
 --width-max:1600px;
 
 --width-limit: calc(100% - 2 * var(--gap));
