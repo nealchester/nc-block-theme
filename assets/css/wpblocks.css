@@ -190,7 +190,6 @@ img.alignright {
     border:none;
     margin-bottom: var(--gap);
     padding:0;
-    font-weight: normal;
     font-family: var(--serif);
 }
 
@@ -214,7 +213,6 @@ img.alignright {
     border-top: solid 3px;
     padding: var(--gap);
     margin: 0;
-    font-weight: normal;
 }
 
 .wp-block-pullquote blockquote > :last-child {
@@ -274,7 +272,6 @@ img.alignright {
 .wp-block-quote.is-large, 
 .wp-block-quote.is-style-large {
 	position:relative;
-    font-weight: normal;
     border:none;
     margin-inline: 0;
     padding-left: 1.75em;
@@ -284,12 +281,6 @@ img.alignright {
 .wp-block-quote sup {
 	font-size: .7em;
     vertical-align: baseline;
-}
-
-.wp-block-quote strong,
-.wp-block-quote b {
-  box-shadow: inset 0 -0.6em 0 0 lightgoldenrodyellow;
-  font-weight: normal;
 }
 
 .wp-block-quote:before {
@@ -326,7 +317,6 @@ cite:before { content:'\2014'; padding-right:0.3em }
 .wp-block-quote.is-large p, 
 .wp-block-quote.is-style-large p {
 	font-size:1.5em;
-	font-style: normal;
 }
 
 /* Cover Block */
