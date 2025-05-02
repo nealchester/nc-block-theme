@@ -645,7 +645,7 @@ cite:before { content:'\2014'; padding-right:0.3em }
         }
     }
 
-    header .main-nav-mobile {
+    header.wp-block-template-part:first-of-type {
 
         .wp-block-navigation__responsive-container-close svg {
             width: var(--modal-close-size, 30px);

@@ -183,7 +183,7 @@ h1,h2,h3,h4,h5,h6 {
   }
   
   /* Link and Button Indicator for new window */
-  :is(p, li) a[target="_blank"]:after,
+  :is(p, li) a[target="_blank"]:not(.wp-block-social-link-anchor):after,
   .wp-block-button__link[target="_blank"]:after {
     content: '\00A0\ea7e'; /* non breaking space and upward right arrow */
     font-family: 'ncicons';
