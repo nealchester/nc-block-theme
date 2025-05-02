@@ -105,7 +105,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					$acc_content = get_sub_field('content') ?: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.';
 					$acc_open = get_sub_field('open');
 				?>
-					<details class="nccordion_details"<?php if ($acc_open){ echo' open'; };?>>
+					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open'; };?>>
 						<summary class="nccordion_header"><?php echo $acc_heading; ?></summary>  
 						<div class="nccordion_content">
 							<?php echo $acc_content; ?>
