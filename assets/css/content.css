@@ -196,6 +196,11 @@ h1,h2,h3,h4,h5,h6 {
 
 body.home {
 
+  abbr:before {
+    font-size: min(14px, 1em);
+    font-weight: normal;
+  }
+
   /* Header */
 
   .wp-site-blocks > header:first-of-type {
@@ -207,9 +212,9 @@ body.home {
     margin-bottom: -1px;
     }
     
-  @media(max-width:500px){
+  @media(max-width:768px){
     #head {
-    padding: 1rem !important;
+      padding: 1rem !important;
     }
   }
     
@@ -228,6 +233,7 @@ body.home {
       display: grid !important;
       grid-template-columns: repeat(2, 1fr);
       row-gap: 0;
+      justify-items: center;
     }
   }
 
@@ -254,20 +260,6 @@ body.home {
 
   #experience {
 
-    .exp-header {
-     display: flex;
-     opacity: 0.4; 
-     padding-left: 0.75rem;
-     margin-left:-0.7rem;
-    
-      strong { 
-      font-weight: inherit;
-      width: max(60px,10%);
-      min-width: max(60px,10%);
-      }
-    
-    }
-
     .nccordion {
       border-bottom: solid 1px #ccc;
       width: auto;
@@ -280,17 +272,30 @@ body.home {
     }
     
     .nccordion_details[open] > * {
-      background: #f2f2f2;
+      background: var(--smoke);
     }
     
     .nccordion_content {
-      padding: 0 1rem var(--gap);
-      padding-left: calc(0.75rem + max(60px, 9.5%));
+      padding: 0 var(--gap) var(--gap) var(--gap);
+
+      p + p:last-child {
+        font-size:var(--txt-xsmall);
+        max-width: none;
+      }
+
+      ul {
+        list-style-type: none;
+        padding:0;
+        display:flex;
+        flex-direction: column;
+      }
+
     }
     
     .nccordion_header {
       border-top: solid 1px #ccc;
       padding: 1.5rem 2.5rem 1.5rem 0.75rem;
+      gap: 1rem;
       
         &:before { 
           top: 1.1rem;
@@ -298,9 +303,12 @@ body.home {
         }
 
         span:nth-child(1) {
-          width: max(60px,10%);
-          min-width: max(60px,10%);
           white-space: nowrap;
+          font-variant-numeric: tabular-nums lining-nums;
+          font-weight: 350;
+          opacity:1;
+          visibility: visible;
+          transition: 0.3s;
         }
 
         span:nth-child(2) {
@@ -310,9 +318,26 @@ body.home {
         }
 
         span:nth-child(2) span {
-          font-weight: normal;
+          font-weight: 350;
           padding-left: 0.3em;
+
         }
+    }
+
+    .nccordion_details[open] {
+
+      .nccordion_header {
+        padding-left: 1.5rem;
+      }
+
+      .nccordion_header > span:nth-child(1) {
+        display:none;
+      }
+
+      .nccordion_header > span:nth-child(2) span {
+        font-weight: 600;
+      }
+
     }
     
   }
@@ -457,8 +482,24 @@ body.home {
       --num: calc(var(--number) - 10% );
     }
 
+    .nccordion_content {
+      padding-top: 0.75rem;
+
+      > ul {
+        padding-left: 0;
+      }
+
+      li {
+        margin-bottom: 0.5em;
+
+        > ul {
+          margin-top: 0.5em;
+        }
+      }
+    }
+
     .nccordion_details:not(:last-child) {
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
     
     .nccordion_header:after {
@@ -470,7 +511,7 @@ body.home {
       line-height: 0.5;
       border-radius: 20px;
       margin-top: 0.5em;
-      width: calc(100% + 2.7rem);
+      width: calc(100% + 2.6rem);
 
       background: linear-gradient(to right, #222 var(--num), #ccc var(--num) 90%, #fff 10%);
     
@@ -523,11 +564,15 @@ body.home {
       display:grid;
       place-content:center;
     }
+    .wp-block-button__link {
+      font-size: var(--txt-base);
+      font-weight: bold;
+    }
 
     .splide__content {
       padding:2rem;
 
-      p { 
+      p, li, h3 { 
         max-width:600px;
       }
 
@@ -535,8 +580,12 @@ body.home {
         margin: 0 0 0.5rem 0;
       }
 
+      li::marker {
+        color: currentColor;
+      }
+
       ul {
-        padding-left:1em;
+        padding-left:1.1em;
       }
 
     }
