@@ -483,10 +483,12 @@ body.home {
     }
 
     .nccordion_content {
-      padding-top: 0.75rem;
+      padding-block: 0.5rem 0;
+      font-size: var(--txt-small);
 
       > ul {
         padding-left: 0;
+        margin-bottom: 0;
       }
 
       li {
