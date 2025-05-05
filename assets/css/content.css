@@ -242,15 +242,19 @@ body.home {
     .lbox_content {
       img:first-of-type {
         display: block;
-        width: min(200px, 75%);
+        width: min(250px, 75%);
+      }
+
+      p {
+        max-width: none;
       }
 
       ul:first-of-type {
-        --width-columns: 140px;
+        --width-columns: 150px;
         --gap: 1rem;
         list-style-type:none;
         padding:0;
-        margin-block:2rem;
+        margin-block:clamp(2.5rem, 10vmin, 3rem);
 
         li {
           text-overflow: ellipsis;
@@ -268,15 +272,12 @@ body.home {
         }
 
         li:nth-child(1):before {
-          content:'Company';
-        }
-        li:nth-child(2):before {
           content:'Industry';
         }
-        li:nth-child(3):before {
+        li:nth-child(2):before {
           content:'Duration';
         }
-        li:nth-child(4):before {
+        li:nth-child(3):before {
           content:'Website';
         }
       }
