@@ -228,14 +228,64 @@ body.home {
 
   /* Case Studies */
 
-  @media(max-width:640px){
-    .cases {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 0;
-      justify-items: center;
+  #cases {
+  
+    @media(max-width:640px){
+      .cases {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 0;
+        justify-items: center;
+      }
     }
+
+    .lbox_content {
+      img:first-of-type {
+        display: block;
+        width: min(200px, 75%);
+      }
+
+      ul:first-of-type {
+        --width-columns: 140px;
+        --gap: 1rem;
+        list-style-type:none;
+        padding:0;
+        margin-block:2rem;
+
+        li {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+
+        li:before {
+          display: block;
+          font-weight: bold;
+          margin: 0;
+          font-size:var(--txt-xsmall);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        li:nth-child(1):before {
+          content:'Company';
+        }
+        li:nth-child(2):before {
+          content:'Industry';
+        }
+        li:nth-child(3):before {
+          content:'Duration';
+        }
+        li:nth-child(4):before {
+          content:'Website';
+        }
+      }
+    }
+
+
   }
+
+
 
   /* Accordion Restyling */
 
