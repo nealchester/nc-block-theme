@@ -19,7 +19,7 @@ body, input, select, textarea, button {
   font-family: var(--sans);
   font-size: var(--txt-base);
   line-height: 1.5;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 b,strong {
@@ -248,13 +248,26 @@ body.home {
       p {
         max-width: none;
       }
+      /*
+      p:not(:has(strong)) {
+        column-count: 3;
+        column-gap: 2rem;
+        column-width: 150px;
+        text-align: justify;
+        margin-bottom: 2rem;
+      }*/
+
+      p:last-child {
+        font-size: var(--txt-xsmall);
+        margin-bottom: 0;
+      }
 
       ul:first-of-type {
         --width-columns: 150px;
         --gap: 1rem;
         list-style-type:none;
         padding:0;
-        margin-block:clamp(2.5rem, 10vmin, 3rem);
+        margin-block:2.5rem;
 
         li {
           text-overflow: ellipsis;
@@ -356,7 +369,7 @@ body.home {
         span:nth-child(1) {
           white-space: nowrap;
           font-variant-numeric: tabular-nums lining-nums;
-          font-weight: 350;
+          font-weight: normal;
           opacity:1;
           visibility: visible;
           transition: 0.3s;
@@ -369,7 +382,7 @@ body.home {
         }
 
         span:nth-child(2) span {
-          font-weight: 350;
+          font-weight: normal;
           padding-left: 0.3em;
 
         }
