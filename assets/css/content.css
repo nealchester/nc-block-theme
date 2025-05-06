@@ -565,7 +565,7 @@ body.home {
     }
 
     .nccordion_details:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
     
     .nccordion_header:after {

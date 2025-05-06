@@ -56,8 +56,8 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	wp_enqueue_script('nc-blocks-accordion'); 
 	?>
 	
-	<div id="<?php echo $id; ?>" class="nccordion_container ncblock<?php echo esc_attr($className); ?>" <?php echo nc_block_attr();?>>
-		<div class="ncontain">
+	<div id="<?php echo $id; ?>" class="nccordion ncblock<?php echo esc_attr($className); ?>" <?php echo nc_block_attr();?>>
+		
 			<?php if( $choose == 'post' ):?>
 
 			<?php $args = array(
@@ -73,7 +73,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 			<?php $queryfaqs = new WP_Query($args); 
 			if ( $queryfaqs->have_posts() && $select_links ) : ?>
 
-			<div class="nccordion">
       <?php while ( $queryfaqs->have_posts() ) : $queryfaqs->the_post(); ?>
 
 			<details class="nccordion_details">
@@ -99,7 +98,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
 			<?php elseif( $choose == 'write' && have_rows('custom_content') ):?>
 
-				<div class="nccordion">
 				<?php while( have_rows('custom_content') ): the_row(); 
 					$acc_heading = get_sub_field('heading') ?:'Heading';
 					$acc_content = get_sub_field('content') ?: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.';
@@ -113,9 +111,8 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					</details>
 
 			<?php endwhile; ?>
-			</div>
 
-				</div>
+			<!-- end container -->
 
 				<?php else : ?>
 					<div class="nocontent">
@@ -148,15 +145,15 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
 <style id="<?php echo $id; ?>-css">
 
-<?php echo '#'.$id; ?> .nccordion {
+<?php echo '#'.$id; ?>.nccordion {
   --acc-border-color: <?php echo get_field('acc_border_color') ?: '#aaa';?>;
   --acc-bg-color: <?php echo get_field('acc_bg_color') ?: '#fff';?>;
-  --acc-border-radius: <?php echo get_field('acc_border_radius').'px' ?: '0';?>;
+  --acc-border-radius: <?php echo get_field('acc_border_radius').'px';?>;
   --acc-text-color: <?php echo get_field('acc_text_color') ?: 'currentColor';?>;
 }
 
 <?php if( get_field('acc_icon_style') == 'arrow' ):?>
-<?php echo '#'.$id; ?> .nccordion {
+<?php echo '#'.$id; ?>.nccordion {
 
 	.nccordion_header:before {
     content: '\e901';
@@ -169,8 +166,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	}
 }
 <?php endif;?>
-
-<?php nc_box_styles($id); ?>
 
 <?php nc_block_custom_css(); ?>
 
