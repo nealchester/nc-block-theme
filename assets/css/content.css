@@ -23,7 +23,7 @@ body, input, select, textarea, button {
 }
 
 b,strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h1,h2,h3,h4,h5,h6 { 
@@ -236,6 +236,7 @@ body.home {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 0;
         justify-items: center;
+        margin-inline: 1rem;
       }
     }
 
@@ -258,8 +259,10 @@ body.home {
       }*/
 
       p:last-child {
-        font-size: var(--txt-xsmall);
+        font-size: var(--txt-small);
         margin-bottom: 0;
+        padding-top: 1rem;
+        border-top:solid 1px;
       }
 
       ul:first-of-type {
@@ -277,7 +280,7 @@ body.home {
 
         li:before {
           display: block;
-          font-weight: bold;
+          font-weight: 800;
           margin: 0;
           font-size:var(--txt-xsmall);
           letter-spacing: 1px;
@@ -313,7 +316,6 @@ body.home {
 
   .nccordion_header {
     padding: 0.75em 2.5em 0.75em 0;
-    font-weight: 600;
   }
 
   .nccordion_details {
@@ -323,6 +325,10 @@ body.home {
   /* Experience */
 
   #experience {
+
+    p {
+      max-width: none;
+    }
 
     .nccordion {
       border-bottom: solid 1px #ccc;
@@ -343,7 +349,7 @@ body.home {
       padding: 0 var(--gap) var(--gap) var(--gap);
 
       p + p:last-child {
-        font-size:var(--txt-xsmall);
+        font-size:var(--txt-small);
         max-width: none;
       }
 
@@ -369,20 +375,16 @@ body.home {
         span:nth-child(1) {
           white-space: nowrap;
           font-variant-numeric: tabular-nums lining-nums;
-          font-weight: normal;
-          opacity:1;
-          visibility: visible;
-          transition: 0.3s;
         }
 
         span:nth-child(2) {
+          font-weight: normal;
           white-space:nowrap;
           overflow:hidden;
           text-overflow: ellipsis;
         }
 
         span:nth-child(2) span {
-          font-weight: normal;
           padding-left: 0.3em;
 
         }
@@ -393,13 +395,13 @@ body.home {
       .nccordion_header {
         padding-left: 1.5rem;
       }
+            
+      .nccordion_header > span:nth-child(2){
+        font-weight: bold;
+      }
 
       .nccordion_header > span:nth-child(1) {
         display:none;
-      }
-
-      .nccordion_header > span:nth-child(2) span {
-        font-weight: 600;
       }
 
     }
@@ -555,13 +557,6 @@ body.home {
         margin-bottom: 0;
       }
 
-      li {
-        margin-bottom: 0.5em;
-
-        > ul {
-          margin-top: 0.5em;
-        }
-      }
     }
 
     .nccordion_details:not(:last-child) {
@@ -663,8 +658,7 @@ body.home {
   #listings {
 
     ul { 
-      list-style-type: none; 
-      padding:0 0 0 0.7em;
+      padding:0 0 0 1.1em;
       margin:0;
     }
 
@@ -672,8 +666,16 @@ body.home {
       margin-bottom: 0.5em;
     }
 
-    li::marker {
-      content: '- ';
+    a:after {
+      display: none;
+    }
+
+    @media(max-width: 500px){
+
+      .has-small-font-size {
+        font-size: var(--txt-base) !important;
+      }
+
     }
     
   }

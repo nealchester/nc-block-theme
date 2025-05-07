@@ -72,7 +72,7 @@ the front-end and not the editor. */
   padding: var(--bpadding, 2rem clamp(1rem, 6vw, 2rem) );
   background: var(--bgcolor, #fff);
   color: var(--txcolor, currentColor);
-  max-height: 75%;
+  max-height: 80%;
   overflow: auto;
   box-shadow: var(--shadows);
   position: relative;
@@ -120,7 +120,7 @@ the front-end and not the editor. */
 .lbox_close {
   font-size: 1.3rem;
   text-align: center;
-  padding-block: 1em;
+  padding: 1em;
   cursor: pointer;
   display: block;
   text-align: right;

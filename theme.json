@@ -181,7 +181,7 @@
 				{
 					"fluid": {
 						"max": "1.2rem",
-						"min": "0.95rem"
+						"min": "1rem"
 					},
 					"name": "Normal / h5",
 					"size": "1rem",
