@@ -99,7 +99,3 @@
   padding: 0 1.5rem var(--gap);
   background-color: var(--acc-bg-color, #fff);
 }
-
-.nccordion_content :last-child {
-  margin-bottom: 0;
-}

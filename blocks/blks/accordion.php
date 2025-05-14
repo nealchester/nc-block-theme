@@ -40,6 +40,8 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
         $className .= ' align' . $block['align'];
     }
 
+		$ranum = '_'.rand(100, 500);
+
 	// ACF Block
 	
   $select_links = get_field('select_links', false, false);
@@ -127,11 +129,11 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 			
 			// Credit to: https://lebcit.github.io/posts/automatically-close-other-details/
 
-			const allDetails = document.querySelectorAll("<?php echo '#'.$id; ?> details")
-			allDetails.forEach((details) => {
+			const allDetails<?php echo $ranum; ?> = document.querySelectorAll("<?php echo '#'.$id; ?> details")
+			allDetails<?php echo $ranum; ?>.forEach((details) => {
 			details.addEventListener("toggle", (e) => {
 			if (details.open) {
-			allDetails.forEach((details) => {
+			allDetails<?php echo $ranum; ?>.forEach((details) => {
 			if (details != e.target && details.open) {
 				details.open = false
 			}
