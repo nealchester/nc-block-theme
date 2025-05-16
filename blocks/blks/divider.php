@@ -60,7 +60,7 @@ function nc_divider_block_markup( $block, $content = '', $is_preview = false ) {
             if($customsvg) { echo $customsvg; }
             elseif( $divstyle == 'curve' ) { get_template_part('blocks/blks/dividers/curve.svg'); } 
             elseif( $divstyle == 'curve invert' ) { get_template_part('blocks/blks/dividers/curve-invert.svg'); } 
-            elseif( $divstyle == 'curve asem' ) { get_template_part('blocks/dividers/curve-asem.svg'); } 
+            elseif( $divstyle == 'curve asem' ) { get_template_part('blocks/blks/dividers/curve-asem.svg'); } 
             elseif( $divstyle == 'curve asem invert' ) { get_template_part('blocks/blks/dividers/curve-asem-invert.svg'); } 
             elseif( $divstyle == 'sand hill' ) { get_template_part('blocks/blks/dividers/sand-hill.svg'); } 
             elseif( $divstyle == 'triangle' ) { get_template_part('blocks/blks/dividers/triangle.svg'); } 

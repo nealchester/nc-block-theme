@@ -1,11 +1,6 @@
 
   /* WP Editor can't read nested styles well */
 
-  body {
-    --gap: 2rem;
-    --gapn: -2rem;
-  }
-
   .nchline {
   --line-width: 80px;
   --line-bgcolor: var(--wp--preset--color--custom-gold);
@@ -23,10 +18,10 @@
   }
 
   @keyframes sunshine {
-  0% { transform:scale(0); }
-  40% { transform:scale(1); }
-  70% { transform:scale(0.7); }
-  100% { transform:scale(1); }
+  0% { transform:scale(0)translateY(-200px); }
+  40% { transform:scale(1)translateY(-150px); }
+  70% { transform:scale(0.7)translateY(-50px); }
+  100% { transform:scale(1)translateY(0); }
   }
 
   @keyframes underline {
@@ -35,16 +30,17 @@
   }
   
   div {
-    scroll-margin-top: 67px;
+    scroll-margin-top: 0px;
     /* height of fixed header */
   }
+  
 
   abbr:before {
     font-size: min(14px, 1em);
     font-weight: normal;
   }
   abbr {
-    underline:none;
+    text-decoration:none;
   }
 
   /* Header */
@@ -62,22 +58,45 @@
   .ncanvas p:not([class]) {
     max-width:600px
   }
+
+  #hero,
+  #cases {
+    position: relative;
+    z-index: 501;
+  }
+
+  #cases:before {
+    --size: 24px;
+    --sizen: -24px;
+    background: #ffffff;
+    content: '';
+    width: var(--size);
+    height: var(--size);
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    margin-left: calc(var(--sizen) / 2);
+    margin-top: calc(var(--sizen) / 2);
+    top: 0;
+  }
+
   
   /* Hero */
 
   .wp-block-button__link { 
-    transition:0.3s; box-shadow: 0 0 0 0 gold; 
+    transition:0.3s; box-shadow: 0 0 0 0 transparent; 
 
     &:hover,
     &:active { 
-      box-shadow: 0 0 0 0.5em gold;
+      box-shadow: 0 0 0 0.5em var(--wp--preset--color--custom-gold);
     }
 
   }
 
   #hero {
-    background-color: #f2f2f2;
-    padding-block: 2rem 4rem !important
+    background-color: #fff;
+    padding-block: 2rem 4rem !important;
   }
 
   .hero-text {
@@ -128,7 +147,8 @@
     }
 
   .neal img,
-  .hero-text {
+  .hero-text,
+  #nav {
     animation-name: fnup;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
@@ -179,7 +199,24 @@
 
   /* Case Studies */
 
-  #cases { background: #222; }
+  #cases { 
+    background: var(--charcoal); 
+    scroll-margin-top: -20px;
+  }
+
+  body #cases .lbox {
+    --ovcolor: var(--charcoal);
+    --bgcolor: var(--charcoal); 
+    --txcolor: var(--txt-light);
+    --xcolor: var(--wp--preset--color--custom-gold);
+    --mwidth: 960px;
+    --shadows: none;
+    --bpadding: 1rem;
+
+    img {
+      filter:invert(1);
+    }
+  }
 
    #cases .wp-block-image img { 
     filter:invert(1); 
@@ -220,7 +257,7 @@
       font-size: var(--txt-small);
       margin-bottom: 0;
       padding-top: 1rem;
-      border-top:solid 1px;
+      border-top:solid 1px var(--wp--preset--color--custom-gold);
     }
 
     #cases .lbox_content ul:first-of-type {
@@ -244,6 +281,11 @@
       font-size:var(--txt-xsmall);
       letter-spacing: 1px;
       text-transform: uppercase;
+      color:#fff;
+    }
+
+    #cases strong {
+      color:#fff;
     }
 
     #cases .lbox_content ul:first-of-type li:nth-child(1):before {
@@ -281,14 +323,11 @@
 
   #experience {
 
-    background: #f2f2f2;
-
     p {
       max-width: none;
     }
 
     .nccordion {
-      border-bottom: solid 3px #fff /* var(--wp--preset--color--custom-gold) */;
       width: auto;
       margin-inline: -0.7rem;
     }
@@ -324,7 +363,7 @@
     }
     
     .nccordion_header {
-      border-top: solid 3px #fff /* var(--wp--preset--color--custom-gold) */;
+      border-top: solid 1px #aaa /* var(--wp--preset--color--custom-gold) */;
       padding: 1.5rem 2.5rem 1.5rem 0.75rem;
       gap: 1rem;
       font-weight: 800;
@@ -473,6 +512,7 @@
       & {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
         justify-items: center;
         width: auto;
       }
@@ -613,7 +653,7 @@
         }
   
         li::marker {
-          color: rgb(81, 241, 1);
+          color: var(--wp--preset--color--custom-gold);
           content:'\e900   ';
           font-family: 'ncicons';
           font-size:0.6em;
@@ -688,9 +728,8 @@
     --arrow-bg: transparent;
     --arrow-icon-color: #fff;
     --arrow-icon-color-hover: #fff;
-    --arrow-icon-bg: #ccc;
-    --arrow-icon-bg-hover: #222;
-    --arrow-icon-box-shadow: none;
+    --arrow-icon-bg: #aaa;
+    --arrow-icon-bg-hover: var(--charcoal);
     }
 
 
@@ -705,10 +744,14 @@
     }
 
     .splide__content {
-      padding: 0 2rem;
+      padding: 2rem;
 
-      p, li, h3 { 
+      p, li { 
         max-width:600px;
+      }
+
+      h3 {
+        text-transform: none;
       }
 
       li:not(:last-child){
@@ -733,27 +776,30 @@
     background: var(--wp--preset--color--custom-gold);
   }
 
-  #contact p > a {
-    background: #222;
-    padding: 0.5rem 1.5rem;
-    color: #fff;
-    border-radius: 40px;
-    font-size: var(--txt-small);
-    text-decoration: none;
-    transition: 0.3s;
-    display: inline-block;
-    margin-block: 1em;
-    font-weight: bold;
-  }
-
-    #contact p > a:hover {
-      background: gold;
-      color:#000;
-    }
-
   /* Listings (footer) */
 
   #listings {
+
+    font-size: var(--txt-small);
+    background: var(--charcoal);
+    color: var(--txt-light);
+
+    a {
+      color: currentColor;
+      text-decoration: none;
+      transition:0.3s;
+
+      &:hover {
+        color:#fff;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+    }
+    
+    .grid-auto-columns { 
+      --width-columns: 120px;
+      --gap: 3rem 1.5rem; 
+    }
 
     ul { 
       padding:0;
@@ -768,7 +814,8 @@
     p:has(+ ul) {
       font-weight: 700;
       text-transform: uppercase;
-      color:#000
+      color:#eee;
+      margin-bottom: 0.5rem;
     }
 
     p:has(+ ul),
@@ -783,12 +830,35 @@
       display: none;
     }
 
-    @media(max-width: 500px){
+    @media(max-width: 1024px){
 
-      .has-small-font-size {
-        font-size: var(--txt-base) !important;
+      & {
+       font-size: var(--txt-base);
       }
 
     }
     
+  }
+
+  #nav {
+    position: sticky;
+    bottom:0;
+    margin-bottom: -1px;
+    z-index:500;
+    border-top:solid 1px #333;
+
+    .main-nav-desktop a, svg {
+      transition:0.3s;
+
+      &:hover,
+      &:hover svg {
+        color:#fff;
+        fill: #fff;
+      }
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--wp--preset--color--custom-gold);
+        text-underline-offset: 5px;
+      }
+    }
   }
