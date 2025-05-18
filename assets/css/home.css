@@ -242,7 +242,7 @@
 
     .lbox_overlay:before,
     .lbox_overlay:after {
-      width: max(10%, 75px);
+      width: max(10%, 100px);
       display:block;
       aspect-ratio: 1;
       content:'';
@@ -298,6 +298,7 @@
       grid-template-columns: 2fr 3fr;
       border-radius: 0;
       font-size: 0.9em;
+      z-index: 1;
 
       img:first-of-type {
       display: block;
@@ -348,14 +349,14 @@
       }
 
       .lbox_cs {
-        padding: 2.5rem 2rem 0 2rem;
+        padding:5rem 2rem 0 2rem;
         color:#000;
 
         p:last-child {
           font-size:var(--txt-small);
         }
 
-        p {
+        p:not(:last-child) {
           text-align: justify;
         }
       }
@@ -805,40 +806,28 @@
     }
 
     .nccordion-1 {
-      --number: 95%;
-      .nccordion_header:after { content: '95%'; }
+      --number: 90%;
+      .nccordion_header:after { content: '90%'; }
     }
     .nccordion-2 {
-      --number: 85%;
-      .nccordion_header:after { content: '85%'; }
+      --number: 75%;
+      .nccordion_header:after { content: '75%'; }
     }
     .nccordion-3 {
       --number: 85%;
       .nccordion_header:after { content: '85%'; }
     }
     .nccordion-4 {
-      --number: 85%;
-      .nccordion_header:after { content: '85%'; }
+      --number: 90%;
+      .nccordion_header:after { content: '90%'; }
     }
     .nccordion-5 {
       --number: 95%;
       .nccordion_header:after { content: '95%'; }
     }
     .nccordion-6 {
-      --number: 90%;
-      .nccordion_header:after { content: '90%'; }
-    }
-    .nccordion-7 {
-      --number: 65%;
-      .nccordion_header:after { content: '65%'; }
-    }
-    .nccordion-8 {
       --number: 80%;
       .nccordion_header:after { content: '80%'; }
-    }
-    .nccordion-9 {
-      --number: 90%;
-      .nccordion_header:after { content: '90%'; }
     }
     
   }
@@ -997,6 +986,10 @@
     margin-bottom: -1px;
     z-index:500;
     border-top:solid 1px #333;
+
+    .highlight {
+      color: #fff;
+    }
 
     .main-nav-desktop a, svg {
       transition:0.3s;
