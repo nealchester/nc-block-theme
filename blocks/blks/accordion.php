@@ -50,12 +50,19 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	$mobile = get_field('mobile') ?: '600';
 	$choose = get_field('choose') /* write or post */;
 	$collapse = get_field('collapse');
+	
+	if($collapse){
+		$closeit = ' name="'.$id.'"';
+	}
+	else {
+		$closeit = null;
+	}
 
 ?>
 
 	<?php 
 	wp_enqueue_style('nc-blocks-accordion');
-	wp_enqueue_script('nc-blocks-accordion'); 
+	// wp_enqueue_script('nc-blocks-accordion'); 
 	?>
 	
 	<div id="<?php echo $id; ?>" class="nccordion ncblock<?php echo esc_attr($className); ?>" <?php echo nc_block_attr();?>>
@@ -77,7 +84,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
       <?php while ( $queryfaqs->have_posts() ) : $queryfaqs->the_post(); ?>
 
-			<details class="nccordion_details">
+			<details class="nccordion_details"<?php echo $closeit; ?>>
 				<summary class="nccordion_header" id="faq-<?php the_ID(); ?>" title="<?php echo get_the_title( get_the_ID() );?>"><?php echo get_the_title( get_the_ID() );?></summary>  
 				<div class="nccordion_content">
 					<?php if($content == 'truncate') :?>
@@ -105,7 +112,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					$acc_content = get_sub_field('content') ?: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.';
 					$acc_open = get_sub_field('open');
 				?>
-					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open'; };?>>
+					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open'; };?><?php echo $closeit; ?>>
 						<summary class="nccordion_header"><?php echo $acc_heading; ?></summary>  
 						<div class="nccordion_content">
 							<?php echo $acc_content; ?>
@@ -122,28 +129,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					</div>
 			<?php endif;?>
 		</div>
-
-	<?php if( $collapse ):?>
-
-		<script id="<?php echo 'collapse-'.$id; ?>">
-			
-			// Credit to: https://lebcit.github.io/posts/automatically-close-other-details/
-
-			const allDetails<?php echo $ranum; ?> = document.querySelectorAll("<?php echo '#'.$id; ?> details")
-			allDetails<?php echo $ranum; ?>.forEach((details) => {
-			details.addEventListener("toggle", (e) => {
-			if (details.open) {
-			allDetails<?php echo $ranum; ?>.forEach((details) => {
-			if (details != e.target && details.open) {
-				details.open = false
-			}
-			})
-			}
-			})
-			})
-		</script>
-
-	<?php endif;?>
 
 <style id="<?php echo $id; ?>-css">
 

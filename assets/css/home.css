@@ -987,6 +987,10 @@
     z-index:500;
     border-top:solid 1px #333;
 
+    html.has-modal-open & {
+      z-index: 600;
+    }
+
     .highlight {
       color: #fff;
     }

@@ -53,6 +53,18 @@ function nc_customizer_options_dev($wp_customize) {
     'type' => 'checkbox',
     'description' => 'This will stop WP from generating extra images. Only Medium and Large will be created; nothing else.'
     )); 
+
+    // Disable Responsive Images
+    $wp_customize->add_setting('nc_disable_responsive', array(
+    'default' => false,
+    'sanitize_callback' => 'nc_sanitize_checkbox'
+    ));
+    $wp_customize->add_control('nc_disable_responsive', array(
+    'label' => __('Disable responsive images','nc-framework'),
+    'section' => 'dev_options_section',
+    'type' => 'checkbox',
+    'description' => 'This will stop WP from adding a source set to image markup.'
+    )); 
     
     // Disable Emojis in WordPress
     $wp_customize->add_setting('nc_disable_emojis', array(
@@ -143,6 +155,14 @@ if(get_theme_mod('nc_load_dashicons', false) == true) {
         wp_enqueue_style( 'dashicons' );  
     }
     add_action( 'wp_enqueue_scripts', 'nc_load_dashicons_front_end' );
+}
+
+// Disable Responsive Images 
+if(get_theme_mod('nc_disable_responsive', false) == true) {
+    function nc_disable_wp_responsive_images() {
+        return 1;
+    }
+    add_filter('max_srcset_image_width', 'nc_disable_wp_responsive_images');
 }
 
 ?>

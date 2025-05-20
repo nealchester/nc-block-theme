@@ -10,9 +10,6 @@ get_template_part('customizer/_sanitize');
 
 // ---------------------------------------------------- //
 
-// Preload
-get_template_part('customizer/preload');
-
 // Address bar color
 get_template_part('customizer/bar-color');
 
