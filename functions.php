@@ -75,4 +75,13 @@ get_template_part('functions/additions');
 */
 get_template_part('functions/removals');
 
+
+/* Add signature in the HTML */
+
+function nc_footer_signature(){
+echo "\n<!--\nDeveloped from the NC Block Theme Framework
+by nealchester.com | github.com/nealchester/nc-block-theme/\n-->\n\n";
+}
+add_action('wp_footer','nc_footer_signature', 100);
+
 ?>
