@@ -21,6 +21,8 @@ if(function_exists('get_field')){
     get_template_part('blocks/blks/hero');
     get_template_part('blocks/blks/lightbox');
     get_template_part('blocks/blks/link');
+    get_template_part('blocks/blks/menu-button');
+    get_template_part('blocks/blks/menu-panel');
     get_template_part('blocks/blks/nav');
     get_template_part('blocks/blks/pointer');
     get_template_part('blocks/blks/popup');
@@ -29,6 +31,7 @@ if(function_exists('get_field')){
     get_template_part('blocks/blks/sliders');
     get_template_part('blocks/blks/spacer');
     get_template_part('blocks/blks/text-columns');
+
 
     /*
     No longer in use (or needed)

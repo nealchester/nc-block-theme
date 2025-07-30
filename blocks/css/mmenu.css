@@ -1,0 +1,98 @@
+/* Menu Button */
+
+.wp-site-blocks .mm_button {
+  display:none;
+}
+
+.mm_button {
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer;
+  width: 32px;
+
+  .ncicon {
+    width: 1.2em;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .mm_btnlabel {
+    font-size: 7px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+}
+
+/* Change the Hamburger menu icon to a Close icon */
+:has(.mm_input:checked) .mm_button .ncicon:before {
+  content: '\e903';
+}
+
+:has(.mm_input:checked) body {
+  overflow:hidden;
+}
+
+
+/* Menu Panel */
+
+.mm_close {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: var(--p-close-display, grid);
+  place-items: center;
+}
+
+.mm_panel {
+  width: var(--p-width, 100%);
+  background: var(--p-bgcolor, #fff);
+  z-index: var(--p-zindex, 299);
+  height: var(--p-height, auto);
+  overflow-y: auto;
+  color: var(--p-color, #000);
+  position: var(--p-position, absolute);
+  top: var(--p-from-top, 100px);
+  left: var(--p-from-left, 0);
+  right: var(--p-from-right, auto);
+  transform: var(--p-translate-from, translateY(-50px));
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mm_input:checked + .mm_panel {
+  transform: var(--p-translate-to, translateY(0));
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Menu Overlay */
+
+.mm_underlay {
+  display: var(--overlay-display, block);
+  position: fixed;
+  top: var(--p-from-top, 100px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 298;
+  background: var(--overlay-color, #000);
+  opacity: 0;
+  width: 100%;
+  height: calc(100% - var(--p-from-top, 100px));
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.mm_input:checked + .mm_panel + .mm_underlay {
+  opacity: 0.7;
+  visibility: visible;
+}

@@ -4,8 +4,6 @@
 Un-comment this file and add your external font URL 
 along with preconnects link as prescribed by the external font provider.
 
-*/
-
 
 
 // External Font URL
@@ -19,8 +17,6 @@ function nc_preload_external_fonts() {
   <link rel="preconnect" href="https://fonts.googleapis.com">';
   echo '
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-  echo '
-  <link rel="preload" as="style" href="'.nc_external_font_url().'">';
 }
 add_action('wp_head', 'nc_preload_external_fonts', 5);
 
@@ -32,4 +28,4 @@ function nc_load_external_font_files(){
 }
 add_action('wp_enqueue_scripts', 'nc_load_external_font_files');
 
-
+*/

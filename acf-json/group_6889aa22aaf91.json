@@ -1,0 +1,48 @@
+{
+    "key": "group_6889aa22aaf91",
+    "title": "Block: NC Menu Button",
+    "fields": [
+        {
+            "key": "field_6889ab0e5accd",
+            "label": "Display Width",
+            "name": "display_width",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Enter the screen width at which the main menu is hidden and the menu button is displayed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 784,
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": 784,
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nc-menubtn"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1753857696
+}
