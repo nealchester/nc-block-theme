@@ -39,26 +39,30 @@
   overflow:hidden;
 }
 
-
-/* Menu Panel */
+/* Menu Close Button (currently hidden) */
 
 .mm_close {
   cursor: pointer;
   width: 32px;
   height: 32px;
-  display: var(--p-close-display, grid);
+  display: var(--p-close-display, none);
   place-items: center;
+  margin-bottom: 1rem;
 }
+
+
+/* Menu Panel */
 
 .mm_panel {
   width: var(--p-width, 100%);
+  padding: var(--p-padding, 1rem var(--gap));
   background: var(--p-bgcolor, #fff);
   z-index: var(--p-zindex, 299);
-  height: var(--p-height, auto);
+  height: var(--p-height, calc(100vh - var(--p-from-top, 80px) ));
   overflow-y: auto;
   color: var(--p-color, #000);
   position: var(--p-position, absolute);
-  top: var(--p-from-top, 100px);
+  top: var(--p-from-top, 80px);
   left: var(--p-from-left, 0);
   right: var(--p-from-right, auto);
   transform: var(--p-translate-from, translateY(-50px));
@@ -73,13 +77,25 @@
   visibility: visible;
 }
 
+.mm_panel > * {
+  transform:translateY(-50px);
+  opacity: 0;
+  transition: 0.3s;
+  transition-delay: 0.3s;
+}
 
-/* Menu Overlay */
+.mm_input:checked + .mm_panel > * {
+  opacity: 1;
+  transform:translateY(0px);
+}
+
+
+/* Menu Overlay (currently set to hidden) */
 
 .mm_underlay {
-  display: var(--overlay-display, block);
+  display: var(--overlay-display, none);
   position: fixed;
-  top: var(--p-from-top, 100px);
+  top: var(--p-from-top, 80px);
   bottom: 0;
   left: 0;
   right: 0;
@@ -87,9 +103,9 @@
   background: var(--overlay-color, #000);
   opacity: 0;
   width: 100%;
-  height: calc(100% - var(--p-from-top, 100px));
+  height: calc(100% - var(--p-from-top, 80px));
   visibility: hidden;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .mm_input:checked + .mm_panel + .mm_underlay {

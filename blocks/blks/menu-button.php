@@ -58,6 +58,15 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 		}
 	}
 
+	@media(min-width:<?php echo $dwidth;?>px){
+		.wp-site-blocks {
+			.mm_panel,
+			.mm_underlay { 
+				display:none;
+			}
+		}
+	}
+
 <?php nc_block_custom_css(); ?>
 
 </style>

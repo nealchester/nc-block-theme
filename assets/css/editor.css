@@ -94,6 +94,12 @@ img.alignright {
     opacity: 0.1;
 }
 
+.editor-styles-wrapper .mm_panel {
+    padding: var(--gap);
+    max-width: 800px;
+    margin-inline:auto;
+}
+
 
 /* Blocks Default No Content Selected */
 
