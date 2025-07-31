@@ -55,10 +55,4 @@ function nc_menupanel_block_markup( $block, $content = '', $is_preview = false )
 
 <label class="mm_underlay" for="mmenu" aria-hidden="true"></label>
 
-<style id="<?php echo $id; ?>-css">
-
-<?php nc_block_custom_css(); ?>
-
-</style>
-
 <?php } ?>

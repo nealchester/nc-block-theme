@@ -3,11 +3,11 @@
     "title": "Block: NC Menu Panel",
     "fields": [
         {
-            "key": "field_6889f218c9c67",
-            "label": "",
+            "key": "field_688adc3afb2d9",
+            "label": "Styling instructions",
             "name": "",
             "aria-label": "",
-            "type": "clone",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,9 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_67b3eac166939",
-                "field_67ad4b9168368",
-                "field_67b3eae06693a",
-                "field_67ad4b916a478"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "message": "Styling this mobile menu can be easily done using the CSS custom properties found in classes <b>.mm_panel<\/b>, <b>.mm_close<\/b>, <b>.mm_underlay<\/b> in the <i>mmenu.css<\/i> file. Either update the rules directly in the CSS file or overwrite them in another file.",
+            "new_lines": "",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -46,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753871511
+    "modified": 1753932225
 }

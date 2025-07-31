@@ -64,6 +64,42 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	wp_enqueue_style('nc-blocks-accordion');
 	// wp_enqueue_script('nc-blocks-accordion'); 
 	?>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	// Select all <details> elements that belong to our accordion group
+	const detailsElements = document.querySelectorAll('details[<?php echo $closeit; ?>]');
+
+	// Add a 'toggle' event listener to each details element
+	detailsElements.forEach(details => {
+	details.addEventListener('toggle', () => {
+	// Check if the details element is currently being opened (expanded)
+	if (details.open) {
+	// The CSS transition-duration is 0.5s (500ms).
+	// We use a setTimeout slightly longer than the CSS transition
+	// to ensure the content has fully expanded and the browser has
+	// settled its layout before attempting to scroll.
+	// This helps in accurately calculating the element's final position.
+	setTimeout(() => {
+	// Scroll the opened details element into view
+	details.scrollIntoView({
+	behavior: 'smooth', // Enables smooth, animated scrolling
+	block: 'start'       // Aligns the top of the element with the top of the viewport
+	});
+	}, 600); // Delay in milliseconds (0.6 seconds)
+
+	}
+
+	// Handle the chevron icon rotation for visual feedback
+	// and adjust the summary's border-radius when open/closed.
+	const summary = details.querySelector('summary');
+	// The icon rotation is now handled purely by CSS using the details[open] selector
+	// and a transition on the SVG element itself.
+	// The border-radius adjustment is also handled by CSS.
+	});
+	});
+	});
+</script>
 	
 	<div id="<?php echo $id; ?>" class="nccordion ncblock<?php echo esc_attr($className); ?>" <?php echo nc_block_attr();?>>
 		
@@ -85,7 +121,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
       <?php while ( $queryfaqs->have_posts() ) : $queryfaqs->the_post(); ?>
 
 			<details class="nccordion_details"<?php echo $closeit; ?>>
-				<summary class="nccordion_header" id="faq-<?php the_ID(); ?>" title="<?php echo get_the_title( get_the_ID() );?>"><?php echo get_the_title( get_the_ID() );?></summary>  
+				<summary class="nccordion_header" id="faq-<?php the_ID(); ?>" title="<?php echo get_the_title( get_the_ID() );?>"><div><?php echo get_the_title( get_the_ID() );?></div></summary>  
 				<div class="nccordion_content">
 					<?php if($content == 'truncate') :?>
 					<?php echo substr( get_the_excerpt( get_the_ID() ), 0, $truncate );?><span class="nccordion_ell">&hellip;</span> <a href="<?php echo get_the_permalink( get_the_ID() ); ?>" class="nccordion_rmore"><?php _e('Read more','nc-block-theme');?></a>
@@ -113,7 +149,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					$acc_open = get_sub_field('open');
 				?>
 					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open'; };?><?php echo $closeit; ?>>
-						<summary class="nccordion_header"><?php echo $acc_heading; ?></summary>  
+						<summary class="nccordion_header"><div><?php echo $acc_heading; ?></div></summary>  
 						<div class="nccordion_content">
 							<?php echo $acc_content; ?>
 						</div>

@@ -65,9 +65,10 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 				display:none;
 			}
 		}
+		:has(.mm_input:checked) body {
+			overflow:auto;
+		}
 	}
-
-<?php nc_block_custom_css(); ?>
 
 </style>
 
