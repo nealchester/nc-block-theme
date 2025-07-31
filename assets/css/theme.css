@@ -24,58 +24,6 @@ Need to create a custom blocks for:
 
 #header .ncsearchtrigger_icon { height: auto; width: 1.3em; }
 
-/* Mobile Panel */
-
-.mpanel {
-  width: 85%;
-  padding: 1.5em 0;
-  background: #fff;
-  z-index: 1000;
-  height: 100%;
-  bottom: 0;
-  overflow-y: auto;
-  color: #000;
-  font-size: 1em;
-  position: absolute;
-  transform: translateX(-100%);
-  top: 0;
-  max-width: 350px;
-  min-width: 200px;
-  transition: all 0.3s ease-in-out;
-  visibility: hidden;
-  box-shadow: 0 0 0 #000;
-}
-
-
-.mpanel_underlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: #000;
-  opacity: 0;
-  width:100%;
-  height:100%;
-  visibility: hidden;
-  transition:0.5s;
-}
-
-/* When the label is clicked, it reveals the mobile panel */
-
-  .mpanel_input:checked + .mpanel {
-      transform: translateX(-1px);
-      box-shadow: 5px 0 1em rgba(0, 0, 0, 0.3);
-      visibility: visible;
-  }
-
-  .mpanel_input:checked + .mpanel + .mpanel_underlay {
-      opacity: 0.5;
-      visibility: visible;
-  }
-
-
 /* Banner Image */
 
 .banner {

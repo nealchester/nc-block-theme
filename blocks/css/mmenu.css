@@ -1,7 +1,13 @@
 /* Menu Button */
 
-.wp-site-blocks .mm_button {
-  display:none;
+.editor-styles-wrapper .mm_button {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer;
+  width: 32px;
 }
 
 .mm_button {
@@ -11,23 +17,22 @@
   gap: 0.2em;
   cursor: pointer;
   width: 32px;
+}
 
-  .ncicon {
-    width: 1.2em;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+.mm_button .ncicon {
+  width: 1.2em;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-  .mm_btnlabel {
-    font-size: 7px;
-    letter-spacing: 1px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
+.mm_btnlabel {
+  font-size: 7px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Change the Hamburger menu icon to a Close icon */
@@ -87,6 +92,22 @@
 .mm_input:checked + .mm_panel > * {
   opacity: 1;
   transform:translateY(0px);
+}
+
+/* Menu Panel List */
+
+.mm_panel {
+
+  .wp-block-page-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .wp-block-pages-list__item__link {
+    display: block;
+    padding: 0.5rem 0.25rem;
+  }
+
 }
 
 

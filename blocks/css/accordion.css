@@ -51,7 +51,7 @@
   background-color: var(--acc-bg-color, #fff);
   border-radius: var(--acc-border-radius, 0px);
   color: var(--acc-text-color, currentColor);
-  scroll-margin-top: var(--gap);
+  scroll-margin-top: var(--acc-scroll-margin, var(--gap));
 }
 
 .nccordion_content {

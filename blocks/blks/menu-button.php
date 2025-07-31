@@ -39,7 +39,7 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 
 <?php wp_enqueue_style('nc-blocks-mmenu');?>
 	
-<label hidden="" for="mmenu" class="mm_button">
+<label hidden="" for="mmenu" class="mm_button" aria-hidden="true">
 	<span class="ncicon nc-menu"></span>
 	<div class="mm_btnlabel">Menu</div>
 </label>
@@ -51,11 +51,14 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 			display:flex; 
 		}
 
-		.wp-site-blocks nav[aria-label="main-nav-desktop"],
-		.wp-site-blocks nav[aria-label="Navigation"],
-		.wp-site-blocks nav.main-nav-desktop { 
-			display:none; 
+		.wp-site-blocks { 
+			nav[aria-label="main-nav-desktop"],
+			nav[aria-label="Navigation"],
+			nav.main-nav-desktop { 
+				display:none; 
+			}
 		}
+		
 	}
 
 	@media(min-width:<?php echo $dwidth;?>px){

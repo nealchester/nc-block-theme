@@ -31,12 +31,6 @@ function nc_register_assets(){
 
   wp_register_style('nc-theme', get_theme_file_uri('/assets/css/theme.css'), array('nc-content'));
   wp_enqueue_style('nc-theme');
-
-  wp_register_style('nc-home', get_theme_file_uri('/assets/css/home.css'), array('nc-content'));
-
-  if ( is_front_page() ){
-    wp_enqueue_style('nc-home');
-  }
   
 }
 

@@ -35,6 +35,10 @@ html, body, div, figure, form, canvas, summary, button, form {
     position: relative;
 }
 
+body{
+    scrollbar-gutter: stable;
+}
+
 article, aside, details, figcaption, figure, footer, header, nav, main {
     display: block;
 }
