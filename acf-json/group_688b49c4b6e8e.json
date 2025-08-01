@@ -1,0 +1,58 @@
+{
+    "key": "group_688b49c4b6e8e",
+    "title": "Block: NC Columns",
+    "fields": [
+        {
+            "key": "field_688b49c60df40",
+            "label": "Column count",
+            "name": "column_count",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "two": "2",
+                "three": "3",
+                "four": "4",
+                "five": "5",
+                "six": "6",
+                "seven": "7"
+            },
+            "default_value": "three",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1753965664
+}

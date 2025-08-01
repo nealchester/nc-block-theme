@@ -9,9 +9,9 @@ function nc_remove_recent_comments_style(){
     ));
 } add_action('widgets_init', 'nc_remove_recent_comments_style');
 
+
 // Remove the gallery styles
 add_filter('use_default_gallery_style', '__return_false');
-
 
 
 // Disable FullScreen Editor at installation

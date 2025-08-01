@@ -5,18 +5,18 @@ keyboards to reveal the drop menus and tab through on screen.
 */
 
 jQuery(function () {
-	jQuery('.menu-item-has-children a').focus(function () {
-		jQuery(this).siblings('.sub-menu').addClass('focused');
+	jQuery('.has-child').focus(function () {
+		jQuery(this).siblings('.wp-block-navigation-submenu').addClass('focused');
 	}).blur(function () {
 
-		jQuery(this).siblings('.sub-menu').removeClass('focused');
+		jQuery(this).siblings('.wp-block-navigation-submenu').removeClass('focused');
 	});
 
 	// Sub Menu
-	jQuery('.sub-menu a').focus(function () {
-		jQuery(this).parents('.sub-menu').addClass('focused');
+	jQuery('.wp-block-navigation-submenu a').focus(function () {
+		jQuery(this).parents('.wp-block-navigation-submenu').addClass('focused');
 	}).blur(function () {
-		jQuery(this).parents('.sub-menu').removeClass('focused');
+		jQuery(this).parents('.wp-block-navigation-submenu').removeClass('focused');
 	});
 });
 
@@ -26,8 +26,8 @@ Close or hide the mobile menu after clicking item.
 Works best for one-pagers
 */
 
-jQuery(".mpanel .menu-item:not(.menu-item-has-children) a").click(function(){
-	jQuery("#mpanel").prop("checked", false);
+jQuery(".mm_panel .menu-item:not(.menu-item-has-children) a, .mm_panel .wp-block-pages-list__item__link").click(function(){
+	jQuery("#mmenu").prop("checked", false);
 });
 
 
