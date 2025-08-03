@@ -121,7 +121,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
       <?php while ( $queryfaqs->have_posts() ) : $queryfaqs->the_post(); ?>
 
 			<details class="nccordion_details"<?php echo $closeit; ?>>
-				<summary class="nccordion_header" id="faq-<?php the_ID(); ?>" title="<?php echo get_the_title( get_the_ID() );?>"><div><?php echo get_the_title( get_the_ID() );?></div></summary>  
+				<summary class="nccordion_header" id="faq-<?php the_ID(); ?>" title="<?php echo get_the_title( get_the_ID() );?>"><div class="nccordion_hdcontain"><?php echo get_the_title( get_the_ID() );?></div></summary>  
 				<div class="nccordion_content">
 					<?php if($content == 'truncate') :?>
 					<?php echo substr( get_the_excerpt( get_the_ID() ), 0, $truncate );?><span class="nccordion_ell">&hellip;</span> <a href="<?php echo get_the_permalink( get_the_ID() ); ?>" class="nccordion_rmore"><?php _e('Read more','nc-block-theme');?></a>
@@ -149,7 +149,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					$acc_open = get_sub_field('open');
 				?>
 					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open'; };?><?php echo $closeit; ?>>
-						<summary class="nccordion_header"><div><?php echo $acc_heading; ?></div></summary>  
+						<summary class="nccordion_header"><div class="nccordion_hdcontain"><?php echo $acc_heading; ?></div></summary>  
 						<div class="nccordion_content">
 							<?php echo $acc_content; ?>
 						</div>

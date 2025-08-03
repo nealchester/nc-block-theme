@@ -542,7 +542,7 @@ Must be applied to UL and OL elements */
   grid-template-columns: 
     repeat( auto-fit, 
       minmax( 
-        min( var(--width-columns, 250px), 100%), 1fr
+        min( 250px, 100%), 1fr
       )
     );
 }

@@ -146,6 +146,8 @@ h1,h2,h3,h4,h5,h6 {
 
 .wp-block-post-content {
 
+  min-height: 50vh;
+
   & > * {
   width: var(--width-limit);
   max-width:var(--width-standard);

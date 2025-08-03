@@ -3,9 +3,45 @@
     "title": "Block: NC Columns",
     "fields": [
         {
-            "key": "field_688b49c60df40",
-            "label": "Column count",
-            "name": "column_count",
+            "key": "field_688dae164bf01",
+            "label": "Columns Control",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_688f5750d2c69",
+            "label": "Desktop",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_688d9b07a382c",
+            "label": "Column style",
+            "name": "column_style",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -17,14 +53,13 @@
                 "id": ""
             },
             "choices": {
-                "two": "2",
-                "three": "3",
-                "four": "4",
-                "five": "5",
-                "six": "6",
-                "seven": "7"
+                "ncol_fixed": "Fixed amount",
+                "ncol_fill": "Fill and wrap",
+                "ncol_centered": "Fill and wrap centered",
+                "ncol_spaced": "No wrap space between",
+                "ncol_overflow": "No wrap overflow scroll"
             },
-            "default_value": "three",
+            "default_value": "ncol_fixed",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -34,14 +69,208 @@
             "placeholder": "",
             "create_options": 0,
             "save_options": 0
+        },
+        {
+            "key": "field_688d9cfe4e8f7",
+            "label": "Column spacing",
+            "name": "column_spacing",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "2rem",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "2rem",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_688f2b7a3c328",
+            "label": "Row spacing",
+            "name": "column_row_spacing",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "2rem",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "2rem",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_688d9f3a4bef7",
+            "label": "Column width",
+            "name": "column_width",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_688d9b07a382c",
+                        "operator": "!=",
+                        "value": "ncol_fixed"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "250px",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "250px",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_688b49c60df40",
+            "label": "Column count",
+            "name": "column_count",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_688d9b07a382c",
+                        "operator": "==",
+                        "value": "ncol_fixed"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9"
+            },
+            "default_value": 3,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_688d9d9b4e8f8",
+            "label": "Column divider",
+            "name": "column_divider",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
+        {
+            "key": "field_688dae394bf02",
+            "label": "Tablet",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_688dae404bf03",
+            "label": "Phone",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_688e5dfbe4c88",
+            "label": "Box  settings",
+            "name": "box_settings",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_67ad4b91436c6"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "post"
+                "value": "acf\/nc-columns"
             }
         ]
     ],
@@ -54,5 +283,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753965664
+    "modified": 1754231308
 }

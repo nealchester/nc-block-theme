@@ -11,6 +11,103 @@ This contains all NC Framework and WordPress blocks.
 </div>
 
 */
+.wp-site-blocks .ncol,
+.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  list-style-type: none;
+  padding-left:0;
+  margin-left:0;
+
+  & > * {
+    position: relative;
+  }
+}
+
+.wp-site-blocks .ncol_fill,
+.ncol_fill > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: var(--col-style, grid);
+  column-gap: var(--col-spacing, 2rem);
+  row-gap: var(--col-row-spacing, 2rem);
+  grid-template-columns: 
+    repeat( auto-fit, 
+      minmax( 
+        min( var(--col-width, 250px), 100%), 1fr
+      )
+    );
+}
+
+.wp-site-blocks .ncol_centered,
+.ncol_centered > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: var(--col-style, flex);
+  column-gap: var(--col-spacing, 2rem);
+  row-gap: var(--col-row-spacing, 2rem);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+
+  & > * {
+    flex-basis: min( var(--col-width, 250px), 100%);
+  }
+}
+
+.wp-site-blocks .ncol_spaced,
+.ncol_spaced > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: var(--col-style, flex);
+  column-gap: var(--col-spacing, 2rem);
+  row-gap: var(--col-row-spacing, 2rem);
+  justify-content: space-between;
+  align-items: stretch;
+
+  & > * {
+    flex-basis: min( var(--col-width, 250px), 100%);
+  }
+}
+
+.wp-site-blocks .ncol_fixed,
+.ncol_fixed > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: var(--col-style, grid);
+  column-gap: var(--col-spacing, 2rem);
+  row-gap: var(--col-row-spacing, 2rem);
+  grid-template-columns: repeat(var(--col-num, 3), 1fr);
+}
+
+.wp-site-blocks .ncol_overflow,
+.ncol_overflow > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display:var(--col-style, grid);
+  column-gap: var(--col-spacing, 2rem);
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  overflow-x:auto;
+  overflow-y:hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: var(--gap);
+  margin-bottom: calc(-1 * var(--col-spacing, 2rem));
+  padding-inline:var(--gap);
+  margin-inline: calc(-1 * var(--gap));
+
+  & > * { 
+    min-width: var(--col-width, 250px); 
+    margin-bottom: var(--col-row-spacing, 2rem);
+    scroll-snap-align: start
+  }  
+}
+
+.wp-site-blocks .ncol_dividers > *:not(:last-child):before,
+.ncol_dividers > .block-editor-inner-blocks > .block-editor-block-list__layout > *:not(:last-child):before {
+  content:'';
+  width: var(--col-div-width, 1px);
+  background: var(--col-div-color, currentColor);
+  opacity: var(--col-div-opacity, 0.5);
+  display:block;
+  position:absolute;
+  top:0; 
+  right: calc( -1 * var(--col-spacing) / 2);
+  height: 100%;
+}
+
+
+
+/*---------------------*/
 
 .ncolumns {
   --count:3; 
