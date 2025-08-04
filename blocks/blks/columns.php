@@ -50,7 +50,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
         $dp_width = get_field('column_width');
         $dp_divider = get_field('column_divider');
 
-        if ($dp_divider) { $dividers = 'ncol_dividers'; } else { null; }
+        if ($dp_divider) { $dp_div_display = 'block'; } else { $dp_div_display = 'none'; }
         
         $dp_style = get_field('column_style');
 
@@ -64,17 +64,10 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
             $dp_cssblk = 'grid';
         }
 
-        if ($dp_style == 'ncol_overflow') {
-            $fullwidth = 'max-width:100% !important; width:100% !important;';
-        }
-        else {
-            $fullwidth = null;
-        }
-
 ?>
     <?php wp_enqueue_style('nc-blocks-columns');?>
 
-	<div id="<?php echo $id; ?>" class="ncol<?php echo ' '.$dp_style.' '.$dividers.esc_attr($className); ?>" <?php echo nc_block_attr();?>>
+	<div id="<?php echo $id; ?>" class="ncol<?php echo ' '.$dp_style.esc_attr($className); ?>" <?php echo nc_block_attr();?>>
         <?php echo nc_inner_blocks(); ?>
     </div>
 
@@ -86,9 +79,298 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
         --col-row-spacing: <?php echo $dp_rspacing; ?>;
         --col-width: <?php echo $dp_width; ?>;
         --col-num: <?php echo $dp_count; ?>;
-        
-        <?php echo $fullwidth; ?>
+        --col-div-display: <?php echo $dp_div_display; ?>;
     }
+
+    <?php // Tablet Display
+    $tb_display = get_field('tablet_display');
+    if( $tb_display ):?>
+
+    @media(max-width:<?php echo $tb_display.'px'; ?>){
+
+        <?php
+        $tb_count = get_field('tb_column_count') ?: '3';
+        $tb_spacing = get_field('tb_column_spacing');
+        $tb_rspacing = get_field('tb_column_row_spacing');
+        $tb_width = get_field('tb_column_width');
+        $tb_divider = get_field('tb_column_divider');
+        ?>
+
+        <?php if ($tb_divider) { $tb_div_display = 'block'; } else { $tb_div_display = 'none'; }?>
+
+        <?php $tb_style = get_field('tb_column_style');?>
+
+        <?php if( $tb_style == 'ncol_fill' ):?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            display: grid;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            grid-template-columns: 
+                repeat( auto-fit, 
+                minmax( min( var(--col-width, 250px), 100%), 1fr )
+                );
+            
+            grid-auto-flow: unset;
+
+            & > * {
+            min-width: unset;
+            margin-bottom: unset;
+            scroll-snap-align: unset;
+            }
+        }
+
+        <?php elseif( $tb_style == 'ncol_fixed' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            display: grid;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            grid-template-columns: repeat(var(--col-num, 3), 1fr);
+            grid-auto-flow: unset;
+
+            & > * {
+            min-width: unset;
+            margin-bottom: unset;
+            scroll-snap-align: unset;
+            }
+        }
+
+        <?php elseif( $tb_style == 'ncol_overflow' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+            display:grid;
+            column-gap: var(--col-spacing, 2rem);
+            grid-template-columns: auto;
+            grid-auto-flow: column;
+            overflow-x:auto;
+            overflow-y:hidden;
+            overscroll-behavior-inline: contain;
+            scroll-snap-type: inline mandatory;
+            scroll-padding-inline: var(--gap);
+            margin-bottom: calc(-1 * var(--col-spacing, 2rem));
+            padding-inline:var(--gap);
+            margin-inline: calc(-1 * var(--gap));
+            
+            max-width:100% !important; 
+            width:100% !important;
+            
+
+            & > * { 
+            min-width: var(--col-width, 250px); 
+            margin-bottom: var(--col-row-spacing, 2rem);
+            scroll-snap-align: start
+            }  
+        }
+
+        <?php elseif( $tb_style == 'ncol_spaced' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+            display: flex;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            justify-content: space-between;
+            align-items: stretch;
+            overflow-x: auto;
+            overflow-y: auto;
+            margin-bottom: unset;
+            padding-inline: unset;
+            margin-inline: unset;
+
+            & > * {
+            flex-basis: min( var(--col-width, 250px), 100%);
+            min-width: 0;
+            margin-bottom: unset;
+            }
+        }
+
+        <?php elseif( $tb_style == 'ncol_centered' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+            display: flex;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            overflow-x: auto;
+            overflow-y: auto;
+            margin-bottom: unset;
+            padding-inline: unset;
+            margin-inline: unset;
+
+            & > * {
+            flex-basis: min( var(--col-width, 250px), 100%);
+            min-width: 0;
+            margin-bottom: unset;
+            }
+        }
+
+        <?php endif;?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            /* Variables Updated */
+            --col-spacing: <?php echo $tb_spacing; ?>;
+            --col-row-spacing: <?php echo $tb_rspacing; ?>;
+            --col-width: <?php echo $tb_width; ?>;
+            --col-num: <?php echo $tb_count; ?>;
+            --col-div-display: <?php echo $tb_div_display; ?>;
+        }
+
+    }
+
+    <?php endif;?>
+
+    <?php // Phone Display
+    $ph_display = get_field('phone_display');
+    if( $ph_display ):?>
+
+    @media(max-width:<?php echo $ph_display.'px'; ?>){
+
+        <?php
+        $ph_count = get_field('ph_column_count') ?: '3';
+        $ph_spacing = get_field('ph_column_spacing');
+        $ph_rspacing = get_field('ph_column_row_spacing');
+        $ph_width = get_field('ph_column_width');
+        $ph_divider = get_field('ph_column_divider');
+        ?>
+
+        <?php if ($ph_divider) { $ph_div_display = 'block'; } else { $ph_div_display = 'none'; }?>
+
+        <?php $ph_style = get_field('ph_column_style');?>
+
+        <?php if( $ph_style == 'ncol_fill' ):?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            display: grid;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            grid-template-columns: 
+                repeat( auto-fit, 
+                minmax( min( var(--col-width, 250px), 100%), 1fr )
+                );
+            
+            grid-auto-flow: unset;
+
+            & > * {
+            min-width: unset;
+            margin-bottom: unset;
+            scroll-snap-align: unset;
+            }
+        }
+
+        <?php elseif( $ph_style == 'ncol_fixed' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            display: grid;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            grid-template-columns: repeat(var(--col-num, 3), 1fr);
+            grid-auto-flow: unset;
+
+            & > * {
+            min-width: unset;
+            margin-bottom: unset;
+            scroll-snap-align: unset;
+            }
+        }
+
+        <?php elseif( $ph_style == 'ncol_overflow' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+            display:grid;
+            column-gap: var(--col-spacing, 2rem);
+            grid-template-columns: auto;
+            grid-auto-flow: column;
+            overflow-x:auto;
+            overflow-y:hidden;
+            overscroll-behavior-inline: contain;
+            scroll-snap-type: inline mandatory;
+            scroll-padding-inline: var(--gap);
+            margin-bottom: calc(-1 * var(--col-spacing, 2rem));
+            padding-inline:var(--gap);
+            margin-inline: calc(-1 * var(--gap));
+            
+            max-width:100% !important; 
+            width:100% !important;
+            
+
+            & > * { 
+            min-width: var(--col-width, 250px); 
+            margin-bottom: var(--col-row-spacing, 2rem);
+            scroll-snap-align: start
+            }  
+        }
+
+        <?php elseif( $ph_style == 'ncol_spaced' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+            display: flex;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            justify-content: space-between;
+            align-items: stretch;
+            overflow-x: auto;
+            overflow-y: auto;
+            margin-bottom: unset;
+            padding-inline: unset;
+            margin-inline: unset;
+
+            & > * {
+            flex-basis: min( var(--col-width, 250px), 100%);
+            min-width: 0;
+            margin-bottom: unset;
+            }
+        }
+
+        <?php elseif( $ph_style == 'ncol_centered' ) :?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+            display: flex;
+            column-gap: var(--col-spacing, 2rem);
+            row-gap: var(--col-row-spacing, 2rem);
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            overflow-x: auto;
+            overflow-y: auto;
+            margin-bottom: unset;
+            padding-inline: unset;
+            margin-inline: unset;
+
+            & > * {
+            flex-basis: min( var(--col-width, 250px), 100%);
+            min-width: 0;
+            margin-bottom: unset;
+            }
+        }
+
+        <?php endif;?>
+
+        <?php echo '#'.$id;?>.ncol,
+        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            /* Variables Updated */
+            --col-spacing: <?php echo $ph_spacing; ?>;
+            --col-row-spacing: <?php echo $ph_rspacing; ?>;
+            --col-width: <?php echo $ph_width; ?>;
+            --col-num: <?php echo $ph_count; ?>;
+            --col-div-display: <?php echo $ph_div_display; ?>;
+        }
+
+    }
+
+    <?php endif;?>    
 
     <?php nc_block_custom_css(); ?>
 

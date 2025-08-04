@@ -25,6 +25,13 @@ function my_acf_admin_head() { ?>
         line-height: 1.2;
       }
 
+      .acf-block-component .acf-block-fields p,
+      .acf-field p.description {
+        font-size: 0.75em;
+        line-height: 1.5;
+        color:#000;
+      }
+
       /* Remove the scroll bar from Tabs sections */
       .acf-tab-wrap {
         overflow: visible; /* I used to be "auto" */

@@ -55,9 +55,9 @@
             "choices": {
                 "ncol_fixed": "Fixed amount",
                 "ncol_fill": "Fill and wrap",
-                "ncol_centered": "Fill and wrap centered",
-                "ncol_spaced": "No wrap space between",
-                "ncol_overflow": "No wrap overflow scroll"
+                "ncol_centered": "Fill and wrap, centered",
+                "ncol_spaced": "No wrap, space between",
+                "ncol_overflow": "No wrap, overflow scroll"
             },
             "default_value": "ncol_fixed",
             "return_format": "value",
@@ -118,19 +118,11 @@
             "name": "column_width",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Only works on a non-fixed column type",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_688d9b07a382c",
-                        "operator": "!=",
-                        "value": "ncol_fixed"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -147,19 +139,11 @@
             "name": "column_count",
             "aria-label": "",
             "type": "select",
-            "instructions": "",
+            "instructions": "Only works on a fixed column type",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_688d9b07a382c",
-                        "operator": "==",
-                        "value": "ncol_fixed"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -225,6 +209,56 @@
             "selected": 0
         },
         {
+            "key": "field_688ff4c1946a1",
+            "label": "Tablet Display",
+            "name": "tablet_display",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_688ff460946a0",
+            "label": "tb cloned fields",
+            "name": "tb",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_688d9b07a382c",
+                "field_688d9cfe4e8f7",
+                "field_688f2b7a3c328",
+                "field_688d9f3a4bef7",
+                "field_688b49c60df40",
+                "field_688d9d9b4e8f8"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
             "key": "field_688dae404bf03",
             "label": "Phone",
             "name": "",
@@ -241,6 +275,56 @@
             "placement": "top",
             "endpoint": 0,
             "selected": 0
+        },
+        {
+            "key": "field_688ffaf8f641c",
+            "label": "Phone Display",
+            "name": "phone_display",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_688ffae7f641b",
+            "label": "ph cloned fields",
+            "name": "ph",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_688d9b07a382c",
+                "field_688d9cfe4e8f7",
+                "field_688f2b7a3c328",
+                "field_688d9f3a4bef7",
+                "field_688b49c60df40",
+                "field_688d9d9b4e8f8"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
         },
         {
             "key": "field_688e5dfbe4c88",
@@ -283,5 +367,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754231308
+    "modified": 1754273506
 }

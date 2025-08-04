@@ -22,6 +22,21 @@ This contains all NC Framework and WordPress blocks.
   }
 }
 
+  /* Automatic Dividers */
+  .wp-site-blocks .ncol > *:not(:last-child):before,
+  .ncol > .block-editor-inner-blocks > .block-editor-block-list__layout > *:not(:last-child):before {
+    content:'';
+    width: var(--col-div-width, 1px);
+    background: var(--col-div-color, currentColor);
+    opacity: var(--col-div-opacity, 0.5);
+    display:var(--col-div-display, block); /* able to hide or show based on this variable */
+    position:absolute;
+    top:0; 
+    right: calc( -1 * var(--col-spacing) / 2);
+    height: 100%;
+  }
+
+
 .wp-site-blocks .ncol_fill,
 .ncol_fill > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: var(--col-style, grid);
@@ -34,6 +49,7 @@ This contains all NC Framework and WordPress blocks.
       )
     );
 }
+
 
 .wp-site-blocks .ncol_centered,
 .ncol_centered > .block-editor-inner-blocks > .block-editor-block-list__layout {
@@ -49,6 +65,7 @@ This contains all NC Framework and WordPress blocks.
   }
 }
 
+
 .wp-site-blocks .ncol_spaced,
 .ncol_spaced > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: var(--col-style, flex);
@@ -62,6 +79,7 @@ This contains all NC Framework and WordPress blocks.
   }
 }
 
+
 .wp-site-blocks .ncol_fixed,
 .ncol_fixed > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: var(--col-style, grid);
@@ -69,6 +87,7 @@ This contains all NC Framework and WordPress blocks.
   row-gap: var(--col-row-spacing, 2rem);
   grid-template-columns: repeat(var(--col-num, 3), 1fr);
 }
+
 
 .wp-site-blocks .ncol_overflow,
 .ncol_overflow > .block-editor-inner-blocks > .block-editor-block-list__layout {
@@ -84,6 +103,10 @@ This contains all NC Framework and WordPress blocks.
   margin-bottom: calc(-1 * var(--col-spacing, 2rem));
   padding-inline:var(--gap);
   margin-inline: calc(-1 * var(--gap));
+  
+  max-width:100% !important; 
+  width:100% !important;
+  
 
   & > * { 
     min-width: var(--col-width, 250px); 
@@ -92,22 +115,8 @@ This contains all NC Framework and WordPress blocks.
   }  
 }
 
-.wp-site-blocks .ncol_dividers > *:not(:last-child):before,
-.ncol_dividers > .block-editor-inner-blocks > .block-editor-block-list__layout > *:not(:last-child):before {
-  content:'';
-  width: var(--col-div-width, 1px);
-  background: var(--col-div-color, currentColor);
-  opacity: var(--col-div-opacity, 0.5);
-  display:block;
-  position:absolute;
-  top:0; 
-  right: calc( -1 * var(--col-spacing) / 2);
-  height: 100%;
-}
 
-
-
-/*---------------------*/
+/*-------- Old column styles for galleries and other blocks -------------*/
 
 .ncolumns {
   --count:3; 
