@@ -53,7 +53,7 @@
                 "id": ""
             },
             "choices": {
-                "ncol_fixed": "Fixed amount",
+                "ncol_fixed": "Even fixed amount",
                 "ncol_fill": "Fill and wrap",
                 "ncol_centered": "Fill and wrap, centered",
                 "ncol_spaced": "No wrap, space between",
@@ -170,12 +170,33 @@
             "save_options": 0
         },
         {
-            "key": "field_688d9d9b4e8f8",
-            "label": "Column divider",
+            "key": "field_6891b8eefc026",
+            "label": "Custom columns",
+            "name": "column_custom",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This field applies to fixed column style and overwrites the column width and count.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "1fr 3fr 1fr",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6891d5bc1398c",
+            "label": "Column dividers",
             "name": "column_divider",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "",
+            "instructions": "Best for one row of even fixed columns.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -251,7 +272,8 @@
                 "field_688f2b7a3c328",
                 "field_688d9f3a4bef7",
                 "field_688b49c60df40",
-                "field_688d9d9b4e8f8"
+                "field_6891b8eefc026",
+                "field_6891d5bc1398c"
             ],
             "display": "seamless",
             "layout": "block",
@@ -319,7 +341,8 @@
                 "field_688f2b7a3c328",
                 "field_688d9f3a4bef7",
                 "field_688b49c60df40",
-                "field_688d9d9b4e8f8"
+                "field_6891b8eefc026",
+                "field_6891d5bc1398c"
             ],
             "display": "seamless",
             "layout": "block",
@@ -367,5 +390,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754273506
+    "modified": 1754389812
 }

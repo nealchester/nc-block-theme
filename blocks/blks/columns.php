@@ -45,9 +45,14 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
     // Desktop
         $dp_count = get_field('column_count') ?: '3';
+        $dp_custom = get_field('column_custom');
+
+        if($dp_custom) { $dp_count = $dp_custom; } 
+        else { $dp_custom = 'repeat('.$dp_count.', 1fr)'; }
+
         $dp_spacing = get_field('column_spacing');
         $dp_rspacing = get_field('column_row_spacing');
-        $dp_width = get_field('column_width');
+        $dp_width = get_field('column_width') ? : '250px';
         $dp_divider = get_field('column_divider');
 
         if ($dp_divider) { $dp_div_display = 'block'; } else { $dp_div_display = 'none'; }
@@ -78,7 +83,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
         --col-spacing: <?php echo $dp_spacing; ?>;
         --col-row-spacing: <?php echo $dp_rspacing; ?>;
         --col-width: <?php echo $dp_width; ?>;
-        --col-num: <?php echo $dp_count; ?>;
+        --col-num: <?php echo $dp_custom; ?>;
         --col-div-display: <?php echo $dp_div_display; ?>;
     }
 
@@ -94,6 +99,11 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
         $tb_rspacing = get_field('tb_column_row_spacing');
         $tb_width = get_field('tb_column_width');
         $tb_divider = get_field('tb_column_divider');
+
+        $tb_custom = get_field('tb_column_custom');
+
+        if($tb_custom) { $tb_count = $tb_custom; } 
+        else { $tb_custom = 'repeat('.$tb_count.', 1fr)'; }
         ?>
 
         <?php if ($tb_divider) { $tb_div_display = 'block'; } else { $tb_div_display = 'none'; }?>
@@ -102,7 +112,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php if( $tb_style == 'ncol_fill' ):?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
@@ -123,12 +133,12 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_fixed' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
-            grid-template-columns: repeat(var(--col-num, 3), 1fr);
+            grid-template-columns: var(--col-num, repeat(3, 1fr) );
             grid-auto-flow: unset;
 
             & > * {
@@ -140,7 +150,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_overflow' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
             display:grid;
             column-gap: var(--col-spacing, 2rem);
@@ -168,7 +178,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_spaced' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
@@ -190,7 +200,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_centered' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
@@ -213,13 +223,13 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php endif;?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
             /* Variables Updated */
             --col-spacing: <?php echo $tb_spacing; ?>;
             --col-row-spacing: <?php echo $tb_rspacing; ?>;
             --col-width: <?php echo $tb_width; ?>;
-            --col-num: <?php echo $tb_count; ?>;
+            --col-num: <?php echo $tb_custom; ?>;
             --col-div-display: <?php echo $tb_div_display; ?>;
         }
 
@@ -239,6 +249,11 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
         $ph_rspacing = get_field('ph_column_row_spacing');
         $ph_width = get_field('ph_column_width');
         $ph_divider = get_field('ph_column_divider');
+
+        $ph = get_field('column_custom');
+
+        if($ph_custom) { $ph_count = $ph_custom; } 
+        else { $ph_custom = 'repeat('.$ph_count.', 1fr)'; }
         ?>
 
         <?php if ($ph_divider) { $ph_div_display = 'block'; } else { $ph_div_display = 'none'; }?>
@@ -247,7 +262,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php if( $ph_style == 'ncol_fill' ):?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
@@ -268,12 +283,12 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_fixed' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
-            grid-template-columns: repeat(var(--col-num, 3), 1fr);
+            grid-template-columns: var(--col-num, repeat(3, 1fr) );
             grid-auto-flow: unset;
 
             & > * {
@@ -285,7 +300,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_overflow' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
             display:grid;
             column-gap: var(--col-spacing, 2rem);
@@ -313,7 +328,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_spaced' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
@@ -335,7 +350,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_centered' ) :?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
@@ -358,13 +373,13 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php endif;?>
 
-        <?php echo '#'.$id;?>.ncol,
+        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
         <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
             /* Variables Updated */
             --col-spacing: <?php echo $ph_spacing; ?>;
             --col-row-spacing: <?php echo $ph_rspacing; ?>;
             --col-width: <?php echo $ph_width; ?>;
-            --col-num: <?php echo $ph_count; ?>;
+            --col-num: <?php echo $ph_custom; ?>;
             --col-div-display: <?php echo $ph_div_display; ?>;
         }
 
