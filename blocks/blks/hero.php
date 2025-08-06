@@ -46,8 +46,7 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 	$content = get_field('content');
 	$image = get_field('image');
 	$image_mobile = get_field('image_mobile');
-	$media_query = get_field('media_query');
-	$parallax = get_field('parallax');
+	$media_query = get_field('media_query');	
 	$focus = nc_block_focal();
 	$focus_mobile = get_field('image_focus_mobile') ?: '50% 50%';
 	$o_opacity = get_field('overlay_opacity') ?: '0.5';
@@ -62,8 +61,14 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 	$c_x = get_field('content_position_x') ?: 'center';
 	$c_y = get_field('content_position_y') ?: 'center';
 	$c_padding = get_field('content_padding') ?: '3rem 0';
-	$min_height = get_field('block_min_height') ?: '700px';
+	$min_height = get_field('block_min_height') ?: '85dvh';
 	$bgcolor = get_field('background_color') ?: '#000';
+
+	$plax = get_field('parallax');
+	if($plax == 'js') { $plax_js_data = ' data-jarallax data-img-position'; } else { $plax_js_data = null; }
+	if($plax == 'js') { $plax_js_css = ' jarallax'; } else { $plax_js_css = null; }
+	if($plax == 'js') { $plax_js_img = ' jarallax-img'; } else { $plax_js_img = null; }
+	if($plax == 'css') { $plax_css = ' nchero_parallaxCSS'; } else { $plax_css = null; }
 ?>
 
 
@@ -72,12 +77,12 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 	wp_enqueue_style('nc-blocks-hero');
 	?>
 
-	<section id="<?php echo $id; ?>" class="nchero jarallax<?php echo esc_attr($className); ?>"<?php if($parallax == 'js') { echo ' data-jarallax data-img-position'; }?><?php echo nc_block_attr();?>>
+	<section id="<?php echo $id; ?>" class="nchero<?php echo $plax_js_css.$plax_css.esc_attr($className); ?>"<?php echo $plax_js_data.' '.nc_block_attr();?>>
 
 	<?php // nc_before_content(); ?>
 
 		<?php if($image):?>
-		<div class="nchero_image jarallax-img nchero_image-fadein" style="animation-delay: 0.5s"></div>
+		<div class="nchero_image<?php echo $plax_js_img; ?>"></div>
 
 		<?php else: ?>
 		<div class="nchero_image" style="background-image:<?php nc_block_fallback_image(); ?>"></div>
@@ -141,18 +146,12 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 		}
 		<?php endif;?>
 
-	<?php if($parallax == 'js' && $image):?>
+	<?php if($plax == 'js' && $image):?>
 
 		<?php 
 			wp_enqueue_script('nc-blocks-parallax');
 			wp_enqueue_style('nc-blocks-parallax');
 		?>
-
-	<?php elseif($parallax == 'css' && $image ):?>
-
-		<?php echo '#'.$id; ?> .nchero_image {
-			background-attachment: fixed;
-		}
 
 	<?php endif;?>
 

@@ -666,6 +666,8 @@ header.wp-block-template-part {
         transform-origin:center top;
         font-size: var(--txt-small);
         border-radius: 5px;
+        background:transparent !important;
+        border:none !important;
     }
 
     .has-child:hover .wp-block-navigation__submenu-container,

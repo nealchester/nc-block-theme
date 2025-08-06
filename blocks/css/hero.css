@@ -38,15 +38,14 @@
     overflow:hidden;
     position:relative;
     background: var(--box-bgcolor);
+    view-timeline: --hero-section;
   }
   
-  .nchero:after { 
+  .nchero:before { 
     content:'';
     display:block;
     position:absolute;
-    bottom:0;
-    left:0; 
-    right:0;
+    inset:0;
     z-index:2;
     width:100%; 
     height:100%;
@@ -59,25 +58,35 @@
     position:absolute;
     width:100%;
     height:100%;
-    left:0; top: 0; right:0; bottom:0;
+    inset:0;
     display:block;
     background-repeat: no-repeat;
     background-size: cover;
     background-position:var(--image-focus);
     mix-blend-mode: var(--image-blend-mode);
   }
+  
+  /* This is a cover element that fades the image into view */
 
-  
-  @keyframes heroImagefadeInAnimation {
-    0% { opacity: 0; }
-    100% { opacity: 1;}
-  }
-  
-  .nchero_image-fadein {
-    animation: heroImagefadeInAnimation ease 1s;
+  .nchero_image:after{
+    background: var(--box-bgcolor);
+    content:'';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: heroImageFadeInAnimation ease var(--intro-reveal, 1s);
+    animation-delay: var(--intro-reveal-delay, 0.5s);
     animation-iteration-count: 1;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
   }
+
+  @keyframes heroImageFadeInAnimation {
+    0% { opacity: 1; }
+    100% { opacity: 0;}
+  }
+
+  /* end cover element */
   
   .nchero > .ncontain { 
     display: flex;
@@ -101,3 +110,19 @@
   .nchero_content > :last-child {
     margin-bottom:0
   }
+
+
+@supports (animation-timeline:--image-section) {
+
+  .nchero_parallaxCSS .nchero_image {
+    transform-origin:center;
+    animation: hero-parallax linear both;
+    animation-timeline: --hero-section;
+  }
+
+  @keyframes hero-parallax {
+    from { transform:scale(1.05)translateY(-25%); }
+    to { transform:scale(1.05)translateY(25%); }
+  }
+
+}

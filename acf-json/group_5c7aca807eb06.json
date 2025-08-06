@@ -83,8 +83,8 @@
                 "id": ""
             },
             "choices": {
-                "js": "Motion Background",
-                "css": "Fixed Background",
+                "css": "Parallax (CSS)",
+                "js": "Parallax (JS)",
                 "none": "No parallax"
             },
             "default_value": "none",
@@ -94,7 +94,9 @@
             "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5ed7d0ad3f04b",
@@ -259,7 +261,9 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5ed7f5189338b",
@@ -297,7 +301,9 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5ed7f97693396",
@@ -318,8 +324,29 @@
             "return_format": "string"
         },
         {
+            "key": "field_5ed7f8ec93395",
+            "label": "Hero Image Min Height",
+            "name": "block_min_height",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "The minimum height of the hero block. Feel free to use \"px, em, vh, vmax, vmin\" etc.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "85dvh",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "85dvh",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5ed82d0e1d3de",
-            "label": "Box Options",
+            "label": "Content Placement",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -402,7 +429,9 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5ed7f88a93393",
@@ -429,7 +458,9 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5ed7f8af93394",
@@ -448,26 +479,6 @@
             "default_value": "3rem 0",
             "placeholder": "3rem 0",
             "prepend": "padding:",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ed7f8ec93395",
-            "label": "Block Min Height",
-            "name": "block_min_height",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "The minimum height of the hero block. Feel free to use \"px, em, vh, vmax, vmin\" etc.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "700px",
-            "placeholder": "700px",
-            "prepend": "",
             "append": "",
             "maxlength": ""
         },
@@ -495,7 +506,7 @@
         },
         {
             "key": "field_67c2f7ece70fa",
-            "label": "Scroll Animation",
+            "label": "Content Animation",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -553,5 +564,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740912405
+    "modified": 1754459911
 }
