@@ -29,6 +29,7 @@
   background-color: rgba(var(--bgcolor), 1);
   color: var(--textcolor);
   position: relative;
+  view-timeline: --grad-section;
 }
 
 .ncgradimg_contain {
@@ -45,6 +46,13 @@
   right: 0;
   top: 0;
   overflow: hidden;
+}
+
+.ncgradimg_picture {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  inset:0;
   background-color: rgba(var(--bgcolor), 1);
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,6 +60,27 @@
   background-blend-mode: var(--blend-mode);
   background-image: var(--bgimage);
 }
+
+/* This is a cover element that fades the image into view */
+
+  .ncgradimg_picture:after{
+    background: rgba(var(--bgcolor), 1);
+    content:'';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: gradImageFadeInAnimation ease var(--grad-reveal, 1s);
+    animation-delay: var(--grad-reveal-delay, 0.5s);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes gradImageFadeInAnimation {
+    0% { opacity: 1; }
+    100% { opacity: 0;}
+  }
+
 
 .ncgradimg_image:before {
   content: "";
@@ -70,10 +99,6 @@
   position: relative;
   padding-block: var(--content-padding);
   text-align: var(--content-align);
-}
-
-.ncgradimg_content > :last-child {
-  margin-bottom: 0;
 }
 
 /*------ Right -------*/
@@ -138,3 +163,18 @@
   }
 }
 */
+
+@supports (animation-timeline:--grad-section) {
+
+  .ncgradimg_parallaxCSS .ncgradimg_picture {
+    transform-origin:center;
+    animation: grad-parallax linear both;
+    animation-timeline: --grad-section;
+  }
+
+  @keyframes grad-parallax {
+    from { transform:scale(1.05)translateY(-25%); }
+    to { transform:scale(1.05)translateY(25%); }
+  }
+
+}

@@ -117,7 +117,7 @@
         },
         {
             "key": "field_6334b5227088f",
-            "label": "Image Blend Mode",
+            "label": "Blend Mode",
             "name": "image_blend_mode",
             "aria-label": "",
             "type": "select",
@@ -125,7 +125,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -149,9 +149,33 @@
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_689400f7d3e01",
+            "label": "Image Parallax",
+            "name": "image_parallax",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Only displays in Chrome and Edge browsers.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
         },
         {
             "key": "field_6334b6498211b",
@@ -214,7 +238,7 @@
         },
         {
             "key": "field_6334aedfe3e0f",
-            "label": "Block Options",
+            "label": "Content Options",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -309,11 +333,30 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "600px",
+            "default_value": "min(800px, 100dvh)",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6893f776b4b1f",
+            "label": "Smaller Displays",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
             "key": "field_6334aedfe0351",
@@ -332,14 +375,38 @@
             "default_value": 1000,
             "min": "",
             "max": "",
-            "placeholder": 640,
+            "allow_in_bindings": 1,
+            "placeholder": 1000,
             "step": "",
             "prepend": "",
             "append": "px"
         },
         {
+            "key": "field_6893f7b3b4b20",
+            "label": "Image height",
+            "name": "image_height",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "200% gives you a tall rectangle. 100% gives you a square. 50% gives you an aspect ratio of widescreen TV.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 100,
+            "min": 50,
+            "max": 250,
+            "allow_in_bindings": 1,
+            "placeholder": 1000,
+            "step": 10,
+            "prepend": "",
+            "append": "%"
+        },
+        {
             "key": "field_67b32f64bd7a4",
-            "label": "Image Scroll Animation",
+            "label": "Content Animation",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -418,5 +485,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740904395
+    "modified": 1754531084
 }

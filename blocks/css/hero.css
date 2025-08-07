@@ -106,13 +106,10 @@
     position:relative;
     z-index:10;
   }
-  
-  .nchero_content > :last-child {
-    margin-bottom:0
-  }
 
 
-@supports (animation-timeline:--image-section) {
+
+@supports (animation-timeline:--hero-section) {
 
   .nchero_parallaxCSS .nchero_image {
     transform-origin:center;

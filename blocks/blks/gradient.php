@@ -48,19 +48,24 @@ function nc_grad_block_markup( $block, $content = '', $is_preview = false ) {
   $image = get_field('image');
   
   if($image){ $img = $image; }
-  else { $img = nc_fallbackimage(); };
+  else { $img = get_theme_file_uri('/blocks/img/default-image.png'); };
+
+  $parallax = get_field('image_parallax');
+  if($parallax) { $grad_plax = ' ncgradimg_parallaxCSS '; } else { $grad_plax = ' '; };
 
 ?>
 
 <?php 
 wp_enqueue_style('nc-blocks-gradient'); ?>
 
-<div id="<?php echo $id; ?>" class="ncgradimg<?php echo ' '.$position.' '.esc_attr($className);?>" <?php echo nc_block_attr();?>>
+<div id="<?php echo $id; ?>" class="ncgradimg<?php echo $grad_plax.$position.esc_attr($className);?>" <?php echo nc_block_attr();?>>
 
-  <div class="ncgradimg_image" <?php echo nc_animate().nc_contain_attr();?>></div>
+  <div class="ncgradimg_image">
+    <div class="ncgradimg_picture"></div>
+  </div>
 
-	<div class="ncontain ncgradimg_contain">
-		<div class="ncgradimg_content">
+	<div class="ncontain ncgradimg_contain" <?php echo nc_contain_attr();?>>
+		<div class="ncgradimg_content" <?php echo nc_animate();?>>
 			<?php echo nc_inner_blocks(); ?>
 		</div>
 	</div>
@@ -70,7 +75,7 @@ wp_enqueue_style('nc-blocks-gradient'); ?>
 <style id="<?php echo $id; ?>-css">
 
 <?php echo '#'.$id; ?>.ncgradimg {
-  --height: <?php echo get_field('height') ?: '600px'; ?>;
+  --height: <?php echo get_field('height') ?: 'min(800px, 100dvh)'; ?>;
   --width: <?php echo get_field('container_width') ?: '1000'; ?>px;
   --content-width: <?php echo get_field('content_width') ?: '50'; ?>%;
   --content-align: left;
@@ -107,7 +112,7 @@ wp_enqueue_style('nc-blocks-gradient'); ?>
 
   <?php echo '#'.$id; ?> .ncgradimg_image:after {
     content: "";
-    padding-top: 60%;
+    padding-top: <?php echo get_field('image_height') ?: '100';?>%;
     display: block;
     width: 100%;
   }
