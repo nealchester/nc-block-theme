@@ -7,18 +7,18 @@
     <div class="nccordion">
 
       <details>
-        <summary class="nccordion_header">Header</summary>
+        <summary class="nccordion_header"><div class="nccordion_hcontain">Header</div></summary>
         <div class="nccordion_content">
           <p>Some Text...</p>
         </div>
       </details>
 
       <details>
-        <summary class="nccordion_header">Header</summary>
+        <summary class="nccordion_header"><div class="nccordion_hcontain">Header</div></summary>
         <div class="nccordion_content">
-        <p>Some Text...</p>
+          <p>Some Text...</p>
         </div>
-      </details>
+      </details>      
 
     </div>
 
