@@ -21,6 +21,24 @@
             "endpoint": 0
         },
         {
+            "key": "field_689550ca0cc3c",
+            "label": "Desktop",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_5c7aca80882a8",
             "label": "Desktop Image",
             "name": "image",
@@ -69,11 +87,11 @@
             "prefix_name": 0
         },
         {
-            "key": "field_5e0ce73a21bca",
-            "label": "Parallax",
-            "name": "parallax",
+            "key": "field_689550dc0cc3d",
+            "label": "Mobile",
+            "name": "",
             "aria-label": "",
-            "type": "select",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -82,25 +100,13 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "css": "Parallax (CSS)",
-                "js": "Parallax (JS)",
-                "none": "No parallax"
-            },
-            "default_value": "none",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 1,
-            "allow_in_bindings": 1,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_5ed7d0ad3f04b",
-            "label": "Swap Image",
+            "label": "Swap image at...",
             "name": "media_query",
             "aria-label": "",
             "type": "number",
@@ -113,12 +119,13 @@
                 "id": ""
             },
             "default_value": 600,
-            "placeholder": 600,
-            "prepend": "",
-            "append": "px",
             "min": "",
             "max": "",
-            "step": ""
+            "allow_in_bindings": 1,
+            "placeholder": 600,
+            "step": "",
+            "prepend": "",
+            "append": "px"
         },
         {
             "key": "field_5ed7d0013f04a",
@@ -183,6 +190,27 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_5e0ce73a21bca",
+            "label": "Parallax",
+            "name": "parallax",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
         },
         {
             "key": "field_5ed7f38693386",
@@ -564,5 +592,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754459911
+    "modified": 1754618948
 }

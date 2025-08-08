@@ -1,21 +1,60 @@
 <?php
 
+function load_animation_css() {?>
+
+<?php $animate_css = get_theme_file_uri('/blocks/js/animate/aos.css'); ?>
+
+<script async>
+  /* Load CSS and check if a link with this ID already 
+    exists to prevent duplicate loading
+  */
+  if (!document.getElementById('nc-blocks-animate-css')) {
+      // Create a new <link> element
+      var link = document.createElement('link');
+
+      // Set its attributes
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = '<?php echo esc_url( $animate_css ); ?>'; // Replace with your file name
+      link.id = 'nc-blocks-animate-css'; // Optional but good practice for checking
+
+      // Append the link element to the <head> of the document
+      document.head.appendChild(link);
+  }
+</script>
+
+<?php }
+
+add_action('wp_head', 'load_animation_css');
+
 /* Register CSS and JS */
 
 function nc_blocks_register_assets(){
   
-  /* Register and equeue Scroll Animation */
-  wp_register_style('nc-blocks-animate', get_theme_file_uri('/blocks/js/animate/aos.css'), '','', 'screen');
-  wp_enqueue_style('nc-blocks-animate');
-
-  wp_register_script('nc-blocks-animate', get_theme_file_uri('/blocks/js/animate/aos.js'), '', '', true);
+  // Register and equeue Scroll Animation //
+  
+  // Scroll script  
+  wp_register_script('nc-blocks-animate', 
+    get_theme_file_uri('/blocks/js/animate/aos.js'), 
+    null, '1.0.0', 
+    array(
+      'strategy' => 'async',
+      'in_footer' => true
+    )
+  );
   wp_enqueue_script('nc-blocks-animate');
 
-  wp_register_script('nc-blocks-animate-init', get_theme_file_uri('/blocks/js/animate/aos-init.js'), array('nc-blocks-animate'), '', true);
-  wp_enqueue_script('nc-blocks-animate-init');
 
-  wp_register_script('nc-blocks-animate-remove', get_theme_file_uri('/blocks/js/animate/aos-remove.js'), '', '', false );
-  wp_enqueue_script('nc-blocks-animate-remove');
+  // Initialize
+  wp_register_script('nc-blocks-animate-init', 
+    get_theme_file_uri('/blocks/js/animate/aos-init.js'), 
+    array('nc-blocks-animate'), null,
+    array(
+      'strategy' => 'async',
+      'in_footer' => true
+    )
+  );
+  wp_enqueue_script('nc-blocks-animate-init');
 
   /* Register each block's CSS */
   wp_register_style('nc-blocks-accordion', get_theme_file_uri('/blocks/css/accordion.css'), array('nc-uclasses'));
@@ -37,26 +76,20 @@ function nc_blocks_register_assets(){
   wp_register_style('nc-blocks-search-box', get_theme_file_uri('/blocks/css/search.css'), array('nc-uclasses'));
 
   /* Register each block's Javascript */
-  wp_register_script('nc-blocks-accordion', get_theme_file_uri('/blocks/js/accordion/accordion.js'), '', '', true);
-  wp_register_script('nc-blocks-parallax', get_theme_file_uri('/blocks/js/parallax/jarallax.js'), array('jquery'));
-  wp_register_script('nc-blocks-magnify', get_theme_file_uri('/blocks/js/popup/magnific.js'), array('jquery'));
-  wp_register_script('nc-blocks-popup', get_theme_file_uri('/blocks/js/popup/popup-once.js'), array('jquery'));
-  wp_register_script('nc-blocks-slider', get_theme_file_uri('/blocks/js/slider/splide.js'));
+
+  wp_register_script('nc-blocks-slider', get_theme_file_uri('/blocks/js/slider/splide.js'),
+    null, null, array('strategy' => 'async', 'in_footer' => false ));
+
+  wp_register_script('nc-blocks-magnify', get_theme_file_uri('/blocks/js/popup/magnific.js'), 
+    array('jquery'), null, array('strategy' => 'async', 'in_footer' => false ));
+
+  wp_register_script('nc-blocks-popup', get_theme_file_uri('/blocks/js/popup/popup-once.js'), 
+    array('jquery'), null, array('strategy' => 'async', 'in_footer' => false ));
+
+
 
 }
 add_action('wp_enqueue_scripts', 'nc_blocks_register_assets');
-
-
-
-/* Add a "disable" attribute to the "nc-blocks-animate" <link> stylesheet. 
-If javascript is enabled, the disabled attribute will be removed. */
-
-function nc_blocks_change_style_attributes( $html, $handle ) {
-  if ('nc-blocks-animate' === $handle) {
-    return str_replace( "media='screen'", "media='screen' disabled", $html );
-  } return $html; 
-}
-add_filter('style_loader_tag', 'nc_blocks_change_style_attributes', 1, 2); 
 
 
 
