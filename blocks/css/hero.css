@@ -35,7 +35,7 @@
   }
   
   .nchero {  
-    overflow:hidden;
+    overflow:clip;
     position:relative;
     background: var(--box-bgcolor);
     view-timeline: --hero-section;

@@ -228,7 +228,7 @@ function nc_heroslider_block_markup( $block, $content = '', $is_preview = false 
     border-radius:var(--slide-border-radius);
 		text-align: var(--slide-text-align);
 		border:var(--slide-border);
-		overflow:hidden;
+		overflow:clip;
 	}
 
 	#wrapper <?php echo '#'.$id; ?> .splide__slide .ncgallery_caption{

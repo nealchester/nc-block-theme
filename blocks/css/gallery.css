@@ -53,7 +53,7 @@
   display:block;
   margin:0; padding:0;
   position:relative;
-  overflow:hidden;
+  overflow:clip;
   filter:drop-shadow(var(--img-drop-shadow));
   }
   
