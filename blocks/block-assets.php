@@ -25,7 +25,7 @@ function load_animation_css() {?>
 
 <?php }
 
-add_action('wp_head', 'load_animation_css');
+add_action('wp_footer', 'load_animation_css');
 
 /* Register CSS and JS */
 
