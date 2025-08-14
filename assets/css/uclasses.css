@@ -546,3 +546,74 @@ Must be applied to UL and OL elements */
       )
     );
 }
+
+/* NC Animations  (scroll based) */
+
+.nca-fadein,
+.nca-fadein-left,
+.nca-fadein-right,
+.nca-section-fadein {
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-timeline: view(block);
+  animation-range: cover 0% cover 45%;
+}
+
+.nca-fadein {
+  animation-name: fadeIn;
+}
+
+  @keyframes fadeIn {
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1;
+    }
+  }
+
+.nca-fadein-left {
+  animation-name: fadeInLeft;
+}
+
+  @keyframes fadeInLeft {
+    from {
+      transform:translateX(150px);
+      opacity:0;
+    }
+    to {
+      transform:translateX(0);
+      opacity:1;
+    }
+  }
+
+.nca-fadein-right {
+  animation-name: fadeInRight;
+}
+
+  @keyframes fadeInRight {
+    from {
+      transform:translateX(-150px);
+      opacity:0;
+    }
+    to {
+      transform:translateX(0);
+      opacity:1;
+    }
+  }
+
+
+
+.nca-section-fadein {
+  animation-name: sectionFadeIn;
+  animation-range: entry 0% cover 50%;
+}
+
+  @keyframes sectionFadeIn {
+    from {
+      opacity:0.1;
+    }
+    to {
+      opacity:1;
+    }
+  }
