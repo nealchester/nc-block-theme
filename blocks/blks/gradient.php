@@ -45,8 +45,17 @@ function nc_grad_block_markup( $block, $content = '', $is_preview = false ) {
 	
 	$position = get_field('image_position') ?: 'ncgradimg-left';
 	$breakpoint = get_field('break_point') ?: '1000';
-  $image = get_field('image');
   
+  $picture = get_field('image');
+  $image = $picture['url'];
+
+  if($picture['alt']){
+    $img_alt = ' role="img" aria-label="'.esc_attr($picture['alt']).'"';
+  }
+  else {
+    $img_alt = null;
+  }
+
   if($image){ $img = $image; }
   else { $img = get_theme_file_uri('/blocks/img/default-image.png'); };
 
@@ -60,7 +69,7 @@ wp_enqueue_style('nc-blocks-gradient'); ?>
 
 <div id="<?php echo $id; ?>" class="ncgradimg<?php echo $grad_plax.$position.esc_attr($className);?>" <?php echo nc_block_attr();?>>
 
-  <div class="ncgradimg_image">
+  <div class="ncgradimg_image"<?php echo $img_alt; ?>>
     <div class="ncgradimg_picture"></div>
   </div>
 

@@ -43,8 +43,18 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
     }
 
 	//ACF Block
-	$content = get_field('content');
-	$image = get_field('image');
+
+	$picture = get_field('image');
+	$image = $picture['url'];
+
+	if($picture['alt']){
+	$img_alt = ' role="img" aria-label="'.esc_attr($picture['alt']).'"';
+	}
+	else {
+	$img_alt = null;
+	}
+
+
 	$image_mobile = get_field('image_mobile');
 	$media_query = get_field('media_query');	
 	$focus = nc_block_focal();
@@ -79,7 +89,7 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 	<?php // nc_before_content(); ?>
 
 		<?php if($image):?>
-		<div class="nchero_image"></div>
+		<div class="nchero_image"<?php echo $img_alt; ?>></div>
 
 		<?php else: ?>
 		<div class="nchero_image" style="background-image:<?php nc_block_fallback_image(); ?>"></div>
@@ -126,7 +136,7 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 		/* Main Image */
 
 		<?php echo '#'.$id; ?> .nchero_image {
-			background-image: url('<?php echo wp_get_attachment_image_url( $image, 'full'); ?>');	
+			background-image: url('<?php echo $image; ?>');	
 		}
 
 		<?php if($image_mobile && $media_query):?>
@@ -134,7 +144,7 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 		@media(max-width:<?php echo $media_query.'px';?>) {	
 
 			<?php echo '#'.$id; ?> .nchero_image {
-				background-image:url(<?php echo wp_get_attachment_image_url( $image_mobile, 'full'); ?>);
+				background-image:url(<?php echo $image_mobile; ?>);
 			}
 			<?php echo '#'.$id; ?> {
 				--image-focus: <?php echo $focus_mobile;?>;
