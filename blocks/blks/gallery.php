@@ -121,8 +121,8 @@ function nc_gallery_block_markup( $block, $content = '', $is_preview = false ) {
 
 <?php echo '#'.$id; ?> .ncolumns {
 	--count: <?php if($columns) { echo $columns;} else { echo '3'; } ?>;
-    --column-gap: <?php if($cgap){ echo $cgap; } else { echo'1rem'; } ?>;
-    --row-gap: <?php if($rgap){ echo $rgap; } else { echo'1rem'; } ?>;
+	--column-gap: <?php if($cgap){ echo $cgap; } else { echo'1rem'; } ?>;
+	--row-gap: <?php if($rgap){ echo $rgap; } else { echo'1rem'; } ?>;
 	--bottom-box-padding: var(--u-padding); /* Bottom padding of the box */
 	--img-height:<?php if($ratio){ echo $ratio; } else { echo'70%'; } ?>;
 	--min-col-width: <?php echo $thumb_width.'px'; ?>;

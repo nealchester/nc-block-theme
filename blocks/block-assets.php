@@ -1,5 +1,32 @@
 <?php
 
+/* Load CSS styles for each block for the block editor. */
+// add_theme_support('editor-styles');
+ 
+function nc_load_blocks_css_for_editor(){
+  add_editor_style(
+    array( 
+      '/blocks/css/accordion.css',
+      '/blocks/css/columns.css',
+      '/blocks/css/divider.css',
+      '/blocks/css/gallery.css',
+      '/blocks/css/gradient.css',
+      '/blocks/css/hero.css',
+      '/blocks/css/list.css',
+      '/blocks/css/media.css',
+      '/blocks/css/posts.css',
+      '/blocks/css/rich-text.css',
+      '/blocks/css/search.css',
+      '/blocks/css/lightbox.css',
+      '/blocks/css/mmenu.css',
+    )
+  );
+}
+add_action('admin_init', 'nc_load_blocks_css_for_editor');
+
+
+
+
 function load_animation_css() {?>
 
 <?php $animate_css = get_theme_file_uri('/blocks/js/animate/aos.css'); ?>
@@ -33,28 +60,28 @@ function nc_blocks_register_assets(){
   
   // Register and equeue Scroll Animation //
   
-  // Scroll script  
-  wp_register_script('nc-blocks-animate', 
-    get_theme_file_uri('/blocks/js/animate/aos.js'), 
-    null, '1.0.0', 
-    array(
-      'strategy' => 'async',
-      'in_footer' => true
-    )
-  );
-  wp_enqueue_script('nc-blocks-animate');
+      // Scroll script  
+      wp_register_script('nc-blocks-animate', 
+        get_theme_file_uri('/blocks/js/animate/aos.js'), 
+        null, '1.0.0', 
+        array(
+          'strategy' => 'async',
+          'in_footer' => true
+        )
+      );
+      wp_enqueue_script('nc-blocks-animate');
 
 
-  // Initialize
-  wp_register_script('nc-blocks-animate-init', 
-    get_theme_file_uri('/blocks/js/animate/aos-init.js'), 
-    array('nc-blocks-animate'), null,
-    array(
-      'strategy' => 'async',
-      'in_footer' => true
-    )
-  );
-  wp_enqueue_script('nc-blocks-animate-init');
+      // Initialize
+      wp_register_script('nc-blocks-animate-init', 
+        get_theme_file_uri('/blocks/js/animate/aos-init.js'), 
+        array('nc-blocks-animate'), null,
+        array(
+          'strategy' => 'async',
+          'in_footer' => true
+        )
+      );
+      wp_enqueue_script('nc-blocks-animate-init');
 
   /* Register each block's CSS */
   wp_register_style('nc-blocks-accordion', get_theme_file_uri('/blocks/css/accordion.css'), array('nc-uclasses'));
@@ -62,12 +89,12 @@ function nc_blocks_register_assets(){
   wp_register_style('nc-blocks-divider', get_theme_file_uri('/blocks/css/divider.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-gallery', get_theme_file_uri('/blocks/css/gallery.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-gradient', get_theme_file_uri('/blocks/css/gradient.css'), array('nc-uclasses'));
-  wp_register_style('nc-blocks-hero-split', get_theme_file_uri('/blocks/css/hero-split.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-hero', get_theme_file_uri('/blocks/css/hero.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-list', get_theme_file_uri('/blocks/css/list.css'), array('nc-uclasses'));
+
   wp_register_style('nc-blocks-lightbox', get_theme_file_uri('/blocks/css/lightbox.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-magnify', get_theme_file_uri('/blocks/js/popup/magnific.css'), array('nc-uclasses'));
-  wp_register_style('nc-blocks-media', get_theme_file_uri('/blocks/css/media.css'), array('nc-uclasses'));
+
   wp_register_style('nc-blocks-parallax', get_theme_file_uri('/blocks/js/parallax/jarallax.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-posts', get_theme_file_uri('/blocks/css/posts.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-rich-text', get_theme_file_uri('/blocks/css/rich-text.css'), array('nc-uclasses'));
@@ -90,29 +117,3 @@ function nc_blocks_register_assets(){
 
 }
 add_action('wp_enqueue_scripts', 'nc_blocks_register_assets');
-
-
-
-/* Load CSS styles for each block for the block editor. */
-// add_theme_support('editor-styles');
- 
-function nc_load_blocks_css_for_editor(){
-  add_editor_style(
-    array( 
-      '/blocks/css/accordion.css',
-      '/blocks/css/columns.css',
-      '/blocks/css/divider.css',
-      '/blocks/css/gallery.css',
-      '/blocks/css/gradient.css',
-      '/blocks/css/hero-split.css',
-      '/blocks/css/hero.css',
-      '/blocks/css/list.css',
-      '/blocks/css/media.css',
-      '/blocks/css/posts.css',
-      '/blocks/css/rich-text.css',
-      '/blocks/css/search.css',
-      '/blocks/css/lightbox.css',
-    )
-  );
-}
-add_action('admin_init', 'nc_load_blocks_css_for_editor');

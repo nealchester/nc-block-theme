@@ -3,7 +3,6 @@
 Need to create a custom blocks for:
 - Parts / Banner
 - Big Search Drop down
-- Custom Mobile Menu
 - Social Sharing
 - Author social media links
 - Archive page number and total number of pages
@@ -27,16 +26,16 @@ Need to create a custom blocks for:
 /* Banner Image */
 
 .banner {
- position: relative; 
- background: #000;
- --banner-opacity: 0.6;
+  position: relative; 
+  background: #000;
+  --banner-opacity: 0.6;
 }
 
 .banner_content {
   position: relative;
   z-index: 2;
   color: #fff;
-  min-height: 350px;
+  min-height: var(--banner-height, 350px);
   padding-block: 3rem;
   display: flex;
   flex-direction: column;

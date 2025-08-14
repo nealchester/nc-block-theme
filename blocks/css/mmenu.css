@@ -1,15 +1,5 @@
 /* Menu Button */
 
-.editor-styles-wrapper .mm_button {
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items: center;
-  gap: 0.2em;
-  cursor: pointer;
-  width: 32px;
-}
-
 .mm_button {
   flex-direction:column;
   justify-content:center;
@@ -57,6 +47,19 @@
 
 
 /* Menu Panel */
+
+.editor-styles-wrapper .mm_panel {
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  transform: translateY(0px);
+  height: auto;
+}
+
+.editor-styles-wrapper .mm_panel,
+.editor-styles-wrapper .mm_panel > * {
+  box-sizing: border-box;
+}
 
 .mm_panel {
   width: var(--p-width, 100%);

@@ -36,8 +36,6 @@ if(function_exists('get_field')){
 
     /*
     No longer in use (or needed)
-
-     get_template_part('blocks/blks/columns');
      get_template_part('blocks/blks/hero-slider');
      get_template_part('blocks/blks/hero-split');
      get_template_part('blocks/blks/list');
