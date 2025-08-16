@@ -96,7 +96,8 @@
             "allow_in_bindings": 0,
             "rows": 12,
             "placeholder": "Add CSS here...",
-            "new_lines": ""
+            "new_lines": "",
+            "acfe_textarea_code": 0
         },
         {
             "key": "field_67b3eb1d6693b",
@@ -135,7 +136,8 @@
             "allow_in_bindings": 1,
             "rows": 12,
             "placeholder": "Enter HTML attributes here...",
-            "new_lines": ""
+            "new_lines": "",
+            "acfe_textarea_code": 0
         }
     ],
     "location": [
@@ -156,5 +158,12 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754389832
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1755315924
 }

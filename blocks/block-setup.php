@@ -29,6 +29,7 @@ if(function_exists('get_field')){
     get_template_part('blocks/blks/popup');
     get_template_part('blocks/blks/posts');
     get_template_part('blocks/blks/search');
+    get_template_part('blocks/blks/sharing');
     get_template_part('blocks/blks/sliders');
     get_template_part('blocks/blks/spacer');
     get_template_part('blocks/blks/text-columns');

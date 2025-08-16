@@ -36,7 +36,7 @@ function nc_blocks_register_assets(){
       // Scroll script  
       wp_register_script('nc-blocks-animate', 
         get_theme_file_uri('/blocks/js/animate/aos.js'), 
-        null, '1.0.0', 
+        null, 
         array(
           'strategy' => 'async',
           'in_footer' => true
@@ -72,7 +72,10 @@ function nc_blocks_register_assets(){
   wp_register_style('nc-blocks-posts', get_theme_file_uri('/blocks/css/posts.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-rich-text', get_theme_file_uri('/blocks/css/rich-text.css'), array('nc-uclasses'));
   wp_register_style('nc-blocks-slider', get_theme_file_uri('/blocks/js/slider/splide.css'));
+
   wp_register_style('nc-blocks-mmenu', get_theme_file_uri('/blocks/css/mmenu.css'));
+  wp_register_style('nc-blocks-social', get_theme_file_uri('/blocks/css/social.css'));
+
   wp_register_style('nc-blocks-search-box', get_theme_file_uri('/blocks/css/search.css'), array('nc-uclasses'));
 
   /* Register each block's Javascript */
@@ -111,6 +114,7 @@ function nc_load_blocks_css_for_editor(){
       '/blocks/css/search.css',
       '/blocks/css/lightbox.css',
       '/blocks/css/mmenu.css',
+      '/blocks/css/social.css',
     )
   );
 }
