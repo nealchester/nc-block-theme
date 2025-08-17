@@ -101,6 +101,12 @@
 
 .mm_panel {
 
+  nav.wp-block-navigation,
+  nav.wp-block-navigation *,
+  .wp-block-navigation .has-child .wp-block-navigation__submenu-container {
+    all:unset;
+  }
+
   .wp-block-page-list {
     list-style: none;
     padding-left: 0;
@@ -109,19 +115,73 @@
   .wp-block-pages-list__item__link,
   nav.wp-block-navigation a {
     display: block;
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 0;
     cursor: pointer;
   }
 
-  nav.wp-block-navigation,
-  nav.wp-block-navigation *,
-  .wp-block-navigation .has-child .wp-block-navigation__submenu-container {
-    all:unset;
+
+  .wp-block-navigation .has-child > .wp-block-navigation-item__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    &:after {
+    content: '\e901';
+    font-family: 'ncicons';
+    display: block;
+    position: absolute;
+    right: 0.5rem;
+    top: 1em;
+    transform: rotate(270deg);
+    transition:0.3s;
+    font-size: 0.7em;
+    }
   }
 
+  nav.wp-block-navigation > .wp-block-navigation__container:first-of-type > li:after {
+    content:'';
+    display: block;
+    height: 1px;
+    background: #ccc;
+    width:100%;
+  }
+
+  /* Sub Menu */
+
   .wp-block-navigation .has-child .wp-block-navigation__submenu-container {
-    padding-left: 1rem;
     display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    overflow: hidden;
+    max-height: 0;
+
+    & > li {
+      display:block;
+      width:100%;
+    }
+  }
+
+ .wp-block-navigation .has-child:hover .wp-block-navigation__submenu-container,
+ .wp-block-navigation .has-child.focused .wp-block-navigation__submenu-container  {
+    visibility: visible;
+    opacity:1;
+    overflow:auto;
+    max-height: 900px;
+  }
+
+  .wp-block-navigation .has-child:hover > .wp-block-navigation-item__content,
+  .wp-block-navigation .has-child.focused > .wp-block-navigation-item__content {
+
+    &:after {
+      transform: rotate(90deg);
+    }
+  }
+
+  .wp-block-navigation .has-child .wp-block-navigation__submenu-container > 
+  .wp-block-navigation-item > .wp-block-navigation-item__content {
+    padding-left: 0.5rem;
   }  
 
 }

@@ -1,28 +1,12 @@
-/*
+/* This file will be deleted soon
 
 Need to create a custom blocks for:
 - Parts / Banner
-- Big Search Drop down
-- Social Sharing
 - Author social media links
 - Archive page number and total number of pages
 - Related Content (it's been commented out for now)
 
 */
-
-/* Search trigger */
-
-#header .ncsearchtrigger {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  top: 0;
-  align-items: center;
-  padding: 0 1em;
-}
-
-#header .ncsearchtrigger_icon { height: auto; width: 1.3em; }
-
 
 /* Misc Needed to pass test */
 
