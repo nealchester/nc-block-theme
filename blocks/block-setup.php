@@ -12,6 +12,7 @@ if(function_exists('get_field')){
  
     get_template_part('blocks/blks/accordion');
     get_template_part('blocks/blks/animate');
+    get_template_part('blocks/blks/bigsearch');
     get_template_part('blocks/blks/blank');
     get_template_part('blocks/blks/canvas');
     get_template_part('blocks/blks/columns');

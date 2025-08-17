@@ -35,13 +35,16 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 	//ACF Block
 	$dwidth = get_field('display_width') ?: '784';
 
+	$hlabel = get_field('hide_label');
+	if( $hlabel ) { $hide = ' hide'; } else { $hide = null; }
+
 ?>
 
 <?php wp_enqueue_style('nc-blocks-mmenu');?>
 	
 <label hidden="" for="mmenu" class="mm_button" aria-hidden="true">
 	<span class="ncicon nc-menu"></span>
-	<div class="mm_btnlabel">Menu</div>
+	<div class="mm_btnlabel<?php echo $hide; ?>">Menu</div>
 </label>
 
 <style id="<?php echo $id; ?>-css">

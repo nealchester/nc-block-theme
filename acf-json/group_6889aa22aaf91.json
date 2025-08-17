@@ -24,6 +24,27 @@
             "step": "",
             "prepend": "",
             "append": "px"
+        },
+        {
+            "key": "field_68a1962a03167",
+            "label": "Hide label",
+            "name": "hide_label",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
         }
     ],
     "location": [
@@ -44,5 +65,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753857696
+    "modified": 1755420811
 }

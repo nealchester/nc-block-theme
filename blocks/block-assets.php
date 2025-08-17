@@ -76,6 +76,8 @@ function nc_blocks_register_assets(){
   wp_register_style('nc-blocks-mmenu', get_theme_file_uri('/blocks/css/mmenu.css'));
   wp_register_style('nc-blocks-social', get_theme_file_uri('/blocks/css/social.css'));
 
+  wp_register_style('nc-blocks-bigsearch', get_theme_file_uri('/blocks/css/bigsearch.css'));
+
   wp_register_style('nc-blocks-search-box', get_theme_file_uri('/blocks/css/search.css'), array('nc-uclasses'));
 
   /* Register each block's Javascript */
@@ -115,6 +117,7 @@ function nc_load_blocks_css_for_editor(){
       '/blocks/css/lightbox.css',
       '/blocks/css/mmenu.css',
       '/blocks/css/social.css',
+      '/blocks/css/bigsearch.css',
     )
   );
 }
