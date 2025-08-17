@@ -24,24 +24,6 @@
             "ui": 1
         },
         {
-            "key": "field_68a16d1f355a8",
-            "label": "",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "This creates a search button, that once clicked, displays a large search box that spans the horizon of the viewport at the top of the page.",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
             "key": "field_68a189f5759cf",
             "label": "Search text",
             "name": "search_text",
@@ -81,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755417885
+    "modified": 1755422700
 }

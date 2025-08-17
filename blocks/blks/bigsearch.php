@@ -8,7 +8,7 @@ function nc_bigsearch_block() {
         acf_register_block_type(array(
             'name'              => 'nc_bigsearch',
             'title'             => __('NC Big Search', 'nc-block-theme'),
-            'description'       => __('Display a large search box.', 'nc-block-theme'),
+            'description'       => __('This creates a search button, that once clicked, displays a large search box that spans the horizon of the viewport at the top of the page.', 'nc-block-theme'),
             'render_callback'   => 'nc_bigsearch_block_markup',
             'category'          => 'layout',
             'icon'              => get_nc_icon('nc-block'),
