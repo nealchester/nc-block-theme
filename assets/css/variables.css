@@ -15,7 +15,7 @@ body {
 
 --width-standard:650px;
 --width-wide:1100px;
---width-max:1600px;
+--width-max:1300px;
 
 --width-limit: calc(100% - 2 * var(--gap));
 

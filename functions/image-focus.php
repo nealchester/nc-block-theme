@@ -1,11 +1,11 @@
 <?php
 
 // For featured images in page banners and thumbnail archives
-function nc_featured_image_focus() {
+function nc_image_focus() {
 
-  if( function_exists('get_field') && get_field("horizontal") && get_field("vertical") ){ 
+  if( function_exists('get_field') && get_field("image_focal_point", true) ){ 
     
-    $img_focus = get_field("horizontal").'% '.get_field("vertical").'%';
+    $img_focus = get_field("image_focal_point", true);
 
     return 'background-position:'.$img_focus.'; transform-origin:'.$img_focus.';'; 
   }

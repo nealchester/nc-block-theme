@@ -1,0 +1,127 @@
+
+.nbanner {
+  position: relative; 
+  overflow: hidden;
+  view-timeline: --banner-section;
+}
+
+.nbanner_content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  min-height: var(--nbanner-height, 300px);
+  padding-block: var(--nbanner-padding, 3rem );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--nbanner-width, 1300px);
+  filter:drop-shadow(2px 2px 5px rgba(0, 0, 0, 1));
+
+  animation: bannerContentFadein 1s backwards;
+  animation-delay: 0.3s;
+}
+
+.editor-styles-wrapper .nbanner_content {
+  box-sizing: border-box;
+}
+
+@keyframes bannerContentFadein {
+  from { opacity:0; transform:translateY(-30px) }
+  to { opacity:1; transform:translateY(0px) }
+}
+
+.nbanner_content > :last-child {
+  margin-bottom: 0;
+}
+
+.nbanner_image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: var(--nbanner-img-position, 50% 50%);
+  position:absolute;
+  z-index:1;
+  width:100%;
+  height:100%;
+  inset:0;
+
+  /* Parallax */
+  @supports (animation-timeline:--banner-section ){
+  animation-name: nbannerParallax; 
+  }
+
+  animation-timeline: --banner-section;
+  animation-timing-function: linear; 
+  animation-fill-mode: both;
+
+
+  &::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    background: var(--nbanner-color, #222);
+    opacity:1;
+
+    /* Animated Fade In */
+    animation-name: nbannerImagefadeOut;
+    animation-timing-function: ease; 
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+  }
+
+}
+
+@keyframes nbannerImagefadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+
+@keyframes nbannerParallax {
+  0% {transform: scale(1.3)translateY(-100px); }
+  100% { transform: scale(1.3)translateY(100px); }
+}
+
+
+/* Banner Post Meta */
+
+.postmeta { position: relative; margin-bottom:3em }
+.postmeta_container { display:flex; font-size:var(--txt-small); align-items:center; }
+.postmeta_avatar img { border-radius:50%; width:100%; display: block; }
+.postmeta_avatar {max-width: 40px; margin-right:1em; }
+.postmeta_content { flex-grow:1;}
+
+
+/* Yoast Bread Crumbs CSS */
+
+.yoast-breadcrumbs {
+  font-size: var(--txt-small);
+  margin-bottom: 0.75em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  .seper {
+    font-size: 1.5ex;
+    margin-inline: 0.5em;
+  }
+
+  .breadcrumb_last { 
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
