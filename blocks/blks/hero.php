@@ -44,21 +44,24 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 
 	//ACF Block
 
-	$picture = get_field('image');
-	$image = $picture['url'];
+	$img = get_field('image');
+	$image = $img['url'] ?? get_theme_file_uri('/blocks/img/default-image.png');
+	$image_ID = $img['ID'] ?? null;
 
-	if($picture['alt']){
-	$img_alt = ' role="img" aria-label="'.esc_attr($picture['alt']).'"';
+	if($img['alt']){
+	$img_alt = ' role="img" aria-label="'.esc_attr($img['alt']).'"';
 	}
 	else {
 	$img_alt = null;
 	}
 
+	$img_mobile = get_field('image_mobile');
+	$image_mobile = $img_mobile['url'] ?? null;
+	$image_mobile_ID = $img_mobile['ID'] ?? null;
 
-	$image_mobile = get_field('image_mobile');
 	$media_query = get_field('media_query');	
-	$focus = nc_block_focal();
-	$focus_mobile = get_field('image_focus_mobile') ?: '50% 50%';
+	$focus = get_field("image_focal_point", $image_ID) ?: '50% 50%';
+	$focus_mobile = get_field("image_focal_point", $image_mobile_ID) ?: '50% 50%';
 	$o_opacity = get_field('overlay_opacity') ?: '0.5';
 	$o_color = get_field('overlay_color') ?: '#000';
 	$o_blend = get_field('overlay_blend_mode') ?: 'normal';
@@ -86,13 +89,9 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 
 	<section id="<?php echo $id; ?>" class="nchero<?php echo $plax_css.esc_attr($className); ?>"<?php echo ' '.nc_block_attr();?>>
 
-	<?php // nc_before_content(); ?>
-
 		<?php if($image):?>
-		<div class="nchero_image"<?php echo $img_alt; ?>></div>
 
-		<?php else: ?>
-		<div class="nchero_image" style="background-image:<?php nc_block_fallback_image(); ?>"></div>
+		<div class="nchero_image"<?php echo $img_alt; ?> style="background-image:url(<?php echo $image; ?>);"></div>
 
 		<?php endif;?>
 
@@ -132,21 +131,15 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 		}
 
 		.editor-styles-wrapper <?php echo '#'.$id; ?> .nchero_image { height:100%; }
-		
-		/* Main Image */
-
-		<?php echo '#'.$id; ?> .nchero_image {
-			background-image: url('<?php echo $image; ?>');	
-		}
 
 		<?php if($image_mobile && $media_query):?>
 
 		@media(max-width:<?php echo $media_query.'px';?>) {	
 
 			<?php echo '#'.$id; ?> .nchero_image {
-				background-image:url(<?php echo $image_mobile; ?>);
+				background-image:url(<?php echo $image_mobile; ?>) !important;
 			}
-			<?php echo '#'.$id; ?> {
+			<?php echo '#'.$id; ?>.nchero {
 				--image-focus: <?php echo $focus_mobile;?>;
 			}
 

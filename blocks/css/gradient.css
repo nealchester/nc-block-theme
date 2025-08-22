@@ -173,8 +173,8 @@
   }
 
   @keyframes grad-parallax {
-    from { transform:scale(1.05)translateY(-25%); }
-    to { transform:scale(1.05)translateY(25%); }
+    from { transform:scale(1.1)translateY(-25%); }
+    to { transform:scale(1.1)translateY(25%); }
   }
 
 }

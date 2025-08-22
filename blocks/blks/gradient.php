@@ -47,7 +47,9 @@ function nc_grad_block_markup( $block, $content = '', $is_preview = false ) {
 	$breakpoint = get_field('break_point') ?: '1000';
   
   $picture = get_field('image');
-  $image = $picture['url'];
+  $image = $picture['url'] ?? null;
+  $image_ID = $picture['ID'] ?? null;
+  $img_focus = get_field("image_focal_point", $image_ID) ?: '50% 50%';
 
   if($picture['alt']){
     $img_alt = ' role="img" aria-label="'.esc_attr($picture['alt']).'"';
@@ -89,7 +91,7 @@ wp_enqueue_style('nc-blocks-gradient'); ?>
   --content-width: <?php echo get_field('content_width') ?: '50'; ?>%;
   --content-align: left;
   --content-padding: <?php echo get_field('padding') ?: '3rem'; ?>;
-  --bgposition: <?php echo nc_block_focal();?>;
+  --bgposition: <?php echo $img_focus;?>;
   --bgcolor: <?php echo hex2RGB( get_field('color'), true ); ?>;
   --textcolor: #fff;
   --blend-mode: <?php echo get_field('image_blend_mode') ?: 'normal'; ?>;

@@ -69,29 +69,6 @@
             "append": "%"
         },
         {
-            "key": "field_6334aedfc62af",
-            "label": "Image Focus",
-            "name": "image_focus",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_679e2de582b60",
-                "field_679e2e8882b61"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_6334aedfbb137",
             "label": "Image Position",
             "name": "image_position",
@@ -486,5 +463,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755169648
+    "modified": 1755840244
 }

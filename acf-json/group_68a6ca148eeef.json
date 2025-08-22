@@ -1,7 +1,28 @@
 {
     "key": "group_68a6ca148eeef",
-    "title": "Block: NC Banner",
+    "title": "Block: NC Main Heading",
     "fields": [
+        {
+            "key": "field_68a6cde69b72d",
+            "label": "Show Author Meta",
+            "name": "show_author_meta",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Show the author's avatar, name and post date inside the banner. This will only display on blog post pages",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
         {
             "key": "field_68a6ca1676d7c",
             "label": "Show Banner",
@@ -31,7 +52,15 @@
             "type": "image",
             "instructions": "If the featured image isn't set, the banner background image will fallback to this image.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68a6ca1676d7c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -48,27 +77,6 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
-        },
-        {
-            "key": "field_68a6cde69b72d",
-            "label": "Show Author Meta",
-            "name": "show_author_meta",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "Show the author's avatar, name and post date inside the banner. This will only display on blog post pages",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "allow_in_bindings": 0,
-            "ui_on_text": "Yes",
-            "ui_off_text": "No",
-            "ui": 1
         }
     ],
     "location": [
@@ -89,5 +97,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755768547
+    "modified": 1755833775
 }

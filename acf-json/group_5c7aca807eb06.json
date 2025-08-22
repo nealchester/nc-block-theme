@@ -65,29 +65,6 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_5ed7e172b0019",
-            "label": "Image Focus",
-            "name": "image_focus",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_679e2de582b60",
-                "field_679e2e8882b61"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_689550dc0cc3d",
             "label": "Mobile",
             "name": "",
@@ -142,7 +119,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -153,27 +130,6 @@
             "mime_types": "",
             "allow_in_bindings": 1,
             "preview_size": "medium"
-        },
-        {
-            "key": "field_679e592084818",
-            "label": "Image Focus (mobile)",
-            "name": "image_focus_mobile",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "50% 50%",
-            "maxlength": 9,
-            "allow_in_bindings": 1,
-            "placeholder": "50% 50%",
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_5ed7f0e793384",
@@ -594,5 +550,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755170497
+    "modified": 1755841257
 }

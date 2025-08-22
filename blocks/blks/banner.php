@@ -7,8 +7,8 @@ function nc_banner_block() {
         // register a items block
         acf_register_block_type(array(
             'name'              => 'nc_banner',
-            'title'             => __('NC Banner Heading', 'nc-block-theme'),
-            'description'       => __('Display a heading with an image in the background.', 'nc-block-theme'),
+            'title'             => __('NC Main Heading', 'nc-block-theme'),
+            'description'       => __('Display the main heading with an option to display an image in the background.', 'nc-block-theme'),
             'render_callback'   => 'nc_banner_block_markup',
             'category'          => 'layout',
             'icon'              => get_nc_icon('nc-block'),
@@ -51,7 +51,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
     <?php 
       $show_avatar = get_field('show_author_meta');
       $dimage = get_field('default_image');
-      $default_image = $dimage['url']; 
+      $default_image = $dimage['url'] ?? get_theme_file_uri('/blocks/img/default-image.png'); 
       $default_image_ID = $dimage['ID']; 
     ?>
 
