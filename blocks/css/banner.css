@@ -2,6 +2,7 @@
 .nbanner {
   position: relative; 
   overflow: hidden;
+  margin-bottom: 3rem;
   view-timeline: --banner-section;
 }
 
@@ -83,45 +84,4 @@
 @keyframes nbannerParallax {
   0% {transform: scale(1.3)translateY(-100px); }
   100% { transform: scale(1.3)translateY(100px); }
-}
-
-
-/* Banner Post Meta */
-
-.postmeta { position: relative; margin-bottom:3em }
-.postmeta_container { display:flex; font-size:var(--txt-small); align-items:center; }
-.postmeta_avatar img { border-radius:50%; width:100%; display: block; }
-.postmeta_avatar {max-width: 40px; margin-right:1em; }
-.postmeta_content { flex-grow:1;}
-
-
-/* Yoast Bread Crumbs CSS */
-
-.yoast-breadcrumbs {
-  font-size: var(--txt-small);
-  margin-bottom: 0.75em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-
-  a {
-    color: inherit;
-    font-weight: inherit;
-  }
-
-  .seper {
-    font-size: 1.5ex;
-    margin-inline: 0.5em;
-  }
-
-  .breadcrumb_last { 
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    border: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
 }

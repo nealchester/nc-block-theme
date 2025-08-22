@@ -14,13 +14,13 @@ function nc_banner_block() {
             'icon'              => get_nc_icon('nc-block'),
             'mode'              => 'preview',
             'keywords'          => array('banner', 'banner heading', 'banner header' ),
-			'post_types'        => get_post_types(),
-			'align'             => 'none',
-			'supports'          => array( 
-									'mode' => true,
-									'multiple' => false,
-				                    'jsx' => false
-									),
+            'post_types'        => get_post_types(),
+            'align'             => 'none',
+            'supports'          => array( 
+                                  'mode' => true,
+                                  'multiple' => false,
+                                  'jsx' => true
+                                  ),
         ));
 }
 
@@ -52,6 +52,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       $show_avatar = get_field('show_author_meta');
       $dimage = get_field('default_image');
       $default_image = $dimage['url']; 
+      $default_image_ID = $dimage['ID']; 
     ?>
 
     <?php wp_enqueue_style('nc-blocks-banner');?>
@@ -62,15 +63,22 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
 
       if ( function_exists('get_field') && has_post_thumbnail() && is_home() ) {
       $thumbnail = get_option( 'page_for_posts' );
+      
+      $page_id = get_queried_object_id();
+      $pID = get_post( get_post_thumbnail_id($page_id) );
+      $img_focus = 'background-position:'.get_field("image_focal_point", $pID);
+
       $img_desc  = '';	
       $image_url = get_the_post_thumbnail_url($thumbnail);
-      $image_bg = 'style="background-image:url('.$image_url.'); '.nc_image_focus().'"';
+      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.';"';
       }
 
       // If Singular (Posts or Pages) and NOT the Blog homepage
 
       elseif ( has_post_thumbnail() && !is_home() && is_singular() ) {
+
       $thumbnail = get_post( get_post_thumbnail_id() );
+      $img_focus = 'background-position:'.get_field("image_focal_point", $thumbnail);
 
       if( get_post_meta($thumbnail->ID, '_wp_attachment_image_alt', true ) ){ 
         $img_desc  = 'role="img" aria-label="'.get_post_meta($thumbnail->ID, '_wp_attachment_image_alt', true ).'"';
@@ -79,7 +87,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       };
 
       $image_url = get_the_post_thumbnail_url();
-      $image_bg = 'style="background-image:url('.$image_url.'); '.nc_image_focus().'"';
+      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.';"';
       }
 
       // If not image, Default image
@@ -87,8 +95,9 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       else {
       $thumbnail = '';
       $img_desc = '';
+      $img_focus = 'background-position:'.get_field("image_focal_point", $default_image_ID);
       $image_url = $default_image;
-      $image_bg = 'style="background-image:url('.$image_url.'); '.nc_image_focus().'"';
+      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.';"';
       }
 
     ?>
@@ -97,11 +106,19 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       <div class="nbanner_image" <?php echo $image_bg.' '.$img_desc;?>></div>
         <div class="nbanner_content ncontain">
         <?php get_template_part('blocks/blks/banner_headings');?>
+        <?php echo nc_inner_blocks(); ?>
       </div>
     </div>
 
-    <?php else:?>
-    <!-- Banner isn't enabled -->
+    <?php elseif( !is_page_template( 'blank' ) && !is_author() && !$show ) :?>
+
+    <div class="maintitle">
+      <div class="ncontain">
+        <?php get_template_part('blocks/blks/banner_headings');?>
+        <?php echo nc_inner_blocks(); ?>
+      </div>
+    </div>
+
     <?php endif;?>    
 	
 

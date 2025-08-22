@@ -54,6 +54,7 @@ function nc_sharing_block_markup( $block, $content = '', $is_preview = false ) {
     else { $bclrs = null; }
 
 ?>
+
 	<?php 
 	wp_enqueue_style('nc-blocks-social'); 
 	?>

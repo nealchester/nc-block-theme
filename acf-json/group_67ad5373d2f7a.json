@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_68a7182d4afe6",
-            "label": "",
+            "label": "Image Focal Point",
             "name": "image_focal_point",
             "aria-label": "",
             "type": "text",
@@ -42,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1755783576
+    "modified": 1755828434
 }
