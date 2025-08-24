@@ -54,7 +54,8 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 			display:flex; 
 		}
 
-		.wp-site-blocks #header { 
+		.wp-site-blocks #header,
+		[data-title="Header"] { 
 			nav[aria-label="main-nav-desktop"],
 			nav[aria-label="Navigation"],
 			nav.main-nav-desktop { 
