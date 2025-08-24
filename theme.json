@@ -424,6 +424,11 @@
 			"area": "uncategorized",
 			"name": "post-listing",
 			"title": "Post Listing"
+		},
+		{
+			"area": "uncategorized",
+			"name": "main-title",
+			"title": "Main Title"
 		}
 	],
 	"version": 3

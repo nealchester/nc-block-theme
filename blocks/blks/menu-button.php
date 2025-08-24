@@ -43,18 +43,18 @@ function nc_menubtn_block_markup( $block, $content = '', $is_preview = false ) {
 <?php wp_enqueue_style('nc-blocks-mmenu');?>
 	
 <label hidden="" for="mmenu" class="mm_button" aria-hidden="true">
-	<span class="ncicon nc-menu"></span>
-	<div class="mm_btnlabel<?php echo $hide; ?>">Menu</div>
+	<span class="ncicon"></span>
+	<div class="mm_btnlabel<?php echo $hide; ?>"><?php _e('Menu', 'nc-block-theme');?></div>
 </label>
 
-<style id="<?php echo $id; ?>-css">
+<style id="mm_button-mm_panel-css">
 
 	@media(max-width:<?php echo $dwidth;?>px){
 		.wp-site-blocks .mm_button { 
 			display:flex; 
 		}
 
-		.wp-site-blocks { 
+		.wp-site-blocks #header { 
 			nav[aria-label="main-nav-desktop"],
 			nav[aria-label="Navigation"],
 			nav.main-nav-desktop { 

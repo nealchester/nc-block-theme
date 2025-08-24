@@ -12,22 +12,55 @@
 .mm_button .ncicon {
   width: 1.2em;
   aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+  --icon-trans: 0.5s;
+
+  &:before {
+    content: "\e907";
+    opacity:1;
+    visibility: visible;
+    transform:scaleY(1);
+  }
+
+  &:after {
+    content: "\e903";
+    opacity: 0;
+    visibility: hidden;
+    transform:scaleY(0);
+  }
+}
+
+.mm_button .ncicon:before,
+.mm_button .ncicon:after {
+  transition: var(--icon-trans);
+  position:absolute;
+  inset:0;
+  display: grid;
+  place-items: center;
 }
 
 .mm_btnlabel {
-  font-size: 7px;
+  font-size: 0.5em;
   letter-spacing: 1px;
   text-align: center;
   text-transform: uppercase;
+  position: relative;
+  left: 1px;
 }
 
 /* Change the Hamburger menu icon to a Close icon */
 :has(.mm_input:checked) .mm_button .ncicon:before {
-  content: '\e903';
+  opacity: 0;
+  visibility: hidden;
+  transform:scaleY(0);
+}
+
+:has(.mm_input:checked) .mm_button .ncicon:after {
+  opacity:1;
+  visibility: visible;
+  transform:scaleY(1);
 }
 
 :has(.mm_input:checked) body {
@@ -63,14 +96,14 @@
 
 .mm_panel {
   width: var(--p-width, 100%);
-  padding: var(--p-padding, 1rem var(--gap));
+  padding: var(--p-padding, 1rem var(--gap) 3rem);
   background: var(--p-bgcolor, #fff);
   z-index: var(--p-zindex, 299);
-  height: var(--p-height, calc(100vh - var(--p-from-top, 80px) ));
+  height: var(--p-height, auto);
   overflow-y: auto;
   color: var(--p-color, #000);
   position: var(--p-position, absolute);
-  top: var(--p-from-top, 80px);
+  top: var(--p-from-top, auto);
   left: var(--p-from-left, 0);
   right: var(--p-from-right, auto);
   transform: var(--p-translate-from, translateY(-50px));
@@ -190,9 +223,9 @@
 /* Menu Overlay (currently set to hidden) */
 
 .mm_underlay {
-  display: var(--overlay-display, none);
+  display: var(--overlay-display, block);
   position: fixed;
-  top: var(--p-from-top, 80px);
+  top: var(--p-underlay-from-top, 90px);
   bottom: 0;
   left: 0;
   right: 0;
@@ -200,12 +233,27 @@
   background: var(--overlay-color, #000);
   opacity: 0;
   width: 100%;
-  height: calc(100% - var(--p-from-top, 80px));
+  height: 100%;
   visibility: hidden;
   transition: 0.5s;
+  transition-property: opacity;
+}
+
+@media (max-width: 782px){
+  body.admin-bar {
+    .mm_panel{
+      height: var(--p-height, auto);
+    }
+
+    .mm_underlay {
+      display: var(--overlay-display, block);
+      position: fixed;
+      top: calc( 46px + var(--p-underlay-from-top, 90px));
+    }
+  }
 }
 
 .mm_input:checked + .mm_panel + .mm_underlay {
-  opacity: 0.7;
+  opacity: 0.6;
   visibility: visible;
 }

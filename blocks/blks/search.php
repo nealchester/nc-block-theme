@@ -55,10 +55,4 @@ function nc_search_block_markup( $block, $content = '', $is_preview = false ) {
         </div>  
     </form>
 
-<style id="<?php echo $id; ?>-css">
-
-    <?php nc_block_custom_css(); ?>
-
-</style>
-
 <?php } ?>

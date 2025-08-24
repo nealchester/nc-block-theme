@@ -26,7 +26,7 @@ Close or hide the mobile menu after clicking item.
 Works best for one-pagers
 */
 
-jQuery(".mm_panel .menu-item:not(.menu-item-has-children) a, .mm_panel .wp-block-pages-list__item__link").click(function(){
+jQuery(".mm_panel .wp-block-navigation-link:not(.has-child) .wp-block-navigation-item__content, .ncsearchtrigger").click(function(){
 	jQuery("#mmenu").prop("checked", false);
 });
 

@@ -566,7 +566,7 @@ cite:before { content:'\2014'; padding-right:0.3em }
 
 /* Navigation (in header) */
 
-header.wp-block-template-part {
+#header {
 
     .wp-block-navigation { 
         display:flex;
@@ -840,7 +840,7 @@ header.wp-block-template-part {
 
 /* Banner Post Meta */
 
-.postmeta { position: relative; margin-bottom:var(--gap); }
+.postmeta { position: relative; }
 .postmeta_container { display:flex; font-size:var(--txt-small); align-items:center; }
 .postmeta_avatar img { border-radius:50%; width:100%; display: block; }
 .postmeta_avatar {max-width: 40px; margin-right:1em; }
@@ -881,4 +881,18 @@ header.wp-block-template-part {
 .maintitle {
     --width-max: var(--width-standard);
     padding-block: 3rem;
+}
+
+
+.ncurrentpage {
+    margin-bottom: 0.75em;
+}
+
+
+/*Header */
+.wp-site-blocks > header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 999;
 }

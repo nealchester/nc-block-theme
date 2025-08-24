@@ -40,28 +40,6 @@
             "default_value": "",
             "allow_in_bindings": 1,
             "placeholder": "https:\/\/another-domain.com\/"
-        },
-        {
-            "key": "field_67ab33097eb32",
-            "label": "extras",
-            "name": "extras",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_67ad4b91436c6"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -82,5 +60,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740399859
+    "modified": 1756007947
 }

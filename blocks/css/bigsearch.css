@@ -37,14 +37,15 @@
   --x-button-size: 1em;
   --x-button-color: #fff;
   --x-button-color-hover: #fff;
+  --s-height: 100px;
 }
 
 .ncsearchreveal {
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   width:100%;
-  height:100%;
+  height:var(--s-height);
   margin:0;
 
   /* for the positioning of the close button */
@@ -57,6 +58,7 @@
   /* Must be hidden for header elements to interactive */
   visibility:hidden;
 }
+
 
 .ncsearchreveal_input {
   position:absolute;

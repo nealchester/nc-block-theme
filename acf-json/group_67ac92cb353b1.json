@@ -60,12 +60,42 @@
             "endpoint": 0
         },
         {
+            "key": "field_68aac8b2e0e17",
+            "label": "Lightbox Style",
+            "name": "lightbox_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Center",
+                "lbox_overlay-full": "Fullscreen",
+                "lbox_overlay-bottom": "Footer"
+            },
+            "default_value": "Center",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_67ac95995a5d2",
             "label": "Maximum Width",
             "name": "max_width",
             "aria-label": "",
             "type": "range",
-            "instructions": "",
+            "instructions": "This will control the box width. If you choose any position other than center, this will control the width of the content within the box.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -198,5 +228,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1746427847
+    "modified": 1756023558
 }

@@ -56,7 +56,9 @@ function nc_lightbox_block_markup( $block, $content = '', $is_preview = false ) 
     $txcolor = get_field('text_color') ?: 'currentColor';
     $xcolor = get_field('x_color') ?: '#ffffff';
     $mwidth = get_field('max_width').'px' ?: '700';
-    $ovcolor = get_field('overlay_color') ?: 'rgba(2,0,30,0.8)';
+    $ovcolor = get_field('overlay_color') ?: 'rgba(0,0,0,0.6)';
+
+    $popstyle = get_field('lightbox_style') ?: '';
 
 ?>
 
@@ -74,7 +76,7 @@ function nc_lightbox_block_markup( $block, $content = '', $is_preview = false ) 
 
     <input id="<?php echo $lb_id;?>" type="checkbox" class="hide lbox_check" name="popup" value="popup" aria-hidden>
 
-    <div class="lbox_overlay" hidden>
+    <div class="lbox_overlay <?php echo $popstyle.esc_attr($className); ?>" hidden>
         <label class="lbox_close" for="<?php echo $lb_id;?>">
             <div class="ncicon nc-close"></div>
         </label>

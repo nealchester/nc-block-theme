@@ -46,13 +46,13 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
     $show = get_field('show_banner');
 ?>
     
-    <?php if( !is_page_template( 'blank' ) && !is_author() && $show ):?>
+    <?php if( $show ):?>
 
     <?php 
       $show_avatar = get_field('show_author_meta');
       $dimage = get_field('default_image');
       $default_image = $dimage['url'] ?? get_theme_file_uri('/blocks/img/default-image.png'); 
-      $default_image_ID = $dimage['ID']; 
+      $default_image_ID = $dimage['ID'] ?? null; 
     ?>
 
     <?php wp_enqueue_style('nc-blocks-banner');?>
@@ -110,7 +110,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       </div>
     </div>
 
-    <?php elseif( !is_page_template( 'blank' ) && !is_author() && !$show ) :?>
+    <?php elseif( !$show ) :?>
 
     <div class="maintitle">
       <div class="ncontain">
