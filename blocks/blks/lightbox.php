@@ -86,7 +86,7 @@ function nc_lightbox_block_markup( $block, $content = '', $is_preview = false ) 
     </div>
 
 </div>
-  
+
 
 <style id="<?php echo $id; ?>-css">
 

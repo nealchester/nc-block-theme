@@ -31,13 +31,34 @@ jQuery(".mm_panel .wp-block-navigation-link:not(.has-child) .wp-block-navigation
 });
 
 
+/* 
+Make drop down menus on  mobile devices activate on the second click. 
+This will allow the menu to open up instead of going to the link. 
+*/
+
+jQuery('.has-child > a').on('click', function(event) {
+
+		var $anchor = jQuery(this);
+		var clickCount = $anchor.data('click-count') || 0;
+		clickCount++;
+		$anchor.data('click-count', clickCount);
+		
+		if (clickCount < 2) {
+				event.preventDefault();
+				// Prevent default behavior on first click
+				return false;
+		}
+
+});
+
 
 /* 
 Make drop-down menus on mobile devices touch-friendly
 https://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly
-*/
 
 !function(t,n,o,i){
 'use strict';			
 t.fn.doubleTapToGo=function(i){return"ontouchstart"in n||navigator.msMaxTouchPoints||navigator.userAgent.toLowerCase().match(/windows phone os 7/i)?(this.each(function(){var n=!1;t(this).on("click",function(o){var i=t(this);i[0]!=n[0]&&(o.preventDefault(),n=i)}),t(o).on("click touchstart MSPointerDown",function(o){for(var i=!0,a=t(o.target).parents(),e=0;e<a.length;e++)a[e]==n[0]&&(i=!1);i&&(n=!1)})}),this):!1}}(jQuery,window,document);
 jQuery( '.mm_panel .has-child > a' ).doubleTapToGo();		
+
+*/
