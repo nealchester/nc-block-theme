@@ -45,12 +45,40 @@ function nc_singlelink_block_markup( $block, $content = '', $is_preview = false 
 	$inlink = get_field('internal_link');
 	$exlink = get_field('external_link');
 	$after_text = get_field('after_text');
-	$image_url = get_field('image');
+
 	$position = get_field('position');
 	$style = get_field('style');
 	$breakpoint = get_field('mobile_breakpoint');
 	$style_mobile = get_field('style_mobile');
 	if(get_field("before_title")) {	$before_text = '<strong>'.get_field("before_title").'</strong> '; }
+
+	$img = get_field('image');
+	$size = 'medium';
+	$image_select = wp_get_attachment_image_url($img, $size);
+	
+	$image_post_url = get_the_post_thumbnail_url($inlink, 'medium');
+
+	$featured_image_id = get_post_thumbnail_id($inlink);
+
+	$s_att = get_field('image_focal_point', $img) ?: '50%';
+	$f_att = get_field('image_focal_point', $featured_image_id) ?: '50%';
+
+	// $no_pos = null;
+	$selected_att = 'style="object-position:'.$s_att.'"';
+	$featured_att = 'style="object-position:'.$f_att.'"';
+
+	if( !empty($image_post_url) ){ 
+		$image = $image_post_url;
+		$image_att = $featured_att;
+	}
+	elseif( empty($image_post_url) && $image_select ){ 
+		$image = $image_select; 
+		$image_att = $selected_att;
+	}
+	else { 
+		$image = nc_block_fallback_image();
+		$image_att = null; 
+	}
 ?>
 
 	<?php 
@@ -60,54 +88,33 @@ function nc_singlelink_block_markup( $block, $content = '', $is_preview = false 
 	<div id="<?php echo $id; ?>" class="ncard_outerbox">
 		<div class="ncard_container">
 
-	<div class="ncard ncard-singlelink<?php echo esc_attr($className); ?>" <?php echo nc_animate().nc_block_attr();?>>
+			<div class="ncard ncard-singlelink<?php echo esc_attr($className); ?>">
 		
 
 		<?php if($type == 'internal' && $inlink ):?>
 
-			<?php setup_postdata( $inlink );?>
-
-				<?php if(!empty($image_url)):?>
 				<div class="ncard_imgcon">
-					<?php echo wp_get_attachment_image( $image_url, 'medium', null, array( "class" => "ncard_img") ); ?>
+					<img loading="lazy" src="<?php echo $image; ?>" alt="" class="ncard_img" <?php echo $image_att; ?>/>
 				</div>
-				<?php elseif(get_the_post_thumbnail_url($inlink->ID)):?>
-				<div class="ncard_imgcon">
-					<?php echo get_the_post_thumbnail( $inlink->ID, 'medium', array( "class" => "ncard_img", "style" => nc_block_image_focus($inlink->ID) )); ?>
-				</div>
-				<?php else:?>
-				<div class="ncard_imgcon ncard-noimage">
-					<img class="ncard_img" src="<?php nc_block_fallback_image(); ?>" alt="default image" />
-				</div>
-				<?php endif; ?>
 
 				<div class="ncard_text">
 					<div class="ncard_url">
-						<span class="ncicon nc-link"></span> <?php echo get_bloginfo('name') ?>
+						<span class="ncicon nc-link"></span>
+						<?php echo get_bloginfo('name') ?>
 					</div>
 					<div class="ncard_title">
-						<?php echo $before_text.get_the_title($inlink->ID); ?>
+						<?php echo $before_text.get_the_title($inlink); ?>
 					</div>
-					<?php if($after_text){ echo'<div class="ncard_posttext">'.$after_text.'</div>'; } else { /* echo '<div class="ncard_posttext">'.get_the_excerpt($inlink->ID).'</div>';*/ } ?>
+					<?php if($after_text){ echo'<div class="ncard_posttext">'.$after_text.'</div>'; } else { echo null; } ?>
 				</div>
 
-			<a class="ncard_link" href="<?php echo get_permalink($inlink->ID); ?>"></a>
+			<a class="ncard_link" href="<?php echo get_permalink($inlink); ?>"></a>
 
-		<?php wp_reset_postdata();?>
-
-	<?php elseif($type == 'external'):?>
+		<?php elseif($type == 'external'):?>
 	
-		<?php if(!empty($image_url)):?>
 		<div class="ncard_imgcon">
-			<?php echo wp_get_attachment_image( $image_url, 'medium', null, array( "class" => "ncard_img") ); ?>
+			<img loading="lazy" src="<?php echo $image; ?>" alt="" class="ncard_img" <?php echo $image_att; ?>/>
 		</div>
-
-		<?php else:?>
-		<div class="ncard_imgcon ncard-noimage">
-			<img class="ncard_img" src="<?php nc_block_fallback_image(); ?>" alt="default image" />
-		</div>
-
-	<?php endif; ?>
 					
 		<div class="ncard_text">
 			<div class="ncard_url"><span class="ncicon nc-link"></span> <?php $exurl = $exlink['url']; echo parse_url($exurl, PHP_URL_HOST); ?></div>

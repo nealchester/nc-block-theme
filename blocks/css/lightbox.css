@@ -85,12 +85,13 @@ the front-end and not the editor. */
 
 .lbox_overlay-full {
   padding: 0;
-  background: var(--bgcolor, #fff);
+  background-color: var(--bgcolor, #fff);
 }
 
   .lbox_overlay-full .lbox_content {
     box-shadow: none;
     padding-top:0;
+    background-color:transparent;
   }
 
   .lbox_overlay-full .lbox_close {
@@ -108,7 +109,7 @@ the front-end and not the editor. */
   padding: var(--bpadding, 2rem clamp(1rem, 6vw, 2rem) );
   background: var(--bgcolor, #fff);
   color: var(--txcolor, currentColor);
-  max-height:85%;
+  max-height:80%;
   overflow: auto;
   box-shadow: var(--shadows);
   position: relative;
@@ -165,6 +166,15 @@ the front-end and not the editor. */
   color: var(--xcolor, --bgcolor);
 }
 
-.lbox_close:active {
-  outline:solid 0.08em;
+/* Make the area around the box close-able */
+
+.lbox_close:before {
+  content:'';
+  position:absolute;
+  inset:0;
+  top:-100vh;
+  left:-100vw;
+  width:1000vh;
+  height:200vh;
+  display:block;
 }

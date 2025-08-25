@@ -1,7 +1,7 @@
 <?php
 
 function get_nc_icon($name) {
-    return file_get_contents( STYLESHEETPATH .'/blocks/'.$name.'.svg');
+    return file_get_contents( STYLESHEETPATH .'/blocks/img/'.$name.'.svg');
 }
 
 // Custom Block Styles
@@ -186,9 +186,9 @@ function nc_box_styles( $block_id =''){
 // For NC Block Image For Gallery Images
 function nc_block_image_focus($image) {
 
-    if( function_exists('get_field') && get_field("horizontal", $image) && get_field("vertical", $image) ){ 
+    if( function_exists('get_field') && get_field("image_focal_point", $image) ){ 
       
-      $img_focus = get_field("horizontal", $image).'% '.get_field("vertical", $image).'%';
+      $img_focus = get_field("image_focal_point", $image);
   
       return 'object-position:'.$img_focus.'; transform-origin:'.$img_focus.';'; 
     }
@@ -306,11 +306,7 @@ function nc_inner_col_blocks(int $hlevel = 2) {
 
 // Fallback Image
 function nc_block_fallback_image() {
-    if( get_theme_mod('fallback_image')) {
-        echo get_theme_mod('fallback_image');
-    } else {
-        echo get_theme_file_uri('/blocks/img/default-image.png');
-    }
+    return get_theme_file_uri('/blocks/img/default-image.png');
 }
 
 

@@ -128,7 +128,7 @@ function nc_posts_block_markup( $block, $content = '', $is_preview = false ) {
 						<?php else:?>
 
 						<div class="ncard_imgcon">
-							<img class="ncard_img" src="<?php nc_block_fallback_image(); ?>" alt="default image" />
+							<img class="ncard_img" src="<?php echo nc_block_fallback_image(); ?>" alt="default image" />
 						</div>
 
 					<?php endif;?>

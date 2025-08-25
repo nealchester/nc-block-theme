@@ -54,6 +54,30 @@
   margin-right: -50vw;
 }
 
+/* Stationary Header */
+
+.wp-site-blocks > header:has(#header) {
+  z-index: 999;
+  position: relative;
+  width: 100%;
+  top: 0;
+}
+
+/* Sticky Header */
+
+.wp-site-blocks > header:has(.header-sticky) {
+  position: sticky;
+  background: var(--header-bg, #fff);
+}
+
+/* Fixed Overlay Header */
+
+.wp-site-blocks > header:has(.header-overlayed) {
+  position: fixed;
+  background: transparent;
+}
+
+
 
 /* Breakout */
 

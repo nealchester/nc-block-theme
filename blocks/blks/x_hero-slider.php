@@ -101,7 +101,7 @@ function nc_heroslider_block_markup( $block, $content = '', $is_preview = false 
               <div class="splide__slide">
                 <div class="splide__padding"></div>
                 <img class="splide__img" 
-                src="<?php nc_block_fallback_image(); ?>" 
+                src="<?php echo nc_block_fallback_image(); ?>" 
                 alt="<?php _e('A default picture','nc-block-theme');?>" 
                 title="<?php _e('A default picture','nc-block-theme');?>" />
               </div>

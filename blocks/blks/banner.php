@@ -51,7 +51,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
     <?php 
       $show_avatar = get_field('show_author_meta');
       $dimage = get_field('default_image');
-      $default_image = $dimage['url'] ?? get_theme_file_uri('/blocks/img/default-image.png'); 
+      $default_image = $dimage['url'] ?? nc_block_fallback_image(); 
       $default_image_ID = $dimage['ID'] ?? null; 
     ?>
 

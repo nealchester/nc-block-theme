@@ -59,7 +59,7 @@ function nc_grad_block_markup( $block, $content = '', $is_preview = false ) {
   }
 
   if($image){ $img = $image; }
-  else { $img = get_theme_file_uri('/blocks/img/default-image.png'); };
+  else { $img = nc_block_fallback_image(); };
 
   $parallax = get_field('image_parallax');
   if($parallax) { $grad_plax = ' ncgradimg_parallaxCSS '; } else { $grad_plax = ' '; };

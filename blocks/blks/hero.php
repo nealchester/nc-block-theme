@@ -45,7 +45,7 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 	//ACF Block
 
 	$img = get_field('image');
-	$image = $img['url'] ?? get_theme_file_uri('/blocks/img/default-image.png');
+	$image = $img['url'] ?? nc_block_fallback_image();
 	$image_ID = $img['ID'] ?? null;
 
 	if($img['alt']){
