@@ -52,7 +52,7 @@ function nc_grad_block_markup( $block, $content = '', $is_preview = false ) {
   $img_focus = get_field("image_focal_point", $image_ID) ?: '50% 50%';
 
   if($picture['alt']){
-    $img_alt = ' role="img" aria-label="'.esc_attr($picture['alt']).'"';
+    $img_alt = ' role="img" aria-description="'.esc_attr($picture['alt']).'"';
   }
   else {
     $img_alt = null;

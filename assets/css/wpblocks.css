@@ -883,6 +883,11 @@ cite:before { content:'\2014'; padding-right:0.3em }
     padding-block: 3rem;
 }
 
+.maintitle_term-description {
+    max-width: 60ch;
+    font-size:var(--txt-small);
+}
+
 
 .ncurrentpage {
     margin-bottom: 0.75em;

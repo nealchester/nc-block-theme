@@ -64,21 +64,24 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       if ( function_exists('get_field') && has_post_thumbnail() && is_home() ) {
       $thumbnail = get_option( 'page_for_posts' );
       
-      $page_id = get_queried_object_id();
+      /* $page_id = get_queried_object_id();
       $pID = get_post( get_post_thumbnail_id($page_id) );
-      $img_focus = 'background-position:'.get_field("image_focal_point", $pID);
+      $img_focus = 'background-position:'.get_field("image_focal_point", $pID); */
+      $img_focus = nc_block_image_focus('background');
 
       $img_desc  = '';	
       $image_url = get_the_post_thumbnail_url($thumbnail);
-      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.';"';
+      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.'"';
       }
 
       // If Singular (Posts or Pages) and NOT the Blog homepage
 
       elseif ( has_post_thumbnail() && !is_home() && is_singular() ) {
 
-      $thumbnail = get_post( get_post_thumbnail_id() );
-      $img_focus = 'background-position:'.get_field("image_focal_point", $thumbnail);
+      $thumbnail = get_post( get_post_thumbnail_id() ); 
+      /* 
+      $img_focus = 'background-position:'.get_field("image_focal_point", $thumbnail); */
+      $img_focus =  nc_block_image_focus('background');
 
       if( get_post_meta($thumbnail->ID, '_wp_attachment_image_alt', true ) ){ 
         $img_desc  = 'role="img" aria-label="'.get_post_meta($thumbnail->ID, '_wp_attachment_image_alt', true ).'"';

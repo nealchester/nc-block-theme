@@ -85,10 +85,10 @@ function nc_blocks_register_assets(){
   /* Register each block's Javascript */
 
   wp_register_script('nc-blocks-slider', get_theme_file_uri('/blocks/js/slider/splide.js'),
-    null, null, array('strategy' => 'async', 'in_footer' => false ));
+    null, null, array('strategy' => 'defer', 'in_footer' => false ));
 
   wp_register_script('nc-blocks-magnify', get_theme_file_uri('/blocks/js/popup/magnific.js'), 
-    array('jquery'), null, array('strategy' => 'async', 'in_footer' => false ));
+    array('jquery'), null, array('strategy' => '', 'in_footer' => false ));
 
   wp_register_script('nc-blocks-popup', get_theme_file_uri('/blocks/js/popup/popup-once.js'), 
     array('jquery'), null, array('strategy' => 'async', 'in_footer' => false ));

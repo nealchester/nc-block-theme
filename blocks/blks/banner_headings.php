@@ -52,5 +52,5 @@ echo '</h1>';?>
 <?php endif; ?>
 
 <?php if(term_description()):?>
-<div id="term-desc"><?php echo term_description(); ?></div>
+<div class="maintitle_term-description"><?php echo term_description(); ?></div>
 <?php endif;?>

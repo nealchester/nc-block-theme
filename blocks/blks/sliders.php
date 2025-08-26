@@ -279,7 +279,7 @@ function nc_sliders_block_markup( $block, $content = '', $is_preview = false ) {
 	<?php echo '#'.$id; ?>{	--arrow-width: 25px; }
 }
 
-<?php nc_box_styles($id_box); ?>
+<?php // nc_box_styles($id_box); ?>
 
 <?php nc_block_custom_css(); ?>
 
@@ -294,7 +294,7 @@ if( in_the_loop() ): ?>
 	wp_enqueue_script('nc-blocks-slider');
 ?>
 
-<script id="<?php echo $id; ?>-js">
+<script id="<?php echo $id; ?>-js" defer>
 	document.addEventListener( 'DOMContentLoaded', function () {
 		new Splide( '<?php echo '#'.$id; ?>', {
 		type   : '<?php echo get_field('type') ?: loop; ?>',

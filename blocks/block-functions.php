@@ -184,19 +184,54 @@ function nc_box_styles( $block_id =''){
 }
 
 // For NC Block Image For Gallery Images
-function nc_block_image_focus($image) {
+/*
+function nc_block_image_focus($image, $property = 'object') {
 
     if( function_exists('get_field') && get_field("image_focal_point", $image) ){ 
       
       $img_focus = get_field("image_focal_point", $image);
   
-      return 'object-position:'.$img_focus.'; transform-origin:'.$img_focus.';'; 
+      return $property.'-position:'.$img_focus.'; transform-origin:'.$img_focus.';'; 
     }
     else {
-      return 'object-position:50% 50%; transform-origin:50% 50%;';	
+      return $property.'-position:50% 50%; transform-origin:50% 50%;';	
     }
   
 }
+*/
+
+function nc_block_image_focus($property = 'object') {
+    
+    // Vars
+    $featured_image_url = get_the_post_thumbnail_url( get_the_ID() );
+    $featured_image_on_homepage = get_queried_object_id();
+    
+    if( is_home() ) {
+        $attachment_id = get_post( get_post_thumbnail_id($featured_image_on_homepage) );
+    }
+    elseif( !is_home() && is_singular() ) {
+        $attachment_id = get_post( get_post_thumbnail_id() );
+    }
+    elseif( $featured_image_url ){
+        $attachment_id = attachment_url_to_postid( $featured_image_url );
+    }   
+    else {
+        $attachment_id = null;
+    }
+
+    if( function_exists('get_field') && get_field("image_focal_point", $attachment_id) ){ 
+      
+      $img_focus = get_field("image_focal_point", $attachment_id);
+  
+      return $property.'-position:'.$img_focus.'; transform-origin:'.$img_focus.';'; 
+    }
+    else {
+      return $property.'-position:50%; transform-origin:50%;';	
+    }
+  
+}
+
+ 
 
 function nc_block_slider_image_focus($image) {
 

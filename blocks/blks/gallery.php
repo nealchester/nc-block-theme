@@ -80,6 +80,9 @@ function nc_gallery_block_markup( $block, $content = '', $is_preview = false ) {
 			<?php 
 				$mdisplay = get_field('meta_display');
 				$link2img = get_field('link_to_image');
+				$img_f = get_field("image_focal_point", $image['ID']) ?: '50%';
+				$imgfocus = 'object-position:'.$img_f.'; transform-origin:'.$img_f.';';
+
 			?>
 
 				<figure class="ncgallery_item ncgallery_item-<?php echo $i++;?>">
@@ -89,7 +92,7 @@ function nc_gallery_block_markup( $block, $content = '', $is_preview = false ) {
 						<div class="ncgallery_size">
 							<?php echo wp_get_attachment_image( $image['ID'], $thumb_size, '', array( 
 								"class" => "ncgallery_image", 
-								"style" => nc_block_image_focus($image['ID'])
+								"style" => $imgfocus
 								) ); ?>
 						</div>
 					<?php if( get_field('custom_link', $image['ID']) ):?></a>

@@ -121,14 +121,19 @@ function nc_posts_block_markup( $block, $content = '', $is_preview = false ) {
 			
 					<?php if( $showthumb && get_the_post_thumbnail(get_the_ID()) ):?>
 
+						<?php /*
+						$image_url = get_the_post_thumbnail_url( get_the_ID() );
+						$attachment_id = attachment_url_to_postid( $image_url ); 
+						*/ ?>
+
 						<div class="ncard_imgcon">
-							<?php echo get_the_post_thumbnail( get_the_ID(), $size, array( "class" => "ncard_img", "style" => nc_block_image_focus(get_the_ID()) ) ); ?>
+							<?php echo get_the_post_thumbnail( get_the_ID(), $size, array( "class" => "ncard_img", "style" => nc_block_image_focus( 'object' ) ) ); ?>
 						</div>
 
 						<?php else:?>
 
 						<div class="ncard_imgcon">
-							<img class="ncard_img" src="<?php echo nc_block_fallback_image(); ?>" alt="default image" />
+							<img class="ncard_img" src="<?php echo nc_block_fallback_image(); ?>" alt="" />
 						</div>
 
 					<?php endif;?>

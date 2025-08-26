@@ -49,7 +49,7 @@ function nc_hero_block_markup( $block, $content = '', $is_preview = false ) {
 	$image_ID = $img['ID'] ?? null;
 
 	if($img['alt']){
-	$img_alt = ' role="img" aria-label="'.esc_attr($img['alt']).'"';
+	$img_alt = ' role="img" aria-description="'.esc_attr($img['alt']).'"';
 	}
 	else {
 	$img_alt = null;
