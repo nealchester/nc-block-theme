@@ -635,6 +635,9 @@ cite:before { content:'\2014'; padding-right:0.3em }
         border-radius: 5px;
         background:transparent !important;
         border:none !important;
+        overflow: visible;
+        opacity: 1;
+        height: auto;
     }
 
     .has-child:hover .wp-block-navigation__submenu-container,
