@@ -50,6 +50,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	$mobile = get_field('mobile') ?: '600';
 	$choose = get_field('choose') /* write or post */;
 	$collapse = get_field('collapse');
+	$scroll = get_field('scrollview');
 	
 	if($collapse){
 		$closeit = ' name="'.$id.'"';
@@ -62,45 +63,48 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
 	<?php 
 	wp_enqueue_style('nc-blocks-accordion');
-	// wp_enqueue_script('nc-blocks-accordion'); 
 	?>
 
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-	// Select all <details> elements that belong to our accordion group
-	const detailsElements = document.querySelectorAll('details[<?php echo $closeit; ?>]');
+	<?php if( $scroll ):?>
+	<script id="<?php echo $id; ?>-scroll-js">
+		document.addEventListener('DOMContentLoaded', () => {
+		// Select all <details> elements that belong to our accordion group
+		const detailsElements = document.querySelectorAll('details[<?php echo $closeit; ?>]');
 
-	// Add a 'toggle' event listener to each details element
-	detailsElements.forEach(details => {
-	details.addEventListener('toggle', () => {
-	// Check if the details element is currently being opened (expanded)
-	if (details.open) {
-	// The CSS transition-duration is 0.5s (500ms).
-	// We use a setTimeout slightly longer than the CSS transition
-	// to ensure the content has fully expanded and the browser has
-	// settled its layout before attempting to scroll.
-	// This helps in accurately calculating the element's final position.
-	setTimeout(() => {
-	// Scroll the opened details element into view
-	details.scrollIntoView({
-	behavior: 'smooth', // Enables smooth, animated scrolling
-	block: 'start'       // Aligns the top of the element with the top of the viewport
-	});
-	}, 600); // Delay in milliseconds (0.6 seconds)
+		// Add a 'toggle' event listener to each details element
+		detailsElements.forEach(details => {
+		details.addEventListener('toggle', () => {
+		// Check if the details element is currently being opened (expanded)
+		if (details.open) {
+		// The CSS transition-duration is 0.5s (500ms).
+		// We use a setTimeout slightly longer than the CSS transition
+		// to ensure the content has fully expanded and the browser has
+		// settled its layout before attempting to scroll.
+		// This helps in accurately calculating the element's final position.
+		setTimeout(() => {
+		// Scroll the opened details element into view
+		details.scrollIntoView({
+		behavior: 'smooth', // Enables smooth, animated scrolling
+		block: 'start'       // Aligns the top of the element with the top of the viewport
+		});
+		}, 600); // Delay in milliseconds (0.6 seconds)
 
-	}
+		}
 
-	// Handle the chevron icon rotation for visual feedback
-	// and adjust the summary's border-radius when open/closed.
-	const summary = details.querySelector('summary');
-	// The icon rotation is now handled purely by CSS using the details[open] selector
-	// and a transition on the SVG element itself.
-	// The border-radius adjustment is also handled by CSS.
-	});
-	});
-	});
-</script>
-	
+		// Handle the chevron icon rotation for visual feedback
+		// and adjust the summary's border-radius when open/closed.
+		const summary = details.querySelector('summary');
+		// The icon rotation is now handled purely by CSS using the details[open] selector
+		// and a transition on the SVG element itself.
+		// The border-radius adjustment is also handled by CSS.
+		});
+		});
+		});
+	</script>
+	<?php else:?>
+		
+	<?php endif;?>
+
 	<div id="<?php echo $id; ?>" class="nccordion ncblock<?php echo esc_attr($className); ?>" <?php echo nc_block_attr();?>>
 		
 			<?php if( $choose == 'post' ):?>
@@ -168,13 +172,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
 <style id="<?php echo $id; ?>-css">
 
-<?php echo '#'.$id; ?>.nccordion {
-  --acc-border-color: <?php echo get_field('acc_border_color') ?: '#aaa';?>;
-  --acc-bg-color: <?php echo get_field('acc_bg_color') ?: '#fff';?>;
-  --acc-border-radius: <?php echo get_field('acc_border_radius').'px';?>;
-  --acc-text-color: <?php echo get_field('acc_text_color') ?: 'currentColor';?>;
-}
-
 <?php if( get_field('acc_icon_style') == 'arrow' ):?>
 <?php echo '#'.$id; ?>.nccordion {
 
@@ -189,8 +186,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	}
 }
 <?php endif;?>
-
-<?php nc_block_custom_css(); ?>
 
 </style>
 
