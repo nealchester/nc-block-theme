@@ -14,6 +14,27 @@
 
 /*---------------------------------------------------------*/
 
+/* Make the footer stay at the bottom */
+
+.wp-site-blocks {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  & > :last-child {
+      margin-top: auto;
+  }
+}
+
+body.admin-bar .wp-site-blocks {
+  min-height: calc(100vh - 32px); 
+}
+
+@media(max-width: 782px){
+  body.admin-bar .wp-site-blocks {
+   min-height: calc(100vh - 46px); 
+  }
+}
+
 
 body {
   color:#000;

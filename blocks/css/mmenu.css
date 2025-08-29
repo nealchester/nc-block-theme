@@ -106,28 +106,17 @@
   top: var(--p-from-top, auto);
   left: var(--p-from-left, 0);
   right: var(--p-from-right, auto);
-  transform: var(--p-translate-from, translateY(-50px));
+  transform: var(--p-translate-from, translateY(-50px)scaleY(0));
   transition: 0.3s;
   opacity: 0;
   visibility: hidden;
+  transform-origin: top center;
 }
 
 .mm_input:checked + .mm_panel {
-  transform: var(--p-translate-to, translateY(0));
+  transform: var(--p-translate-to, translateY(0)scaleY(1));
   opacity: 1;
   visibility: visible;
-}
-
-.mm_input:checked + .mm_panel > * {
-  opacity: 1;
-  transform:translateY(0px);
-}
-
-.mm_input:checked .mm_panel > * {
-  transform:translateY(-50px);
-  opacity: 0;
-  transition: 0.3s;
-  transition-delay: 0.3s;
 }
 
 /* Menu Panel List */
@@ -236,7 +225,6 @@
   height: 100%;
   visibility: hidden;
   transition: 0.5s;
-  transition-property: opacity;
 }
 
 @media (max-width: 782px){

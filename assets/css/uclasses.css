@@ -56,26 +56,41 @@
 
 /* Stationary Header */
 
-.wp-site-blocks > header:has(#header) {
+.header-main {
   z-index: 999;
   position: relative;
   width: 100%;
   top: 0;
-}
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 
-/* Sticky Header */
-
-.wp-site-blocks > header:has(.header-sticky) {
+  /* Sticky Header */
+  /*
   position: sticky;
   background: var(--header-bg, #fff);
-}
 
-/* Fixed Overlay Header */
+  &.stuck {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
 
-.wp-site-blocks > header:has(.header-overlayed) {
+  #header {
+  transition:0.3s;
+  }
+
+  &.stuck #header {
+    padding:0.75rem 1rem !important;
+  }
+  */
+  
+  /* Fixed Overlay Header */
+  /*
   position: fixed;
   background: transparent;
+  */
+
 }
+
+
+
 
 
 

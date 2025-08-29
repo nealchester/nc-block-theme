@@ -62,3 +62,27 @@ t.fn.doubleTapToGo=function(i){return"ontouchstart"in n||navigator.msMaxTouchPoi
 jQuery( '.mm_panel .has-child > a' ).doubleTapToGo();		
 
 */
+
+/* Sticky Header Class */
+document.addEventListener('DOMContentLoaded', () => {
+		// Select the sticky header.
+		const stickyElement = document.querySelector('.header-main');
+
+		// Check if the element exists before proceeding.
+		if (stickyElement) {
+				// Add a scroll event listener to the window.
+				window.addEventListener('scroll', () => {
+						// Get the position of the sticky element relative to the viewport.
+						const rect = stickyElement.getBoundingClientRect();
+
+						// Check if the element's top position is at or above the viewport top.
+						if (rect.top <= 0) {
+								stickyElement.classList.add('stuck');
+						} else {
+								stickyElement.classList.remove('stuck');
+						}
+				});
+		} else {
+				console.error("The required element '.header-main' was not found on the page.");
+		}
+});
