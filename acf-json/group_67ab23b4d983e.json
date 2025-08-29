@@ -1,0 +1,64 @@
+{
+    "key": "group_67ab23b4d983e",
+    "title": "Block: NC Search Box",
+    "fields": [
+        {
+            "key": "field_67ab30927eb31",
+            "label": "Placeholder text",
+            "name": "placeholder",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Search",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "Search",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67ab2d10dbbf3",
+            "label": "Alternative address",
+            "name": "alt_address",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "placeholder": "https:\/\/another-domain.com\/"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nc-search"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1756468967
+}

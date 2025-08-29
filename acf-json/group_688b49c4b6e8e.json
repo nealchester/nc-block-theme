@@ -1,0 +1,394 @@
+{
+    "key": "group_688b49c4b6e8e",
+    "title": "Block: NC Columns",
+    "fields": [
+        {
+            "key": "field_688dae164bf01",
+            "label": "Columns Control",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_688f5750d2c69",
+            "label": "Desktop",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_688d9b07a382c",
+            "label": "Column style",
+            "name": "column_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ncol_fixed": "Even fixed amount",
+                "ncol_fill": "Fill and wrap",
+                "ncol_centered": "Fill and wrap, centered",
+                "ncol_spaced": "No wrap, space between",
+                "ncol_overflow": "No wrap, overflow scroll"
+            },
+            "default_value": "ncol_fixed",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_688d9cfe4e8f7",
+            "label": "Column spacing",
+            "name": "column_spacing",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "2rem",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "2rem",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_688f2b7a3c328",
+            "label": "Row spacing",
+            "name": "column_row_spacing",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "2rem",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "2rem",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_688d9f3a4bef7",
+            "label": "Column width",
+            "name": "column_width",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Only works on a non-fixed column type",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "250px",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "250px",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_688b49c60df40",
+            "label": "Column count",
+            "name": "column_count",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Only works on a fixed column type",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9"
+            },
+            "default_value": 3,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_6891b8eefc026",
+            "label": "Custom columns",
+            "name": "column_custom",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This field applies to fixed column style and overwrites the column width and count.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "1fr 3fr 1fr",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6891d5bc1398c",
+            "label": "Column dividers",
+            "name": "column_divider",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Best for one row of even fixed columns.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
+        {
+            "key": "field_688dae394bf02",
+            "label": "Tablet",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_688ff4c1946a1",
+            "label": "Tablet Display",
+            "name": "tablet_display",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_688ff460946a0",
+            "label": "tb cloned fields",
+            "name": "tb",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_688d9b07a382c",
+                "field_688d9cfe4e8f7",
+                "field_688f2b7a3c328",
+                "field_688d9f3a4bef7",
+                "field_688b49c60df40",
+                "field_6891b8eefc026",
+                "field_6891d5bc1398c"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_688dae404bf03",
+            "label": "Phone",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_688ffaf8f641c",
+            "label": "Phone Display",
+            "name": "phone_display",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_688ffae7f641b",
+            "label": "ph cloned fields",
+            "name": "ph",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_688d9b07a382c",
+                "field_688d9cfe4e8f7",
+                "field_688f2b7a3c328",
+                "field_688d9f3a4bef7",
+                "field_688b49c60df40",
+                "field_6891b8eefc026",
+                "field_6891d5bc1398c"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_688e5dfbe4c88",
+            "label": "Box  settings",
+            "name": "box_settings",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_67ad4b91436c6"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nc-columns"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1756468961
+}

@@ -1,0 +1,43 @@
+{
+    "key": "group_6889cd3773fc9",
+    "title": "Block: NC Menu Panel",
+    "fields": [
+        {
+            "key": "field_688adc3afb2d9",
+            "label": "Styling instructions",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Styling this mobile menu can be easily done using the CSS custom properties found in classes <b>.mm_panel<\/b>, <b>.mm_close<\/b>, <b>.mm_underlay<\/b> in the <i>mmenu.css<\/i> file. Either update the rules directly in the CSS file or overwrite them in another file.",
+            "new_lines": "",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nc-menupanel"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1756468965
+}
