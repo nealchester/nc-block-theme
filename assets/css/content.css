@@ -14,7 +14,7 @@
 
 /*---------------------------------------------------------*/
 
-/* Make the footer stay at the bottom */
+/* Make the footer stay at the bottom and adjust for the Admin Bar */
 
 .wp-site-blocks {
   display: flex;

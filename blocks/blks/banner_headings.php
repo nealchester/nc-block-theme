@@ -1,6 +1,7 @@
 
 <?php get_template_part('blocks/blks/banner_breadcrumbs');?>
-<?php nc_current_page();?>
+<?php //nc_current_page(); ?>
+<?php // echo do_shortcode('[current_page_info]');?>
 
 <?php // H1
 echo '<h1 itemprop="name headline" class="maintitle_heading">'; 

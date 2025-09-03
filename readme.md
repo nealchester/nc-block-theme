@@ -29,7 +29,6 @@ Here are a few:
 
 ## Customizer Options
 
-  * Preload up to 3 images on the home page
   * Set a color for the chrome/address bar on mobile devices
   * Use enhanced and style-able radio and check inputs
   * Disable default full-screen block editor on start
@@ -49,6 +48,7 @@ Here are a few:
 
 * **`assets`** - stores folders for images, icons, CSS, JS, and fonts.
 * **`parts`** - stores all reusable template parts
+* **`patterns`** - stores all reusable block patterns
 * **`templates`** - stores templates
 
 ## Files
