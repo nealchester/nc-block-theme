@@ -23,7 +23,7 @@ Here are a few:
   * image gallery (w/ lightbox)
   * hero (w/ parallax)
   * scroll animations
-  * dynamic spacer
+  * dynamic spacing
   * sliders (text and images)
   * modal popup
 
