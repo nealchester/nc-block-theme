@@ -120,6 +120,33 @@
             "button_label": "Add Row",
             "sub_fields": [
                 {
+                    "key": "field_6afc3ad5a94ca",
+                    "label": "Icon or image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_6053ae103c9ee"
+                },
+                {
                     "key": "field_6053ae3b3c9ef",
                     "label": "",
                     "name": "heading",
@@ -137,7 +164,29 @@
                     "maxlength": "",
                     "allow_in_bindings": 1,
                     "rows": 1,
-                    "placeholder": "",
+                    "placeholder": "Main label",
+                    "new_lines": "",
+                    "parent_repeater": "field_6053ae103c9ee"
+                },
+                {
+                    "key": "field_6afc3a94a94c9",
+                    "label": "",
+                    "name": "subheading",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "rows": 2,
+                    "placeholder": "Sub label",
                     "new_lines": "",
                     "parent_repeater": "field_6053ae103c9ee"
                 },
@@ -328,7 +377,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -346,6 +395,56 @@
             "placeholder": "",
             "create_options": 0,
             "save_options": 0
+        },
+        {
+            "key": "field_6afd67426a18e",
+            "label": "Accordion Style",
+            "name": "style_choice",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "49",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "nccordion-style1": "Style 1",
+                "nccordion-style2": "Style 2"
+            },
+            "default_value": "nccordion-style1",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_6afd1da4649db",
+            "label": "",
+            "name": "set_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "all lowercase, no spaces, start with letters.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 7,
+            "allow_in_bindings": 0,
+            "placeholder": "accordion",
+            "prepend": "ID",
+            "append": ""
         }
     ],
     "location": [
@@ -366,5 +465,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756468960
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1794997827
 }
