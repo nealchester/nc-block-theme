@@ -15,9 +15,9 @@ function nc_columns_block() {
             'mode'              => 'preview',
             'keywords'          => array('columns', 'column' ),
 			'post_types'        => get_post_types(),
-			'align'             => 'wide',
+			'align'             => 'none',
 			'supports'          => array( 
-									'align' => array( 'wide', 'full' ), 
+									'align' => array( 'none', 'wide', 'full' ), 
 									'mode' => true,
 									'multiple' => true,
 				                    'jsx' => true
@@ -112,8 +112,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php if( $tb_style == 'ncol_fill' ):?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -133,8 +132,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_fixed' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -150,8 +148,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_overflow' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display:grid;
             column-gap: var(--col-spacing, 2rem);
             grid-template-columns: auto;
@@ -160,10 +157,11 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
             overflow-y:hidden;
             overscroll-behavior-inline: contain;
             scroll-snap-type: inline mandatory;
-            scroll-padding-inline: var(--gap);
-            margin-bottom: calc(-1 * var(--col-spacing, 2rem));
-            padding-inline:var(--gap);
-            margin-inline: calc(-1 * var(--gap));
+            scroll-padding-inline: var(--col-spacing, 2rem);
+            margin-bottom: 0;
+            padding-inline:var(--col-spacing, 2rem);
+            /* margin-inline: calc(-1 * var(--gap)); */
+			justify-content: start;
             
             max-width:100% !important; 
             width:100% !important;
@@ -178,8 +176,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_spaced' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -200,8 +197,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $tb_style == 'ncol_centered' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -223,8 +219,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php endif;?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             /* Variables Updated */
             --col-spacing: <?php echo $tb_spacing; ?>;
             --col-row-spacing: <?php echo $tb_rspacing; ?>;
@@ -262,8 +257,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php if( $ph_style == 'ncol_fill' ):?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -283,8 +277,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_fixed' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: grid;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -300,8 +293,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_overflow' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display:grid;
             column-gap: var(--col-spacing, 2rem);
             grid-template-columns: auto;
@@ -310,10 +302,11 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
             overflow-y:hidden;
             overscroll-behavior-inline: contain;
             scroll-snap-type: inline mandatory;
-            scroll-padding-inline: var(--gap);
-            margin-bottom: calc(-1 * var(--col-spacing, 2rem));
-            padding-inline:var(--gap);
-            margin-inline: calc(-1 * var(--gap));
+            scroll-padding-inline: var(--col-spacing, 2rem);
+            margin-bottom: 0;
+            padding-inline:var(--col-spacing, 2rem);
+            /* margin-inline: calc(-1 * var(--gap))*/;
+			justify-content: start;
             
             max-width:100% !important; 
             width:100% !important;
@@ -328,8 +321,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_spaced' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -350,8 +342,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php elseif( $ph_style == 'ncol_centered' ) :?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout  {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             display: flex;
             column-gap: var(--col-spacing, 2rem);
             row-gap: var(--col-row-spacing, 2rem);
@@ -373,8 +364,7 @@ function nc_columns_block_markup( $block, $content = '', $is_preview = false ) {
 
         <?php endif;?>
 
-        <?php echo '.wp-site-blocks #'.$id;?>.ncol,
-        <?php echo '#'.$id;?>.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        <?php echo '#'.$id;?>.ncol > .acf-innerblocks-container {
             /* Variables Updated */
             --col-spacing: <?php echo $ph_spacing; ?>;
             --col-row-spacing: <?php echo $ph_rspacing; ?>;
