@@ -90,7 +90,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       };
 
       $image_url = get_the_post_thumbnail_url();
-      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.';"';
+      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.'"';
       }
 
       // If not image, Default image
@@ -100,7 +100,7 @@ function nc_banner_block_markup( $block, $content = '', $is_preview = false ) {
       $img_desc = '';
       $img_focus = 'background-position:'.get_field("image_focal_point", $default_image_ID);
       $image_url = $default_image;
-      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.';"';
+      $image_bg = 'style="background-image:url('.$image_url.'); '.$img_focus.'"';
       }
 
     ?>
