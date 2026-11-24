@@ -29,7 +29,7 @@ function nc_accordion_block() {
 function nc_accordion_block_markup( $block, $content = '', $is_preview = false ) {
 
 	// ID Setup
-	if (get_field('set_id')) { $id = get_field('set_id'); } else { $id = uniqid("block_"); };
+	if (get_field('set_id')) { $id = get_field('set_id'); } else { $id = 'acc_'.substr(uniqid(), 9); };
 
     // Create class attribute allowing for custom "className" and "align" values.
     $className = '';
@@ -43,21 +43,30 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 		$ranum = '_'.rand(100, 500);
 
 	// ACF Block
-	
-  $select_links = get_field('select_links', false, false);
-  $truncate = get_field('tuncate_char_limit') ?: '100';
+
+    $select_links = get_field('select_links', false, false);
+    $truncate = get_field('tuncate_char_limit') ?: '100';
 	$content = get_field('display_content');
 	$mobile = get_field('mobile') ?: '600';
 	$choose = get_field('choose') /* write or post */;
 	$collapse = get_field('collapse');
 	$scroll = get_field('scrollview');
+	$accstyle = get_field('style_choice') ?: 'nccordion-style1';
+	$icon_style = get_field('acc_icon_style') == 'arrow';
 	
-	if($collapse){
-		$closeit = ' name="'.$id.'"';
+	if($collapse){ 
+		$closeit = ' name="'.$id.'"';}
+		else { $closeit = null; 
 	}
-	else {
-		$closeit = null;
+
+	if($scroll){ 
+		$scrollit = ' data-scroll="'.$id.'"';}
+		else { $scrollit = null; 
 	}
+
+	if( $icon_style ) { 
+		$accicon = ' nccordion-arrow '; }
+		else { $accicon = null; }
 
 ?>
 
@@ -69,7 +78,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 	<script id="<?php echo $id; ?>-scroll-js">
 		document.addEventListener('DOMContentLoaded', () => {
 		// Select all <details> elements that belong to our accordion group
-		const detailsElements = document.querySelectorAll('details[<?php echo $closeit; ?>]');
+		const detailsElements = document.querySelectorAll('details[<?php echo $scrollit; ?>]');
 
 		// Add a 'toggle' event listener to each details element
 		detailsElements.forEach(details => {
@@ -105,7 +114,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 		
 	<?php endif;?>
 
-	<div id="<?php echo $id; ?>" class="nccordion ncblock<?php echo esc_attr($className); ?>" <?php echo nc_block_attr();?>>
+	<div id="<?php echo $id; ?>" class="nccordion <?php echo $accstyle.$accicon; ?> ncblock<?php echo esc_attr($className); ?>">
 		
 			<?php if( $choose == 'post' ):?>
 
@@ -115,8 +124,8 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 				'post__in' => $select_links,
 				'post_status' => 'publish',
 				'orderby' => 'post__in',
-				'ignore_sticky_posts' => true
-      );
+				'ignore_sticky_posts' => truncate
+				);
 			?>
 
 			<?php $queryfaqs = new WP_Query($args); 
@@ -124,7 +133,7 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
       <?php while ( $queryfaqs->have_posts() ) : $queryfaqs->the_post(); ?>
 
-			<details class="nccordion_details"<?php echo $closeit; ?>>
+			<details class="nccordion_details"<?php echo $closeit.' '.$scrollit; ?>>
 				<summary class="nccordion_header" id="faq-<?php the_ID(); ?>" title="<?php echo get_the_title( get_the_ID() );?>"><div class="nccordion_hdcontain"><?php echo get_the_title( get_the_ID() );?></div></summary>  
 				<div class="nccordion_content">
 					<?php if($content == 'truncate') :?>
@@ -149,11 +158,31 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 
 				<?php while( have_rows('custom_content') ): the_row(); 
 					$acc_heading = get_sub_field('heading') ?:'Heading';
+					$acc_subheading = get_sub_field('subheading');
+					$acc_image = get_sub_field('image');
 					$acc_content = get_sub_field('content') ?: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.';
 					$acc_open = get_sub_field('open');
 				?>
-					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open'; };?><?php echo $closeit; ?>>
-						<summary class="nccordion_header"><div class="nccordion_hdcontain"><?php echo $acc_heading; ?></div></summary>  
+					<details class="nccordion_details <?php echo 'nccordion-'.get_row_index(); ?>"<?php if ($acc_open){ echo' open '; };?><?php echo $closeit.' '.$scrollit; ?>>
+						<summary class="nccordion_header">
+							<div class="nccordion_hdcontain">
+								<?php if ($acc_image) { 
+									echo '<img class="nccord_img" src="'.$acc_image.'" alt="" width="100" height="100" />'; 
+									}
+									else { echo null; }
+								?>
+
+								<div class="nccord_hgroup">
+									<?php echo '<div class="nccord_hd">'.$acc_heading.'</div>'; ?>
+
+									<?php if ($acc_subheading) {
+										echo '<div class="nccord_shd">'.$acc_subheading.'</div>';
+										}
+										else { echo null; }
+									?>
+								</div>
+							</div>
+						</summary>  
 						<div class="nccordion_content">
 							<?php echo $acc_content; ?>
 						</div>
@@ -169,25 +198,6 @@ function nc_accordion_block_markup( $block, $content = '', $is_preview = false )
 					</div>
 			<?php endif;?>
 		</div>
-
-<style id="<?php echo $id; ?>-css">
-
-<?php if( get_field('acc_icon_style') == 'arrow' ):?>
-<?php echo '#'.$id; ?>.nccordion {
-
-	.nccordion_header:before {
-    content: '\e901';
-		transform: rotate(-90deg);
-		font-size: 0.7em;
-	}
-
-	.nccordion_details[open] .nccordion_header:before {
-  	transform: rotate(90deg);
-	}
-}
-<?php endif;?>
-
-</style>
 
 
 <?php } ?>
