@@ -11,8 +11,14 @@ This contains all NC Framework and WordPress blocks.
 </div>
 
 */
-.wp-site-blocks .ncol,
-.ncol > .block-editor-inner-blocks > .block-editor-block-list__layout {
+
+/* For ACF new div addition "acf-inner-blocks-container"
+.wp-site-blocks .ncol .acf-innerblocks-container,
+.ncol .acf-innerblocks-container {
+  display:contents !important;
+}*/
+
+.ncol > .acf-innerblocks-container {
   list-style-type: none;
   padding-left:0;
   margin-left:0;
@@ -23,8 +29,7 @@ This contains all NC Framework and WordPress blocks.
 }
 
   /* Automatic Dividers */
-  .wp-site-blocks .ncol > *:not(:last-child):before,
-  .ncol > .block-editor-inner-blocks > .block-editor-block-list__layout > *:not(:last-child):before {
+  .ncol > .acf-innerblocks-container > *:not(:last-child):before {
     content:'';
     width: var(--col-div-width, 1px);
     background: var(--col-div-color, currentColor);
@@ -37,8 +42,7 @@ This contains all NC Framework and WordPress blocks.
   }
 
 
-.wp-site-blocks .ncol_fill,
-.ncol_fill > .block-editor-inner-blocks > .block-editor-block-list__layout {
+.ncol_fill > .acf-innerblocks-container {
   display: var(--col-style, grid);
   column-gap: var(--col-spacing, 2rem);
   row-gap: var(--col-row-spacing, 2rem);
@@ -51,8 +55,7 @@ This contains all NC Framework and WordPress blocks.
 }
 
 
-.wp-site-blocks .ncol_centered,
-.ncol_centered > .block-editor-inner-blocks > .block-editor-block-list__layout {
+.ncol_centered > .acf-innerblocks-container {
   display: var(--col-style, flex);
   column-gap: var(--col-spacing, 2rem);
   row-gap: var(--col-row-spacing, 2rem);
@@ -66,8 +69,7 @@ This contains all NC Framework and WordPress blocks.
 }
 
 
-.wp-site-blocks .ncol_spaced,
-.ncol_spaced > .block-editor-inner-blocks > .block-editor-block-list__layout {
+.ncol_spaced > .acf-innerblocks-container {
   display: var(--col-style, flex);
   column-gap: var(--col-spacing, 2rem);
   row-gap: var(--col-row-spacing, 2rem);
@@ -80,8 +82,7 @@ This contains all NC Framework and WordPress blocks.
 }
 
 
-.wp-site-blocks .ncol_fixed,
-.ncol_fixed > .block-editor-inner-blocks > .block-editor-block-list__layout {
+.ncol_fixed > .acf-innerblocks-container {
   display: var(--col-style, grid);
   column-gap: var(--col-spacing, 2rem);
   row-gap: var(--col-row-spacing, 2rem);
@@ -89,8 +90,7 @@ This contains all NC Framework and WordPress blocks.
 }
 
 
-.wp-site-blocks .ncol_overflow,
-.ncol_overflow > .block-editor-inner-blocks > .block-editor-block-list__layout {
+.ncol_overflow > .acf-innerblocks-container {
   display:var(--col-style, grid);
   column-gap: var(--col-spacing, 2rem);
   grid-template-columns: auto;
@@ -99,10 +99,11 @@ This contains all NC Framework and WordPress blocks.
   overflow-y:hidden;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--gap);
-  margin-bottom: calc(-1 * var(--col-spacing, 2rem));
-  padding-inline:var(--gap);
-  margin-inline: calc(-1 * var(--gap));
+  scroll-padding-inline: var(--col-spacing, 2rem);
+  margin-bottom: 0;
+  padding-inline:var(--col-spacing, 2rem);
+  justify-content: start;
+  /* margin-inline: calc(-1 * var(--col-spacing, 2rem)); */
   
   max-width:100% !important; 
   width:100% !important;
