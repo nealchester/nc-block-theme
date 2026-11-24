@@ -127,3 +127,16 @@ https://codepen.io/ZoranJambor/pen/jOorzPv
 .nccordion_details[open] .nccordion_header:before {
   transform: rotate(0deg);
 }
+
+.nccordion.nccordion-arrow {
+
+	.nccordion_header:before {
+    content: '\e901';
+		transform: rotate(-90deg);
+		font-size: 0.7em;
+	}
+
+	.nccordion_details[open] .nccordion_header:before {
+  	transform: rotate(90deg);
+	}
+}
